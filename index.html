@@ -1,0 +1,1112 @@
+<meta charset="utf-8">
+<title>Chama &amp; Âmbar — Almanaque de Velas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Manrope:wght@400;500;700;800&display=swap">
+<style>
+  :root {
+    --ember-900:#1B0F08; --ember-800:#341019; --bordeaux-700:#5C1A2B;
+    --gold-500:#C9A15C; --gold-400:#DCC08A;
+    --terracotta-600:#8B4A2E; --terracotta-500:#A85D38;
+    --flame-600:#E8491F; --flame-500:#FF6B35;
+    --sun-400:#FFC857;
+    --sage-500:#4F9B6E;
+    --cream-100:#F0E8D8; --cream-050:#F7F1E6; --cream-text-soft:#DECBA6;
+    --ink:#241A12; --ink-soft:#3D2E1E; --border-soft:#D9C7A0;
+    color-scheme: light;
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; color:var(--ink-soft); font-family:'Manrope',system-ui,sans-serif; font-size:15.5px; line-height:1.65;
+    background:
+      linear-gradient(180deg, rgba(27,15,8,.88) 0%, rgba(27,15,8,.8) 100%),
+      url('assets/decor/page-bg-bar.jpg');
+    background-size:100% auto, 100% auto;
+    background-repeat:repeat-y, repeat-y;
+    background-attachment:fixed, fixed;
+  }
+  .wrap-page { max-width:1200px; margin:0 auto; padding:0 24px; }
+  section {
+    padding:64px 0; position:relative; background-size:cover; background-position:center;
+    background-image:linear-gradient(180deg, rgba(15,8,4,.84) 0%, rgba(27,15,8,.8) 100%), url('assets/decor/page-bg-bar.jpg');
+  }
+  .bg-1 { background-image:linear-gradient(180deg, rgba(15,8,4,.82) 0%, rgba(27,15,8,.78) 100%), url('assets/decor/fundo-opcao-1.jpg'); }
+  .bg-3 { background-image:linear-gradient(180deg, rgba(15,8,4,.82) 0%, rgba(27,15,8,.78) 100%), url('assets/decor/fundo-opcao-3.jpg'); }
+  .bg-4 { background-image:linear-gradient(180deg, rgba(15,8,4,.82) 0%, rgba(27,15,8,.78) 100%), url('assets/decor/fundo-opcao-4.jpg'); }
+  .bg-5 { background-image:linear-gradient(180deg, rgba(15,8,4,.82) 0%, rgba(27,15,8,.78) 100%), url('assets/decor/fundo-opcao-5.jpg'); }
+  .bg-6 { background-image:linear-gradient(180deg, rgba(15,8,4,.82) 0%, rgba(27,15,8,.78) 100%), url('assets/decor/fundo-opcao-6.jpg'); }
+  .bg-7 { background-image:linear-gradient(180deg, rgba(15,8,4,.82) 0%, rgba(27,15,8,.78) 100%), url('assets/decor/fundo-opcao-7.jpg'); }
+  h1,h2,h3 { font-family:'Poppins',system-ui,sans-serif; color:var(--ink); text-wrap:balance; font-weight:800; margin:0; }
+  .wrap { max-width:1200px; margin:0 auto; padding:0 24px; width:100%; }
+  .kicker { font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--flame-600); }
+  .kicker::before {
+    content:""; display:inline-block; width:13px; height:13px; margin-right:6px; vertical-align:-2px;
+    background-color:currentColor;
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 20C4 11 11 4 20 4c0 9-7 16-16 16z'/%3E%3C/svg%3E");
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 20C4 11 11 4 20 4c0 9-7 16-16 16z'/%3E%3C/svg%3E");
+    -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-size:contain; mask-size:contain;
+  }
+  .btn { display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg,var(--flame-500),var(--flame-600)); color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; padding:14px 32px; border-radius:999px; text-decoration:none; margin-top:18px; box-shadow:0 6px 18px rgba(232,73,31,.4); }
+  .btn svg { width:16px; height:16px; }
+
+  /* ===== TELA DE ABERTURA — hero + autoridade juntos ocupam 100vh ===== */
+  .opening-screen { min-height:100vh; display:flex; flex-direction:column; }
+
+  /* HERO */
+  .hero {
+    flex:1.35; display:flex; align-items:center; position:relative; overflow:hidden;
+    background-size:cover; background-position:center 40%;
+    background-image:linear-gradient(105deg, rgba(15,8,4,.85) 0%, rgba(27,15,8,.72) 42%, rgba(27,15,8,.32) 65%, rgba(27,15,8,.25) 100%), url('assets/decor/page-bg-bar.jpg');
+    color:var(--cream-100); padding:32px 0;
+  }
+  .hero-grid { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); gap:50px; align-items:center; width:100%; }
+  .hero h1 { font-size:clamp(26px,3.6vw,42px); line-height:1.14; color:var(--cream-100); margin:14px 0 16px; }
+  .hero h1 .hl { color:var(--flame-500); }
+  .hero h2 { font-family:'Manrope',sans-serif; font-weight:500; font-size:16px; color:var(--cream-text-soft); max-width:56ch; }
+  @media(min-width:1600px){
+    .wrap { max-width:1500px; }
+    .hero h1 { font-size:56px; }
+    .hero h2 { font-size:20px; max-width:60ch; }
+    .kicker { font-size:13px; }
+    .stat-row { gap:26px; margin-top:32px; padding-top:26px; }
+    .btn { font-size:18px; padding:17px 38px; }
+    .hero-photo { transform:scale(1.05) !important; }
+    .hero-grid { grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr) !important; gap:90px !important; }
+    .stat-row { grid-template-columns:repeat(2,auto) !important; row-gap:14px; }
+  }
+  @media(min-width:2100px){
+    .wrap { max-width:1800px; }
+    .hero h1 { font-size:68px; }
+    .hero h2 { font-size:23px; }
+    .hero-photo { transform:scale(1.2) !important; }
+  }
+  .stat-row { display:grid; grid-template-columns:repeat(4,auto); gap:30px; margin-top:26px; padding-top:24px; border-top:1px solid rgba(255,255,255,.15); }
+  .stat { display:flex; align-items:center; gap:11px; }
+  .stat .ic { width:38px; height:38px; border-radius:50%; background:rgba(255,200,87,.14); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .stat .ic svg { width:20px; height:20px; color:var(--sun-400); }
+  .stat b { display:block; font-family:'Poppins',sans-serif; font-size:25px; color:var(--sun-400); line-height:1.1; white-space:nowrap; }
+  .stat span { font-size:10.5px; text-transform:uppercase; letter-spacing:.02em; color:var(--cream-text-soft); white-space:nowrap; }
+  .hero-photo { width:100%; }
+  .hero-photo img { width:100%; height:auto; object-fit:contain; display:block; filter:drop-shadow(0 18px 30px rgba(0,0,0,.45)); }
+  @media(min-width:761px){ .hero-photo { transform:scale(1.02); transform-origin:top right; } }
+  @media(max-width:760px){ .hero-grid{grid-template-columns:1fr;} .hero-photo{order:-1; transform:none;} }
+
+  /* CTA PONTE — entre hero e autoridade */
+  .hero-bridge-cta { position:relative; z-index:20; height:0; display:flex; justify-content:center; align-items:flex-start; overflow:visible; }
+  .bridge-cta-img { position:relative; display:block; transform:translateY(-50%); transition:transform .2s ease, filter .2s ease; filter:drop-shadow(0 10px 26px rgba(0,0,0,.45)); }
+  .bridge-cta-img img { display:block; width:min(880px,62vw); height:auto; pointer-events:none; }
+  .bridge-cta-img:hover { transform:translateY(-50%) scale(1.03); filter:drop-shadow(0 14px 32px rgba(0,0,0,.55)); }
+  .bridge-cta-overlay { position:absolute; left:32%; top:39%; width:36%; height:20%; background:rgb(248,102,24); border-radius:999px; display:flex; align-items:center; justify-content:center; gap:8px; }
+  .bridge-cta-overlay span { font-family:'Poppins',sans-serif; font-weight:800; color:#1B0F08; font-size:clamp(11px, 2.1vw, 20px); white-space:nowrap; }
+  .bridge-cta-overlay svg { width:1em; height:1em; font-size:clamp(11px, 2.1vw, 20px); color:#1B0F08; flex-shrink:0; }
+
+  /* AUTORIDADE */
+  .autoridade {
+    flex:1; display:flex; align-items:center; justify-content:center; position:relative; padding:48px 24px;
+    background-size:cover; background-position:center;
+    background-image:linear-gradient(rgba(247,241,230,.35),rgba(247,241,230,.42)), url('assets/decor/autoridade-bg-lavender.jpg');
+  }
+  .autoridade-card {
+    width:100%; max-width:1080px; display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.3fr) minmax(0,.8fr); align-items:stretch;
+    background:linear-gradient(135deg, var(--cream-100) 0%, #E3C9A8 100%);
+    border-radius:22px; padding:0; overflow:hidden;
+    box-shadow:0 24px 54px rgba(27,15,8,.32);
+  }
+  .autoridade-photo { width:100%; height:100%; min-height:340px; object-fit:cover; display:block; }
+  .autoridade-copy { padding:44px 36px; }
+  .autoridade-copy p { font-size:14.5px; max-width:56ch; margin-top:10px; color:var(--ink-soft); }
+  .autoridade-badges { display:flex; gap:22px; margin-top:26px; flex-wrap:wrap; }
+  .autoridade-badge { display:flex; align-items:flex-start; gap:10px; max-width:180px; text-align:left; }
+  .autoridade-badge .ic { width:34px; height:34px; border-radius:50%; background:rgba(139,74,46,.12); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .autoridade-badge .ic svg { width:17px; height:17px; color:var(--terracotta-600); }
+  .autoridade-badge strong { display:block; font-size:12.5px; color:var(--ink); }
+  .autoridade-badge span { font-size:11.5px; color:var(--ink-soft); line-height:1.35; }
+  @media(max-width:760px){ .opening-screen{min-height:auto;} .autoridade-card{grid-template-columns:1fr;} .autoridade-photo{min-height:160px;} .autoridade-copy{padding:28px 26px;} }
+  @media(min-width:1600px){
+    .autoridade-card { max-width:1320px; }
+    .autoridade-copy { padding:56px 48px; }
+    .autoridade-photo { min-height:420px; }
+    .autoridade-copy h2 { font-size:32px !important; }
+    .autoridade-copy p { font-size:17px; max-width:64ch; }
+    .autoridade-badges { gap:30px; margin-top:32px; }
+    .autoridade-badge { max-width:220px; }
+    .autoridade-badge .ic { width:42px; height:42px; }
+    .autoridade-badge .ic svg { width:21px; height:21px; }
+    .autoridade-badge strong { font-size:15px; }
+    .autoridade-badge span { font-size:13.5px; }
+  }
+
+  footer { text-align:center; padding:30px 20px; color:var(--cream-text-soft); font-size:12px; background:var(--ember-900); }
+
+  /* ===== RESTO DA PÁGINA ===== */
+  .card { position:relative; border-radius:16px; padding:44px 32px; margin:0 auto; max-width:1152px; }
+  .card-gold { background:linear-gradient(135deg, var(--cream-100) 0%, var(--gold-400) 100%); }
+  .card-sage { background:linear-gradient(135deg, #E3EEE6 0%, #C3DECB 100%); }
+  .card-terracotta { background:linear-gradient(135deg, var(--cream-100) 0%, #E3C9A8 100%); }
+  .card-neutral { background:linear-gradient(135deg, var(--cream-050) 0%, var(--cream-100) 100%); }
+  .card-dark { background:linear-gradient(155deg, rgba(27,15,8,.95) 0%, rgba(61,42,14,.9) 55%, rgba(27,15,8,.95) 100%); color:var(--cream-100); }
+  .card-dark h2, .card-dark h3 { color:var(--cream-100); }
+  .card-dark .kicker { color:var(--sun-400); }
+  .interstitial { text-align:center; padding:36px 0; }
+  .interstitial h2 { color:var(--cream-100); font-size:22px; }
+  .interstitial p { color:var(--cream-text-soft); }
+  .center { text-align:center; }
+
+  .placeholder { border:2px dashed var(--terracotta-500); background:repeating-linear-gradient(135deg,rgba(231,218,184,.5),rgba(231,218,184,.5) 10px,rgba(240,232,216,.7) 10px,rgba(240,232,216,.7) 20px); border-radius:8px; padding:18px 20px; margin:14px 0; }
+  .placeholder .ph-tag { font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--terracotta-600); display:block; margin-bottom:6px; }
+  .placeholder p { margin:0; font-size:14px; color:var(--ink-soft); }
+  .card-dark .placeholder { border-color:var(--gold-500); background:repeating-linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.06) 10px,rgba(255,255,255,.1) 10px,rgba(255,255,255,.1) 20px); }
+  .card-dark .placeholder p { color:var(--cream-text-soft); }
+  .card-dark .placeholder .ph-tag { color:var(--sun-400); }
+
+  /* PREVIA */
+  .grid-photos { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px; }
+  .photo-slot { position:relative; aspect-ratio:3/4; border-radius:10px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.22); }
+  .photo-slot img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease; }
+  .photo-slot:hover img { transform:scale(1.07); }
+  .photo-slot .num { position:absolute; top:10px; left:10px; width:24px; height:24px; border-radius:50%; background:rgba(15,8,4,.75); color:var(--sun-400); font-family:'Poppins',sans-serif; font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center; }
+  .photo-slot .cap { position:absolute; left:0; right:0; bottom:0; padding:26px 10px 10px; background:linear-gradient(180deg, rgba(15,8,4,0) 0%, rgba(15,8,4,.82) 100%); color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:12px; line-height:1.25; }
+  @media(max-width:700px){ .grid-photos{grid-template-columns:repeat(2,1fr);} }
+
+  /* DOR */
+  .dor-inner h2 { color:var(--cream-100); font-size:24px; max-width:56ch; margin:10px auto 14px; }
+  .bullet { display:inline-block; background:var(--flame-500); color:#fff; font-family:'Poppins',sans-serif; font-size:13px; font-weight:800; padding:8px 18px; border-radius:999px; }
+
+  /* PUBLICO */
+  .desc-stat { display:inline-flex; align-items:center; gap:8px; margin-top:18px; background:rgba(139,74,46,.1); border:1px solid rgba(139,74,46,.3); border-radius:999px; padding:11px 22px; font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--terracotta-600); }
+  .desc-stat strong { color:var(--ink); font-weight:800; }
+
+  .formula-row { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:start; gap:6px; margin-top:30px; }
+  .formula-item { text-align:center; }
+  .formula-photo { position:relative; aspect-ratio:1/1; max-width:220px; margin:0 auto; border-radius:42% 58% 55% 45% / 48% 40% 60% 52%; overflow:hidden; background:linear-gradient(160deg, #EFE3CC 0%, #E3C9A8 100%); box-shadow:0 14px 26px rgba(27,15,8,.16); }
+  .formula-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+  .formula-pill { position:relative; width:86%; margin:-20px auto 0; background:var(--cream-050); border-radius:999px; padding:12px 8px 10px; box-shadow:0 8px 18px rgba(27,15,8,.14); }
+  .formula-pill b { display:block; font-family:'Poppins',sans-serif; font-weight:900; font-size:24px; color:var(--terracotta-600); line-height:1.1; }
+  .formula-pill span { font-size:10px; text-transform:uppercase; letter-spacing:.03em; font-weight:700; color:var(--ink-soft); }
+  .formula-op { width:44px; height:44px; border-radius:50%; background:var(--sage-500); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; margin-top:78px; }
+  @media(max-width:760px){
+    .formula-row { grid-template-columns:1fr; gap:14px; }
+    .formula-op { margin:-6px auto; }
+  }
+
+  .benefits-row { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:30px; }
+  .benefit { position:relative; background:var(--cream-050); border-radius:8px; padding:22px 16px 18px; }
+  .benefit .b-ic { position:absolute; top:-16px; left:16px; width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 14px rgba(27,15,8,.2); }
+  .benefit .b-ic svg { width:18px; height:18px; color:#fff; }
+  .benefit h3 { font-size:14px; color:var(--ink); margin:8px 0 6px; line-height:1.25; }
+  .benefit p { margin:0; font-size:12.3px; color:var(--ink-soft); line-height:1.4; }
+  @media(max-width:900px){ .benefits-row{grid-template-columns:1fr 1fr;} }
+  @media(max-width:520px){ .benefits-row{grid-template-columns:1fr;} }
+  .personas { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
+  .persona { display:flex; align-items:flex-start; gap:14px; background:var(--cream-100); border:1px solid var(--border-soft); border-left:4px solid var(--sage-500); border-radius:6px; padding:18px 20px; transition:transform .2s ease, box-shadow .2s ease; }
+  .persona:hover { transform:translateY(-2px); box-shadow:0 8px 18px rgba(27,15,8,.1); }
+  .persona:nth-child(2n) { border-left-color:var(--flame-500); }
+  .persona .p-ic { width:36px; height:36px; border-radius:50%; background:rgba(139,74,46,.12); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .persona .p-ic svg { width:18px; height:18px; color:var(--terracotta-600); }
+  .persona h3 { font-size:15px; margin-bottom:6px; color:var(--ink); }
+  .persona p { margin:0; font-size:13.8px; color:var(--ink-soft); }
+  .desc-cta { margin-top:28px; padding-top:24px; border-top:1px solid rgba(93,58,26,.18); display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+  .desc-cta p { margin:0; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); max-width:38ch; }
+  .desc-cta .btn { margin-top:0; }
+  @media(max-width:700px){ .personas{grid-template-columns:1fr;} }
+
+  /* CURRICULO */
+  .curric-cat { columns:2; column-gap:28px; margin-top:14px; }
+  .curric-cat div { break-inside:avoid; padding:7px 0; border-bottom:1px solid var(--border-soft); font-size:14px; display:flex; justify-content:space-between; gap:10px; color:var(--ink-soft); }
+  .curric-cat span.n { color:var(--flame-600); font-family:'Poppins',sans-serif; font-weight:800; font-size:12px; white-space:nowrap; }
+  @media(max-width:700px){ .curric-cat{columns:1;} }
+
+  /* MECANISMO */
+  .mech-stat { text-align:center; font-family:'Poppins',sans-serif; font-weight:800; color:var(--sun-400); font-size:15px; margin:20px auto 0; background:rgba(255,200,87,.1); border:1px solid rgba(255,200,87,.3); border-radius:999px; padding:10px 20px; display:table; }
+  .mech-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:28px; }
+  .mech-step { position:relative; border-radius:10px; overflow:hidden; aspect-ratio:3/4; box-shadow:0 10px 24px rgba(0,0,0,.35); }
+  .mech-step .photo { position:absolute; inset:0; display:block; }
+  .mech-step .photo img { width:100%; height:100%; object-fit:cover; display:block; }
+  .mech-step .n { position:absolute; top:10px; right:10px; z-index:2; width:26px; height:26px; border-radius:50%; background:rgba(15,8,4,.6); border:1px solid rgba(255,200,87,.4); color:var(--sun-400); font-family:'Poppins',sans-serif; font-weight:900; font-size:12px; display:flex; align-items:center; justify-content:center; }
+  .mech-step .txt { position:absolute; left:0; right:0; bottom:0; z-index:2; padding:30px 14px 14px; background:linear-gradient(180deg, rgba(15,8,4,0) 0%, rgba(15,8,4,.92) 55%, rgba(15,8,4,.97) 100%); }
+  .mech-step h3 { font-size:13.5px; margin:0 0 4px; color:#fff; }
+  .mech-step p { color:var(--cream-text-soft); font-size:11.5px; margin:0; line-height:1.35; }
+  @media(max-width:700px){ .mech-steps{grid-template-columns:1fr 1fr;} }
+  @media(max-width:700px){ .mech-steps{grid-template-columns:1fr 1fr;} }
+  .combo-examples { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:24px; }
+  .combo-ex { background:rgba(255,255,255,.06); border-left:3px solid var(--sun-400); border-radius:6px; padding:12px 14px; font-size:12.5px; color:var(--cream-text-soft); }
+  .combo-ex strong { display:block; color:var(--cream-100); font-size:13px; margin-bottom:4px; }
+  @media(max-width:700px){ .combo-examples{grid-template-columns:1fr;} }
+  .mech-callout { margin-top:26px; text-align:center; font-size:13px; font-style:italic; color:var(--cream-text-soft); border-top:1px solid rgba(255,255,255,.15); padding-top:18px; }
+
+  /* SIMULADOR */
+  .sim-controls { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:20px; }
+  .sim-controls select { font-family:'Manrope',sans-serif; font-size:14px; font-weight:700; padding:12px 16px; border-radius:8px; border:1px solid var(--border-soft); background:var(--cream-100); color:var(--ink); }
+  .sim-controls button { font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; padding:12px 26px; border-radius:8px; border:none; background:linear-gradient(135deg,var(--flame-500),var(--flame-600)); color:#fff; cursor:pointer; }
+  .sim-stage { max-width:340px; margin:26px auto 0; position:relative; }
+  .sim-photo-wrap { position:relative; aspect-ratio:3/4; background:var(--cream-100); border-radius:10px; display:flex; align-items:center; justify-content:center; overflow:visible; }
+  .sim-photo-wrap img { width:100%; height:100%; object-fit:cover; border-radius:10px; display:none; }
+  .sim-placeholder-text { font-size:12px; color:var(--terracotta-600); padding:20px; text-align:center; }
+  .sim-caption { margin-top:12px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14.5px; color:var(--ink); opacity:0; }
+  .sim-caption--reveal { animation:simCaptionIn .6s ease-out .35s both; }
+  @keyframes simPhotoIn { 0%{opacity:0;transform:scale(.86) translateY(14px);filter:blur(24px);} 100%{opacity:1;transform:scale(1) translateY(0);filter:blur(0);} }
+  .sim-photo--reveal { animation:simPhotoIn 1.1s cubic-bezier(.16,1,.3,1) both; }
+  @keyframes simCaptionIn { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
+  @keyframes simEmber { 0%{opacity:0;transform:scale(.3) translateY(0);} 25%{opacity:.9;} 100%{opacity:0;transform:scale(1.8) translateY(-46px);} }
+  .sim-ember { position:absolute; width:34px; height:34px; border-radius:50%; bottom:6%; background:radial-gradient(circle, rgba(255,200,87,.95), rgba(255,107,53,.45) 55%, transparent 72%); filter:blur(5px); mix-blend-mode:screen; pointer-events:none; opacity:0; z-index:3; }
+  .sim-ember--play { animation:simEmber 950ms ease-out both; }
+  @media (prefers-reduced-motion: reduce) { .sim-photo--reveal, .sim-caption--reveal, .sim-ember--play { animation:none !important; opacity:1 !important; filter:none !important; transform:none !important; } }
+
+  /* BONUS */
+  .bonus-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
+  .bonus-card { background:rgba(0,0,0,.28); border-radius:8px; padding:20px 22px; }
+  .bonus-card .num { font-family:'Poppins',sans-serif; color:var(--sun-400); font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+  .bonus-card h3 { font-size:16.5px; margin:6px 0 8px; }
+  .bonus-card p { color:var(--cream-text-soft); font-size:13.3px; margin:0; }
+  .bonus-card.special { background:rgba(92,26,43,.55); }
+  @media(max-width:700px){ .bonus-grid{grid-template-columns:1fr;} }
+
+  /* CRIADOR DE RÓTULOS */
+  .label-showcase{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:34px;align-items:center;margin-top:28px;text-align:left}.label-showcase__visual{position:relative;padding:20px;border:1px solid rgba(201,161,92,.45);background:linear-gradient(145deg,#1b0f08,#341019);box-shadow:0 20px 45px rgba(27,15,8,.25)}.label-showcase__visual img{display:block;width:100%;height:auto}.label-showcase__copy h3{font-size:23px;margin-bottom:12px}.label-showcase__copy ul{margin:18px 0;padding:0;list-style:none}.label-showcase__copy li{position:relative;margin:10px 0;padding-left:24px}.label-showcase__copy li::before{content:"✓";position:absolute;left:0;color:var(--sage-500);font-weight:900}.label-showcase__copy .btn{margin-top:6px}.label-showcase__note{font-size:11.5px;color:var(--ink-soft)}@media(max-width:780px){.label-showcase{grid-template-columns:1fr}.label-showcase__visual{order:-1}}
+
+  /* OFERTA */
+  .price-tag { font-family:'Poppins',sans-serif; font-size:44px; font-weight:900; color:var(--sun-400); }
+  .price-note { font-size:12.5px; color:var(--cream-text-soft); text-transform:uppercase; letter-spacing:.05em; margin-top:4px; }
+
+  .pricing-row { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:28px; text-align:left; }
+  .price-card { position:relative; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:14px; padding:28px 26px; display:flex; flex-direction:column; }
+  .price-card h3 { font-size:18px; color:var(--cream-100); margin:0 0 4px; }
+  .price-card .sub { font-size:12.5px; color:var(--cream-text-soft); margin-bottom:18px; }
+  .price-card ul { list-style:none; margin:0 0 22px; padding:0; flex:1; }
+  .price-card li { display:flex; gap:8px; font-size:13.3px; color:var(--cream-text-soft); margin-bottom:10px; line-height:1.4; }
+  .price-card li svg { width:16px; height:16px; color:var(--sage-500); flex-shrink:0; margin-top:2px; }
+  .price-card .price-tag { font-size:34px; }
+  .price-card .price-note { margin-bottom:4px; }
+  .price-card .btn { width:100%; justify-content:center; margin-top:16px; }
+  .price-card.premium { background:linear-gradient(160deg, rgba(255,200,87,.16) 0%, rgba(255,255,255,.05) 65%); border:2px solid var(--gold-500); box-shadow:0 0 44px rgba(255,200,87,.2); }
+  .price-card .seal { position:absolute; top:-14px; right:22px; background:linear-gradient(135deg,var(--gold-500),var(--sun-400)); color:var(--ember-900); font-family:'Poppins',sans-serif; font-weight:800; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; padding:7px 14px; border-radius:999px; box-shadow:0 6px 14px rgba(0,0,0,.4); }
+  @media(max-width:760px){ .pricing-row{grid-template-columns:1fr;} }
+
+  .guarantee-badge { width:56px; height:56px; border-radius:50%; background:rgba(139,74,46,.14); display:flex; align-items:center; justify-content:center; margin:0 auto 14px; }
+  .guarantee-badge svg { width:28px; height:28px; color:var(--terracotta-600); }
+
+  .process-row { display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:center; gap:8px; margin:34px 0 22px; }
+  .process-step { display:flex; flex-direction:column; align-items:center; gap:9px; width:140px; text-align:center; }
+  .process-step .ic { width:46px; height:46px; border-radius:50%; background:rgba(139,74,46,.12); display:flex; align-items:center; justify-content:center; }
+  .process-step .ic svg { width:22px; height:22px; color:var(--terracotta-600); }
+  .process-step span { font-family:'Poppins',sans-serif; font-weight:800; font-size:11.5px; letter-spacing:.02em; color:var(--ink); text-transform:uppercase; line-height:1.3; }
+  .process-arrow { align-self:center; margin-top:14px; color:var(--flame-500); opacity:.55; }
+  .process-arrow svg { width:18px; height:18px; }
+  .process-close { margin-top:8px; padding-top:20px; border-top:1px solid var(--border-soft); text-align:center; font-size:13.5px; font-style:italic; color:var(--ink-soft); }
+  .bonus-banner { margin-top:22px; background:linear-gradient(135deg, var(--sage-500) 0%, #3B6E52 100%); border-radius:12px; padding:16px 22px; display:flex; align-items:center; justify-content:center; gap:12px; box-shadow:0 10px 22px rgba(79,155,110,.35); }
+  .bonus-banner .ic { width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,.22); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .bonus-banner .ic svg { width:17px; height:17px; color:#fff; }
+  .bonus-banner span { font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:#fff; text-align:center; letter-spacing:.01em; }
+  @media(max-width:600px){ .bonus-banner{padding:14px 18px;} .bonus-banner span{font-size:13px;} }
+
+  .testi-carousel { position:relative; max-width:380px; margin:26px auto 0; }
+  .testi-track { position:relative; width:100%; height:480px; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 16px 34px rgba(27,15,8,.2); }
+  .testi-track img { position:absolute; inset:0; margin:auto; max-width:94%; max-height:94%; width:auto; height:auto; object-fit:contain; display:none; border-radius:10px; }
+  .testi-track img.active { display:block; animation:testiFade .4s ease; }
+  @keyframes testiFade { from{opacity:0; transform:scale(.98);} to{opacity:1; transform:scale(1);} }
+  .testi-next { position:absolute; top:50%; right:-20px; transform:translateY(-50%); width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,var(--flame-500),var(--flame-600)); color:#fff; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 8px 20px rgba(232,73,31,.45); z-index:3; }
+  .testi-next svg { width:20px; height:20px; }
+  .testi-dots { display:flex; gap:6px; justify-content:center; flex-wrap:wrap; max-width:340px; margin:18px auto 0; }
+  .testi-dots span { width:7px; height:7px; border-radius:50%; background:var(--border-soft); cursor:pointer; transition:all .2s; }
+  .testi-dots span.active { background:var(--flame-500); width:20px; border-radius:4px; }
+  @media(max-width:600px){ .testi-carousel{max-width:270px;} .testi-track{height:400px;} .testi-next{right:-8px; width:40px; height:40px;} }
+  @media(max-width:760px){ .process-step{width:42%;} .process-arrow{display:none;} }
+
+  /* FAQ */
+  .faq-item { background:rgba(255,255,255,.5); border-radius:6px; padding:14px 16px; margin-bottom:8px; }
+  .faq-item summary { font-weight:700; font-size:15px; cursor:pointer; color:var(--ink); list-style:none; display:flex; justify-content:space-between; align-items:center; }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary:after { content:'+'; font-family:'Poppins',sans-serif; font-size:20px; color:var(--flame-600); }
+  .faq-item[open] summary:after { content:'–'; }
+  .faq-item p { margin:10px 0 0; font-size:14px; color:var(--ink-soft); }
+
+  .btn.dark { background:var(--ember-900); color:var(--cream-100); }
+</style>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="ic-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H12v16H5.5c-.8 0-1.5-.7-1.5-1.5v-13z"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H12v16h6.5c.8 0 1.5-.7 1.5-1.5v-13z"/></g></symbol>
+  <symbol id="ic-flask" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4"/><path d="M10.5 3v6l-5.2 8.5c-.7 1.1.1 2.5 1.4 2.5h10.6c1.3 0 2.1-1.4 1.4-2.5L13.5 9V3"/><path d="M7.5 15h9"/></g></symbol>
+  <symbol id="ic-spark" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" d="M12 2c.8 4.4 2.6 6.2 7 7-4.4.8-6.2 2.6-7 7-.8-4.4-2.6-6.2-7-7 4.4-.8 6.2-2.6 7-7z"/></symbol>
+  <symbol id="ic-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></g></symbol>
+  <symbol id="ic-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-4 10 4-10 4-10-4z"/><path d="M6 11v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-4"/><path d="M20 9v5.5"/></g></symbol>
+  <symbol id="ic-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14.5 3v5h5"/><path d="M8 13l2.5 2.5L16 10"/></g></symbol>
+  <symbol id="ic-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 20.5s-7.5-4.6-9.8-9.3C.7 7.8 2.6 4.5 6 4.5c2 0 3.6 1.1 4.4 2.7C11.2 5.9 12.8 4.5 15 4.5c3.4 0 5.3 3.3 3.8 6.7C16.5 15.9 12 20.5 12 20.5z"/></symbol>
+  <symbol id="ic-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="ic-bulb" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></g></symbol>
+  <symbol id="ic-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M12 20V4"/><path d="M20 20v-7"/><path d="M2 20h20"/></g></symbol>
+  <symbol id="ic-shop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0"/><path d="M5 9v10h14V9"/><path d="M9.5 19v-5h5v5"/></g></symbol>
+  <symbol id="ic-candle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c1 1.3 1.6 2.3 1.6 3.1a1.6 1.6 0 1 1-3.2 0c0-.8.6-1.8 1.6-3.1z"/><rect x="8" y="8" width="8" height="13" rx="1.2"/><path d="M8 11.2h8"/></g></symbol>
+  <symbol id="ic-tag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 3H5a1 1 0 0 0-1 1v7.6c0 .3.1.5.3.7l9 9c.4.4 1 .4 1.4 0l7.6-7.6c.4-.4.4-1 0-1.4l-9-9a1 1 0 0 0-.7-.3z"/><circle cx="8.3" cy="8.3" r="1.2"/></g></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></symbol>
+  <symbol id="ic-thermo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14.5V5a2 2 0 1 0-4 0v9.5a4 4 0 1 0 4 0z"/><path d="M12 9h-2"/></g></symbol>
+  <symbol id="ic-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></g></symbol>
+  <symbol id="ic-leaf" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16z"/><path d="M6 18C10 14 14 10 19 5"/></g></symbol>
+</svg>
+
+<div class="opening-screen">
+
+  <!-- ===== HERO ===== -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">Super Almanaque de Velas &amp; Essências</div>
+          <h1>Qual é a sua combinação perfeita de <span class="hl">vela e essência</span>?</h1>
+          <h2>Mais de 50 essências caseiras, 288 receitas de vela testadas, quase 14 mil combinações pra explorar – tudo pra você criar a vela de alta qualidade que só a sua marca tem.</h2>
+          <div class="stat-row">
+            <div class="stat"><span class="ic"><svg><use href="#ic-book"/></svg></span><div><b>288</b><span>Receitas-base</span></div></div>
+            <div class="stat"><span class="ic"><svg><use href="#ic-flask"/></svg></span><div><b>50</b><span>Essências caseiras</span></div></div>
+            <div class="stat"><span class="ic"><svg><use href="#ic-spark"/></svg></span><div><b>14.400</b><span>Combinações possíveis</span></div></div>
+            <div class="stat"><span class="ic"><svg><use href="#ic-lock"/></svg></span><div><b>R$47</b><span>Acesso vitalício</span></div></div>
+          </div>
+        </div>
+        <div class="hero-photo"><img src="assets/decor/hero-mockup-obj.png" alt="Super Almanaque de Velas &amp; Essências — livro, velas e essências"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CTA "ponte" — centralizado, furando a linha entre Hero e Autoridade ===== -->
+  <div class="hero-bridge-cta">
+    <a class="bridge-cta-img" href="#simulador" aria-label="Crie sua vela">
+      <img src="assets/decor/bridge-cta-garland.png" alt="Crie sua vela">
+      <span class="bridge-cta-overlay"><span>Crie sua vela!</span><svg><use href="#ic-arrow"/></svg></span>
+    </a>
+  </div>
+
+  <!-- ===== AUTORIDADE ===== -->
+  <div class="autoridade">
+    <div class="wrap">
+      <div class="autoridade-card">
+        <img class="autoridade-photo" src="assets/livro/essencia-florais.jpg" alt="">
+        <div class="autoridade-copy">
+          <div class="kicker">Técnica exclusiva</div>
+          <h2 style="font-size:24px;margin-top:8px">Protocolo Âmbar™ de Extração Aromática</h2>
+          <p>Não extraímos todos os botânicos do mesmo jeito. O método controla tempo, temperatura e ordem de infusão de acordo com cada matéria-prima, buscando preservar notas aromáticas que podem se perder em processos convencionais.</p>
+          <div class="kicker" style="margin-top:22px">3 variáveis controladas</div>
+          <div class="autoridade-badges">
+            <div class="autoridade-badge"><span class="ic"><svg><use href="#ic-thermo"/></svg></span><div><strong>Temperatura</strong><span>Calor somente quando necessário</span></div></div>
+            <div class="autoridade-badge"><span class="ic"><svg><use href="#ic-clock"/></svg></span><div><strong>Tempo de extração</strong><span>Cada botânico possui sua própria janela</span></div></div>
+            <div class="autoridade-badge"><span class="ic"><svg><use href="#ic-leaf"/></svg></span><div><strong>Ordem de infusão</strong><span>Notas delicadas e resistentes são trabalhadas em momentos diferentes</span></div></div>
+          </div>
+          <p style="margin-top:20px"><strong style="color:var(--terracotta-600)">O resultado:</strong> essências com perfil aromático mais completo e melhor permanência no ambiente, desenvolvidas para você criar combinações marcantes nas suas velas.</p>
+        </div>
+        <img class="autoridade-photo" src="assets/livro/cat-flores-naturais.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== PRÉVIA DO PRODUTO ===== -->
+<section class="bg-1">
+<div class="wrap-page">
+  <div class="card card-gold">
+    <div class="kicker">Olha só o que tem dentro</div>
+    <h2 style="font-size:24px;margin-top:8px">338 receitas, cada uma com o passo a passo certo</h2>
+    <p style="max-width:64ch;color:var(--ink-soft)">Guia Fundamentos completo, 288 receitas de vela em 19 categorias, 50 essências caseiras extraídas de verdade — tudo já diagramado, com fotos reais de quem realmente produz em casa (nada de foto de estúdio). Já temos <strong>45 fotos prontas</strong> no PDF; as 50 fotos de receita entram na próxima atualização.</p>
+    <div class="grid-photos">
+      <div class="photo-slot"><img src="assets/livro/cat-aromaticas-frutais.jpg" alt="Categoria Aromáticas Frutais"><span class="num">1</span><span class="cap">Aromáticas Frutais</span></div>
+      <div class="photo-slot"><img src="assets/livro/cat-base-cimento.jpg" alt="Categoria Base de Cimento"><span class="num">2</span><span class="cap">Base de Cimento</span></div>
+      <div class="photo-slot"><img src="assets/livro/cat-gel-luminarias.jpg" alt="Categoria Gel e Luminárias"><span class="num">3</span><span class="cap">Gel e Luminárias</span></div>
+      <div class="photo-slot"><img src="assets/livro/cat-coloridas-efeitos.jpg" alt="Categoria Coloridas e Efeitos Visuais"><span class="num">4</span><span class="cap">Coloridas e Efeitos</span></div>
+      <div class="photo-slot"><img src="assets/livro/cat-chakras.jpg" alt="Categoria 7 Chakras"><span class="num">5</span><span class="cap">7 Chakras</span></div>
+      <div class="photo-slot"><img src="assets/livro/cat-signos-zodiaco.jpg" alt="Categoria Signos do Zodíaco"><span class="num">6</span><span class="cap">Signos do Zodíaco</span></div>
+      <div class="photo-slot"><img src="assets/livro/cat-encomendas-eventos.jpg" alt="Categoria Encomendas e Eventos"><span class="num">7</span><span class="cap">Encomendas e Eventos</span></div>
+      <div class="photo-slot"><img src="assets/livro/cat-molde-silicone.jpg" alt="Categoria Molde de Silicone"><span class="num">8</span><span class="cap">Molde de Silicone</span></div>
+    </div>
+    <p style="font-size:12.5px;color:var(--ink-soft);margin-top:14px">8 das 19 categorias do Almanaque — cada uma com sua própria identidade visual.</p>
+  </div>
+</div>
+</section>
+
+<!-- ===== DOR CURTA ===== -->
+<section class="bg-7">
+<div class="wrap-page">
+  <div class="card card-dark center" style="max-width:900px">
+    <div class="kicker" style="color:var(--sun-400)">O problema não é técnico</div>
+    <div class="dor-inner">
+      <h2>Quem aprende só uma vela, fica preso nela. Mesma cera, mesmo formato, mesmo cheiro — pro seu cliente, com o tempo, vira tudo igual. Sem repertório, a criatividade também acaba.</h2>
+      <span class="bullet">Repertório é o que separa quem repete do que cria</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== DESCRIÇÃO + PÚBLICO ===== -->
+<section class="bg-4">
+<div class="wrap-page">
+  <div class="card card-sage">
+    <div class="kicker">O que você recebe</div>
+    <h2 style="font-size:26px;margin-top:8px;color:var(--ink)">Não é só um repertório de receitas. É <strong style="color:var(--flame-600)">um sistema</strong> para você criar suas próprias combinações.</h2>
+
+    <div class="formula-row">
+      <div class="formula-item">
+        <div class="formula-photo"><img src="assets/decor/formula-receitas.png" alt="288 receitas de vela"></div>
+        <div class="formula-pill"><b>288</b><span>Receitas de velas</span></div>
+      </div>
+      <div class="formula-op">+</div>
+      <div class="formula-item">
+        <div class="formula-photo"><img src="assets/decor/formula-essencias.png" alt="50 essências autorais"></div>
+        <div class="formula-pill"><b>50</b><span>Essências autorais</span></div>
+      </div>
+      <div class="formula-op">=</div>
+      <div class="formula-item">
+        <div class="formula-photo"><img src="assets/decor/formula-combinacoes.png" alt="14.400 combinações exclusivas"></div>
+        <div class="formula-pill"><b>14.400</b><span>Combinações exclusivas</span></div>
+      </div>
+    </div>
+
+    <div class="benefits-row">
+      <div class="benefit"><span class="b-ic" style="background:var(--sage-500)"><svg><use href="#ic-bulb"/></svg></span><h3>Crie velas que ninguém tem</h3><p>Combinações únicas para se diferenciar da concorrência.</p></div>
+      <div class="benefit"><span class="b-ic" style="background:var(--flame-600)"><svg><use href="#ic-chart"/></svg></span><h3>Mais valor no seu produto</h3><p>Aromas exclusivos e combinações autorais aumentam suas vendas.</p></div>
+      <div class="benefit"><span class="b-ic" style="background:var(--gold-500)"><svg><use href="#ic-heart"/></svg></span><h3>Liberdade para sua criatividade</h3><p>Use as receitas e essências do seu jeito e crie a sua linha de produtos.</p></div>
+      <div class="benefit"><span class="b-ic" style="background:#5C7A5A"><svg><use href="#ic-shop"/></svg></span><h3>Pronta para vender</h3><p>Receitas testadas, seguras e com resultado profissional.</p></div>
+    </div>
+
+    <div class="desc-cta">
+      <p>Quer ver como funciona na prática? Simule sua combinação agora e descubra quantas possibilidades você pode criar.</p>
+      <a class="btn" href="#simulador">Simular minha combinação <svg><use href="#ic-arrow"/></svg></a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== DIFERENCIAL CONCRETO ===== -->
+<section class="bg-1">
+<div class="wrap-page">
+  <div class="card card-gold">
+    <div class="kicker">Muito além de um livro de receitas</div>
+    <h2 style="font-size:26px;margin-top:8px;color:var(--ink)">Você não recebe receitas para copiar. Recebe <strong style="color:var(--flame-600)">um sistema</strong> para criar, produzir e vender.</h2>
+    <p style="max-width:70ch;color:var(--ink-soft)">O Super Almanaque conecta receitas de velas, essências autorais, técnica de produção e precificação em um único método. Você aprende a combinar aromas para criar produtos próprios, produzir cada vela com um processo definido e usar a Planilha de Custo e Preço pra saber quanto ela realmente custa e por quanto vender.</p>
+
+    <div class="process-row">
+      <div class="process-step"><span class="ic"><svg><use href="#ic-book"/></svg></span><span>Escolha a receita</span></div>
+      <span class="process-arrow"><svg><use href="#ic-arrow"/></svg></span>
+      <div class="process-step"><span class="ic"><svg><use href="#ic-flask"/></svg></span><span>Crie o aroma</span></div>
+      <span class="process-arrow"><svg><use href="#ic-arrow"/></svg></span>
+      <div class="process-step"><span class="ic"><svg><use href="#ic-candle"/></svg></span><span>Produza</span></div>
+      <span class="process-arrow"><svg><use href="#ic-arrow"/></svg></span>
+      <div class="process-step"><span class="ic"><svg><use href="#ic-chart"/></svg></span><span>Calcule o custo</span></div>
+      <span class="process-arrow"><svg><use href="#ic-arrow"/></svg></span>
+      <div class="process-step"><span class="ic"><svg><use href="#ic-tag"/></svg></span><span>Defina o preço</span></div>
+      <span class="process-arrow"><svg><use href="#ic-arrow"/></svg></span>
+      <div class="process-step"><span class="ic"><svg><use href="#ic-shop"/></svg></span><span>Venda</span></div>
+    </div>
+
+    <p class="process-close">Da ideia ao produto pronto pra venda — sem depender de receitas soltas ou tentar descobrir tudo sozinha.</p>
+    <div class="bonus-banner"><span class="ic"><svg><use href="#ic-tag"/></svg></span><span>E ainda vamos te ajudar a criar o rótulo!</span></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== CURRÍCULO COMPLETO ===== -->
+<section class="bg-6">
+<div class="wrap-page">
+  <div class="card card-gold">
+    <div class="kicker">O mapa completo</div>
+    <h2 style="font-size:24px;margin-top:8px;color:var(--ink)">Olha tudo que você vai ter dentro do Almanaque</h2>
+    <p style="max-width:66ch;color:var(--ink-soft)">O concorrente organiza 61 tópicos soltos numa lista única. Aqui, o mesmo território (história, materiais, pavio, fragrância, segurança, design, precificação, venda) vem reorganizado em <strong>9 módulos práticos</strong> — e depois disso vêm as bibliotecas que ele não tem.</p>
+    <h3 style="font-size:16px;margin-top:22px;color:var(--terracotta-600)">288 Receitas de Vela — 19 categorias</h3>
+    <div class="curric-cat">
+      <div>Cera de Soja <span class="n">25</span></div>
+      <div>Aromáticas Frutais <span class="n">20</span></div>
+      <div>Recipientes Decorados <span class="n">20</span></div>
+      <div>Molde de Silicone <span class="n">20</span></div>
+      <div>Gel e Luminárias <span class="n">15</span></div>
+      <div>Base de Cimento <span class="n">15</span></div>
+      <div>Gourmet <span class="n">15</span></div>
+      <div>Sazonais e Temáticas <span class="n">20</span></div>
+      <div>Coloridas e Efeitos Visuais <span class="n">20</span></div>
+      <div>Flores e Elementos Naturais <span class="n">15</span></div>
+      <div>Encomendas e Eventos <span class="n">15</span></div>
+      <div>Purificação e Limpeza <span class="n">12</span></div>
+      <div>Ansiedade e Relaxamento <span class="n">12</span></div>
+      <div>Finados e Memorial <span class="n">8</span></div>
+      <div>Feriados Nacionais <span class="n">10</span></div>
+      <div>Intenção — Propósito Pessoal <span class="n">18</span></div>
+      <div>Signos do Zodíaco <span class="n">12</span></div>
+      <div>7 Chakras <span class="n">7</span></div>
+      <div>Espirituais de 7 Dias <span class="n">9</span></div>
+    </div>
+    <h3 style="font-size:16px;margin-top:26px;color:var(--terracotta-600)">50 Essências Caseiras — 6 famílias de aroma</h3>
+    <div class="curric-cat">
+      <div>Florais <span class="n">10</span></div>
+      <div>Cítricas <span class="n">8</span></div>
+      <div>Amadeiradas <span class="n">8</span></div>
+      <div>Gourmet <span class="n">8</span></div>
+      <div>Frescas e Herbais <span class="n">8</span></div>
+      <div>Orientais e Especiarias <span class="n">8</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== MECANISMO ===== -->
+<section class="bg-4">
+<div class="wrap-page">
+  <div class="card card-dark center" style="border:2px solid var(--sun-400); box-shadow:0 0 40px rgba(255,200,87,.18);">
+    <span class="kicker">Como funciona na prática</span>
+    <h2>288 receitas. 50 essências. Combinações infinitas.</h2>
+    <p style="color:var(--cream-text-soft);max-width:56ch;margin:0 auto">Escolha a vela e a essência, crie sua receita exclusiva, produza com a técnica certa e rotule pra vender — a técnica ensina o resto.</p>
+    <div class="mech-stat">288 receitas-base × 50 essências caseiras = 14.400 combinações possíveis</div>
+    <div class="mech-steps">
+      <div class="mech-step">
+        <span class="photo"><img src="assets/decor/mech-step-01.jpg" alt="Escolha vela + essência"></span>
+        <span class="n">01</span>
+        <div class="txt"><h3>Escolha vela + essência</h3><p>Navegue pelas 19 categorias de vela (que já definem o formato) e as 6 famílias de essência.</p></div>
+      </div>
+      <div class="mech-step">
+        <span class="photo"><img src="assets/decor/mech-step-02.jpg" alt="Nasce sua receita exclusiva"></span>
+        <span class="n">02</span>
+        <div class="txt"><h3>Nasce sua receita exclusiva</h3><p>A combinação de categoria + essência vira uma receita só sua, com o Guia Fundamentos ensinando a técnica.</p></div>
+      </div>
+      <div class="mech-step">
+        <span class="photo"><img src="assets/decor/mech-step-03.jpg" alt="Produza com a técnica certa"></span>
+        <span class="n">03</span>
+        <div class="txt"><h3>Produza com a técnica certa</h3><p>Siga o passo a passo do Guia Fundamentos pra cada categoria, sem achismo.</p></div>
+      </div>
+      <div class="mech-step">
+        <span class="photo"><img src="assets/decor/mech-step-04.jpg" alt="Rotule e venda"></span>
+        <span class="n">04</span>
+        <div class="txt"><h3>Rotule e venda</h3><p>Preencha os dados da sua vela, escolha um estilo e visualize um rótulo pronto para revisar e imprimir.</p></div>
+      </div>
+    </div>
+    <div class="combo-examples">
+      <div class="combo-ex"><strong>Flores + Florais (lavanda)</strong>Vela botânica com aroma calmante de verdade.</div>
+      <div class="combo-ex"><strong>Relaxamento + Amadeiradas</strong>Spa em casa, base terrosa e envolvente.</div>
+      <div class="combo-ex"><strong>Gourmet + Orientais</strong>Sobremesa com tempero raro — foge do óbvio.</div>
+    </div>
+    <p class="mech-callout">O Guia Fundamentos + as 19 categorias de vela + as 6 famílias de essência juntos já funcionam como o seu guia de combinações — você escolhe o par, a técnica ensina o resto.</p>
+  </div>
+</div>
+</section>
+
+<!-- ===== SIMULADOR ===== -->
+<section id="simulador" class="bg-3">
+<div class="wrap-page">
+  <div class="card card-gold center">
+    <div class="kicker">Teste você mesma</div>
+    <h2 style="font-size:24px;margin-top:8px;color:var(--ink)">Simulador de combinações</h2>
+    <p style="max-width:52ch;margin:8px auto 0;color:var(--ink-soft)">Escolha uma categoria de vela e uma família de essência. A prévia visual é atualizada automaticamente.</p>
+    <div class="sim-controls">
+      <select id="sim-vela">
+        <option value="">Categoria de vela</option>
+        <option value="cera-de-soja">Cera de Soja</option>
+        <option value="recipientes-decorados">Recipientes Decorados</option>
+        <option value="gourmet">Gourmet</option>
+        <option value="sazonais-e-tematicas">Sazonais e Temáticas</option>
+        <option value="flores-e-elementos-naturais">Flores e Elementos Naturais</option>
+        <option value="ansiedade-e-relaxamento">Ansiedade e Relaxamento</option>
+      </select>
+      <select id="sim-essencia">
+        <option value="">Família de essência</option>
+        <option value="florais">Florais</option>
+        <option value="citricas">Cítricas</option>
+        <option value="amadeiradas">Amadeiradas</option>
+        <option value="gourmet">Gourmet</option>
+        <option value="frescas-e-herbais">Frescas e Herbais</option>
+        <option value="orientais-e-especiarias">Orientais e Especiarias</option>
+      </select>
+      <button id="sim-btn" type="button">Simular</button>
+    </div>
+    <div class="sim-stage">
+      <div class="sim-photo-wrap" id="sim-photo-wrap">
+        <span class="sim-placeholder-text" id="sim-placeholder-text">Escolha as duas opções acima e clique em Simular</span>
+        <img id="sim-photo" alt="">
+        <span class="sim-ember" style="left:20%;"></span>
+        <span class="sim-ember" style="left:48%;"></span>
+        <span class="sim-ember" style="left:75%;"></span>
+      </div>
+      <p class="sim-caption" id="sim-caption"></p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== ATELIÊ DE RÓTULOS ===== -->
+<section id="rotulagem" class="bg-6">
+<div class="wrap-page">
+  <div class="card card-neutral">
+    <div class="center">
+      <div class="kicker">Da combinação à prateleira</div>
+      <h2 style="font-size:28px;margin-top:8px;color:var(--ink)">Até a primeira versão do rótulo fica por nossa conta.</h2>
+      <p style="max-width:64ch;margin:10px auto 0;color:var(--ink-soft)">Você informa sua marca e os dados da vela. O Ateliê de Rótulos organiza tudo em uma apresentação coerente com o produto — pronta para revisar, imprimir e testar na embalagem.</p>
+    </div>
+    <div class="label-showcase">
+      <div class="label-showcase__visual"><img src="assets/decor/exemplo-rotulo-artistico.png" alt="Exemplo artístico criado no Simulador Oficina do Âmbar"></div>
+      <div class="label-showcase__copy">
+        <div class="kicker">Ferramenta completa incluída</div>
+        <h3>Simulador Oficina do Âmbar</h3>
+        <p>É o mesmo criador de rótulos artístico da esteira, agora incluído no Pacote Completo de Velas — com o catálogo de 288 velas e 50 essências já conectado.</p>
+        <ul><li>918 opções entre sabonetes, velas, essências e perfis livres</li><li>Modelos em aquarela, caligrafia e diferentes paletas</li><li>Formatos retangular, quadrado e redondo</li><li>Download em PNG e SVG, além de impressão em PDF</li><li>Funciona offline e já acompanha o entregável</li></ul>
+        <a class="btn" href="ferramentas/criador-de-rotulos.html" target="_blank" rel="noopener">Experimentar e criar meu rótulo</a>
+        <p class="label-showcase__note"><strong>Demonstração aberta:</strong> você pode montar e visualizar seu rótulo. Os arquivos em PNG, SVG e PDF são liberados para clientes do Pacote Completo.</p>
+        <p class="label-showcase__note">O rótulo frontal é decorativo. Informações complementares e exigências aplicáveis devem ser revisadas antes da venda.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== PROVA SOCIAL 2 (placeholder) ===== -->
+<section class="bg-6">
+<div class="wrap-page">
+  <div class="card card-neutral center">
+    <div class="kicker">Prova social</div>
+    <h2 style="font-size:24px;margin-top:8px;color:var(--ink)">O que as outras pessoas que experimentaram esse produto estão dizendo!</h2>
+    <div class="testi-carousel">
+      <div class="testi-track" id="testi-track">
+        <img class="active" src="assets/prova-social/depoimento-01.jpg" alt="Depoimento 1">
+        <img src="assets/prova-social/depoimento-02.jpg" alt="Depoimento 2">
+        <img src="assets/prova-social/depoimento-03.jpg" alt="Depoimento 3">
+        <img src="assets/prova-social/depoimento-04.jpg" alt="Depoimento 4">
+        <img src="assets/prova-social/depoimento-05.jpg" alt="Depoimento 5">
+        <img src="assets/prova-social/depoimento-06.jpg" alt="Depoimento 6">
+        <img src="assets/prova-social/depoimento-07.jpg" alt="Depoimento 7">
+        <img src="assets/prova-social/depoimento-08.jpg" alt="Depoimento 8">
+        <img src="assets/prova-social/depoimento-09.jpg" alt="Depoimento 9">
+        <img src="assets/prova-social/depoimento-10.jpg" alt="Depoimento 10">
+        <img src="assets/prova-social/depoimento-11.jpg" alt="Depoimento 11">
+      </div>
+      <button class="testi-next" id="testi-next" type="button" aria-label="Próximo depoimento"><svg><use href="#ic-arrow"/></svg></button>
+    </div>
+    <div class="testi-dots" id="testi-dots"></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== GRID DE BÔNUS ===== -->
+<section class="bg-1">
+<div class="wrap-page">
+  <div class="card card-dark">
+    <div class="kicker">E além de tudo isso</div>
+    <h2 style="font-size:24px;margin-top:8px">Você ainda ganha esses bônus</h2>
+    <div class="bonus-grid">
+      <div class="bonus-card"><div class="num">Bônus 1</div><h3>Guia + Ateliê de Rótulos</h3><p>50 estruturas de texto e um simulador visual para preencher, visualizar, revisar e imprimir seu próprio rótulo.</p></div>
+      <div class="bonus-card"><div class="num">Bônus 2</div><h3>Guia de Instagram</h3><p>32 dicas práticas pra vender vela em rede social, do zero.</p></div>
+      <div class="bonus-card"><div class="num">Bônus 3</div><h3>Guia de Cuidados com a Vela</h3><p>Pra imprimir e entregar junto de cada produto — seu cliente aprende a usar direito.</p></div>
+      <div class="bonus-card"><div class="num">Bônus 4</div><h3>Guia de Envio Seguro</h3><p>Como embalar e despachar sem perder produto no calor.</p></div>
+      <div class="bonus-card"><div class="num">Bônus 5</div><h3>Guia de Escolha de Pavio</h3><p>Se sua vela faz túnel, chama alta ou apaga sozinha — troubleshooting completo, 8 sintomas.</p></div>
+      <div class="bonus-card"><div class="num">Bônus 6</div><h3>Planejador Anual</h3><p>Calendário comercial brasileiro cruzado com a Biblioteca — nunca mais perder uma data.</p></div>
+      <div class="bonus-card special" style="grid-column:1/-1"><div class="num">Bônus Especial</div><h3>Planilha de Custo e Preço (.xlsx)</h3><p>5 abas, fórmulas prontas, as 338 receitas já listadas — o que o concorrente cobra separado ou nem tem, aqui já vem incluso.</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== OFERTA FINAL ===== -->
+<section id="oferta" class="bg-7">
+<div class="wrap-page">
+  <div class="card card-dark center">
+    <h2>Escolha o plano que faz mais sentido pra você — sem mensalidade, sem taxa escondida.</h2>
+    <div class="pricing-row">
+      <div class="price-card">
+        <h3>Receitas de Velas &amp; Essências</h3>
+        <div class="sub">Só as bibliotecas, pra quem já sabe a técnica</div>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg> 288 receitas de vela — 19 categorias</li>
+          <li><svg><use href="#ic-check"/></svg> 50 essências caseiras — 6 famílias</li>
+          <li><svg><use href="#ic-check"/></svg> Acesso vitalício</li>
+        </ul>
+        <div class="price-tag">R$ 37</div>
+        <div class="price-note">à vista</div>
+        <a class="btn dark" href="#">Quero só as receitas</a>
+      </div>
+      <div class="price-card premium">
+        <span class="seal">Mais completo</span>
+        <h3>Pacote Completo</h3>
+        <div class="sub">Tudo que existe no Super Almanaque</div>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg> Tudo do plano de Receitas</li>
+          <li><svg><use href="#ic-check"/></svg> Guia Fundamentos completo — 372 páginas</li>
+          <li><svg><use href="#ic-check"/></svg> Planilha de Custo e Preço (.xlsx)</li>
+          <li><svg><use href="#ic-check"/></svg> Guia + Ateliê visual de Rótulos</li>
+          <li><svg><use href="#ic-check"/></svg> Os outros 5 bônus (Instagram, cuidados, envio, pavio e planejador anual)</li>
+          <li><svg><use href="#ic-check"/></svg> Acesso vitalício</li>
+        </ul>
+        <div class="price-tag">R$ 47</div>
+        <div class="price-note">à vista</div>
+        <a class="btn" href="#">Quero o pacote completo</a>
+      </div>
+    </div>
+    <div class="placeholder" style="text-align:left;border-color:var(--gold-500);margin-top:24px">
+      <span class="ph-tag">Link de checkout pendente</span>
+      <p>Os 2 botões acima precisam apontar pros checkouts reais assim que os dados de empresa/processador de pagamento forem definidos (§9).</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== GARANTIA ===== -->
+<section class="bg-5">
+<div class="wrap-page">
+  <div class="card card-sage center" style="max-width:640px">
+    <span class="guarantee-badge"><svg><use href="#ic-lock"/></svg></span>
+    <h2 style="font-size:22px;color:var(--ink)">Insegura se vale o investimento? Fique tranquila.</h2>
+    <p style="max-width:52ch;margin:10px auto 0;color:var(--ink-soft)">Você tem <strong style="color:var(--terracotta-600)">7 dias de garantia incondicional</strong>. Se por qualquer motivo o Almanaque não for pra você, é só pedir o reembolso — sem perguntas, sem burocracia.</p>
+  </div>
+</div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="bg-6">
+<div class="wrap-page">
+  <div class="card card-neutral">
+    <div class="kicker">Tire dúvidas</div>
+    <h2 style="font-size:24px;margin-top:8px;color:var(--ink)">Perguntas frequentes</h2>
+    <div style="margin-top:14px">
+      <details class="faq-item" open>
+        <summary>Como acesso o material depois de comprar?</summary>
+        <p>Logo após confirmar a compra você recebe um e-mail com o acesso ao PDF completo e o contato do suporte, caso tenha alguma dificuldade.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Preciso de equipamento caro pra começar?</summary>
+        <p>Não. O Guia Fundamentos ensina o material mínimo necessário (cera, pavio, recipiente, termômetro) — nada de equipamento industrial. As receitas mais simples usam ingredientes fáceis de achar.</p>
+      </details>
+      <details class="faq-item">
+        <summary>As velas de intenção, chakra e signos têm efeito comprovado?</summary>
+        <p>Não prometemos efeito terapêutico ou resultado garantido nessas categorias — são tratadas como produto de ritual/bem-estar simbólico, igual ao que qualquer casa de artigos religiosos já vende. A técnica de produção é real; a promessa espiritual não é nossa a fazer.</p>
+      </details>
+      <details class="faq-item">
+        <summary>E se eu não gostar, tem garantia?</summary>
+        <p>Tem sim — 7 dias de garantia incondicional a partir da compra. Se não for pra você, é só pedir o reembolso, sem perguntas.</p>
+      </details>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== CTA DE DÚVIDA ===== -->
+<section class="bg-3">
+<div class="wrap-page">
+  <div class="card card-terracotta center">
+    <h2 style="font-size:22px;color:var(--ink)">Ainda com dúvida?</h2>
+    <div class="placeholder">
+      <span class="ph-tag">Link de WhatsApp pendente</span>
+      <p>Definir número de contato/suporte antes de publicar (dados de empresa/checkout, §9).</p>
+    </div>
+    <a class="btn dark" href="#">Pergunte aqui</a>
+  </div>
+</div>
+</section>
+
+<footer>Chama &amp; Âmbar · Super Almanaque de Velas &amp; Essências · rascunho, blocos marcados ainda precisam de decisão antes de publicar.</footer>
+
+<script>
+(function () {
+  var CAPTIONS = {
+    "cera-de-soja|florais": "Clássica com alma de jardim.",
+    "cera-de-soja|citricas": "Simples, mas cheia de energia.",
+    "cera-de-soja|amadeiradas": "Base honesta, aroma profundo.",
+    "cera-de-soja|gourmet": "Vela do dia a dia, cheiro de casa.",
+    "cera-de-soja|frescas-e-herbais": "Leve, quase erva de quintal.",
+    "cera-de-soja|orientais-e-especiarias": "Simples por fora, intensa por dentro.",
+    "recipientes-decorados|florais": "Peça de decoração que também perfuma.",
+    "recipientes-decorados|citricas": "Visual bonito, aroma que desperta.",
+    "recipientes-decorados|amadeiradas": "Sofisticada da forma ao cheiro.",
+    "recipientes-decorados|gourmet": "Parece doce, decora que é uma beleza.",
+    "recipientes-decorados|frescas-e-herbais": "Elegância com respiro de mato.",
+    "recipientes-decorados|orientais-e-especiarias": "Peça de luxo, aroma de especiaria.",
+    "gourmet|florais": "Doce com toque de jardim.",
+    "gourmet|citricas": "Sobremesa cítrica, gostosa de olhar e sentir.",
+    "gourmet|amadeiradas": "Doce encorpado, cheiro de conforto.",
+    "gourmet|gourmet": "Tudo combina — o dobro de gourmet.",
+    "gourmet|frescas-e-herbais": "Doce refrescante, contraste que funciona.",
+    "gourmet|orientais-e-especiarias": "Sobremesa com tempero raro.",
+    "sazonais-e-tematicas|florais": "Data especial, aroma delicado.",
+    "sazonais-e-tematicas|citricas": "Festa animada, cheiro vibrante.",
+    "sazonais-e-tematicas|amadeiradas": "Clima de celebração, base quente.",
+    "sazonais-e-tematicas|gourmet": "Cheiro de festa de verdade.",
+    "sazonais-e-tematicas|frescas-e-herbais": "Comemoração leve, aroma limpo.",
+    "sazonais-e-tematicas|orientais-e-especiarias": "Data festiva, aroma marcante.",
+    "flores-e-elementos-naturais|florais": "Botânica por fora e por dentro.",
+    "flores-e-elementos-naturais|citricas": "Jardim vivo, aroma desperto.",
+    "flores-e-elementos-naturais|amadeiradas": "Natureza da raiz à flor.",
+    "flores-e-elementos-naturais|gourmet": "Botânica com um toque doce.",
+    "flores-e-elementos-naturais|frescas-e-herbais": "Puro campo, do visual ao cheiro.",
+    "flores-e-elementos-naturais|orientais-e-especiarias": "Flor selvagem, aroma exótico.",
+    "ansiedade-e-relaxamento|florais": "Spa em casa, aroma suave.",
+    "ansiedade-e-relaxamento|citricas": "Relaxa e desperta ao mesmo tempo.",
+    "ansiedade-e-relaxamento|amadeiradas": "Calma profunda, base terrosa.",
+    "ansiedade-e-relaxamento|gourmet": "Conforto que também acalma.",
+    "ansiedade-e-relaxamento|frescas-e-herbais": "Respiração funda, aroma de ervas.",
+    "ansiedade-e-relaxamento|orientais-e-especiarias": "Ritual de relaxar, aroma envolvente."
+  };
+  var COMBINATION_IMAGES = {
+    "cera-de-soja|florais": "assets/simulador/combo-cera-de-soja-florais.png",
+    "cera-de-soja|citricas": "assets/simulador/combo-cera-de-soja-citricas.png",
+    "cera-de-soja|amadeiradas": "assets/simulador/combo-cera-de-soja-amadeiradas.png",
+    "cera-de-soja|gourmet": "assets/simulador/combo-cera-de-soja-gourmet.png",
+    "cera-de-soja|frescas-e-herbais": "assets/simulador/combo-cera-de-soja-frescas-e-herbais.png",
+    "cera-de-soja|orientais-e-especiarias": "assets/simulador/combo-cera-de-soja-orientais-e-especiarias.png",
+    "recipientes-decorados|florais": "assets/simulador/combo-recipientes-decorados-florais.png",
+    "recipientes-decorados|citricas": "assets/simulador/combo-recipientes-decorados-citricas.png",
+    "recipientes-decorados|amadeiradas": "assets/simulador/combo-recipientes-decorados-amadeiradas.png",
+    "recipientes-decorados|gourmet": "assets/simulador/combo-recipientes-decorados-gourmet.png",
+    "recipientes-decorados|frescas-e-herbais": "assets/simulador/combo-recipientes-decorados-frescas-e-herbais.png",
+    "recipientes-decorados|orientais-e-especiarias": "assets/simulador/combo-recipientes-decorados-orientais-e-especiarias.png",
+    "gourmet|florais": "assets/simulador/combo-gourmet-florais.png",
+    "gourmet|citricas": "assets/simulador/combo-gourmet-citricas.png",
+    "gourmet|amadeiradas": "assets/simulador/combo-gourmet-amadeiradas.png",
+    "gourmet|gourmet": "assets/simulador/combo-gourmet-gourmet.png",
+    "gourmet|frescas-e-herbais": "assets/simulador/combo-gourmet-frescas-e-herbais.png",
+    "gourmet|orientais-e-especiarias": "assets/simulador/combo-gourmet-orientais-e-especiarias.png",
+    "sazonais-e-tematicas|florais": "assets/simulador/combo-sazonais-e-tematicas-florais.png",
+    "sazonais-e-tematicas|citricas": "assets/simulador/combo-sazonais-e-tematicas-citricas.png",
+    "sazonais-e-tematicas|amadeiradas": "assets/simulador/combo-sazonais-e-tematicas-amadeiradas.png",
+    "sazonais-e-tematicas|gourmet": "assets/simulador/combo-sazonais-e-tematicas-gourmet.png",
+    "sazonais-e-tematicas|frescas-e-herbais": "assets/simulador/combo-sazonais-e-tematicas-frescas-e-herbais.png",
+    "sazonais-e-tematicas|orientais-e-especiarias": "assets/simulador/combo-sazonais-e-tematicas-orientais-e-especiarias.png",
+    "flores-e-elementos-naturais|florais": "assets/simulador/combo-flores-e-elementos-naturais-florais.png",
+    "flores-e-elementos-naturais|citricas": "assets/simulador/combo-flores-e-elementos-naturais-citricas.png",
+    "flores-e-elementos-naturais|amadeiradas": "assets/simulador/combo-flores-e-elementos-naturais-amadeiradas.png",
+    "flores-e-elementos-naturais|gourmet": "assets/simulador/combo-flores-e-elementos-naturais-gourmet.png",
+    "flores-e-elementos-naturais|frescas-e-herbais": "assets/simulador/combo-flores-e-elementos-naturais-frescas-e-herbais.png",
+    "flores-e-elementos-naturais|orientais-e-especiarias": "assets/simulador/combo-flores-e-elementos-naturais-orientais-e-especiarias.png",
+    "ansiedade-e-relaxamento|florais": "assets/simulador/combo-ansiedade-e-relaxamento-florais.png",
+    "ansiedade-e-relaxamento|citricas": "assets/simulador/combo-ansiedade-e-relaxamento-citricas.png",
+    "ansiedade-e-relaxamento|amadeiradas": "assets/simulador/combo-ansiedade-e-relaxamento-amadeiradas.png",
+    "ansiedade-e-relaxamento|gourmet": "assets/simulador/combo-ansiedade-e-relaxamento-gourmet.png",
+    "ansiedade-e-relaxamento|frescas-e-herbais": "assets/simulador/combo-ansiedade-e-relaxamento-frescas-e-herbais.png",
+    "ansiedade-e-relaxamento|orientais-e-especiarias": "assets/simulador/combo-ansiedade-e-relaxamento-orientais-e-especiarias.png"
+  };
+  var velaSel = document.getElementById("sim-vela");
+  var essSel = document.getElementById("sim-essencia");
+  var btn = document.getElementById("sim-btn");
+  var img = document.getElementById("sim-photo");
+  var placeholderText = document.getElementById("sim-placeholder-text");
+  var caption = document.getElementById("sim-caption");
+  var embers = document.querySelectorAll(".sim-ember");
+  var simulationRun = 0;
+  function replay(el, cls) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }
+  function playReveal() {
+    replay(img, "sim-photo--reveal");
+    replay(caption, "sim-caption--reveal");
+    embers.forEach(function (em, i) { em.style.animationDelay = (i * 90) + "ms"; replay(em, "sim-ember--play"); });
+  }
+  function simulate() {
+    var currentRun = ++simulationRun;
+    var v = velaSel.value, e = essSel.value;
+    if (!v || !e) {
+      placeholderText.textContent = "Escolha as duas opções acima e clique em Simular";
+      placeholderText.style.display = "block"; img.style.display = "none"; caption.textContent = "";
+      return;
+    }
+    var key = v + "|" + e;
+    var src = COMBINATION_IMAGES[key];
+    var velaNome = velaSel.options[velaSel.selectedIndex].text;
+    var essenciaNome = essSel.options[essSel.selectedIndex].text;
+    if (!src) {
+      placeholderText.textContent = "Esta combinação ainda não possui referência visual.";
+      placeholderText.style.display = "block"; img.style.display = "none"; caption.textContent = "";
+      return;
+    }
+    var probe = new Image();
+    probe.onload = function () {
+      if (currentRun !== simulationRun) return;
+      img.src = src; img.style.display = "block"; placeholderText.style.display = "none";
+      img.alt = "Referência visual da categoria " + velaNome + " combinada com essência " + essenciaNome;
+      caption.textContent = velaNome + " + " + essenciaNome + " — " + (CAPTIONS[key] || "Uma nova direção para sua coleção."); playReveal();
+    };
+    probe.onerror = function () {
+      if (currentRun !== simulationRun) return;
+      placeholderText.textContent = "Não foi possível carregar a referência visual desta categoria.";
+      placeholderText.style.display = "block"; img.style.display = "none"; caption.textContent = "";
+    };
+    probe.src = src;
+  }
+  velaSel.addEventListener("change", simulate);
+  essSel.addEventListener("change", simulate);
+  btn.addEventListener("click", simulate);
+  if (velaSel.value && essSel.value) simulate();
+})();
+
+(function () {
+  var track = document.getElementById("testi-track");
+  if (!track) return;
+  var imgs = track.querySelectorAll("img");
+  var dotsWrap = document.getElementById("testi-dots");
+  var nextBtn = document.getElementById("testi-next");
+  var idx = 0;
+  imgs.forEach(function (_, i) {
+    var d = document.createElement("span");
+    if (i === 0) d.className = "active";
+    d.addEventListener("click", function () { go(i); });
+    dotsWrap.appendChild(d);
+  });
+  var dots = dotsWrap.querySelectorAll("span");
+  function go(i) {
+    imgs[idx].classList.remove("active");
+    dots[idx].classList.remove("active");
+    idx = (i + imgs.length) % imgs.length;
+    imgs[idx].classList.add("active");
+    dots[idx].classList.add("active");
+    resetTimer();
+  }
+  function next() { go(idx + 1); }
+  var timer = setInterval(next, 8000);
+  function resetTimer() { clearInterval(timer); timer = setInterval(next, 8000); }
+  nextBtn.addEventListener("click", next);
+})();
+</script>
+
+<!-- ===== MODO EDIÇÃO MANUAL — colar PNG direto na página (não faz parte do site publicado) ===== -->
+<style>
+  #edit-toggle { position:fixed; bottom:20px; right:20px; z-index:9999; background:#1B0F08; color:#F7F1E6; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; border:2px solid #C9A15C; border-radius:999px; padding:12px 20px; cursor:pointer; box-shadow:0 8px 24px rgba(0,0,0,.4); }
+  #edit-toggle.on { background:#E8491F; border-color:#E8491F; }
+  #edit-save { position:fixed; bottom:20px; right:200px; z-index:9999; background:#4F9B6E; color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; border:none; border-radius:999px; padding:12px 20px; cursor:pointer; box-shadow:0 8px 24px rgba(0,0,0,.4); display:none; }
+  #edit-hint { position:fixed; bottom:70px; right:20px; z-index:9999; background:rgba(27,15,8,.92); color:#F7F1E6; font-size:12.5px; padding:10px 16px; border-radius:10px; max-width:240px; display:none; }
+  body.edit-mode #edit-hint, body.edit-mode #edit-save { display:block; }
+  .user-sticker { position:absolute; z-index:500; cursor:move; outline:2px dashed transparent; }
+  body.edit-mode .user-sticker { outline-color:rgba(232,73,31,.6); }
+  body.edit-mode .user-sticker.selected { outline-color:#4F9B6E; outline-style:solid; }
+  .user-sticker img { display:block; width:100%; height:100%; pointer-events:none; transition:transform .15s ease; }
+  .user-sticker img.flipped { transform:scaleX(-1); }
+  .user-sticker .sticker-del { position:absolute; top:-12px; right:-12px; width:24px; height:24px; border-radius:50%; background:#E8491F; color:#fff; border:2px solid #fff; font-size:13px; line-height:1; display:none; align-items:center; justify-content:center; cursor:pointer; }
+  .user-sticker .sticker-rs { position:absolute; bottom:-8px; right:-8px; width:16px; height:16px; background:#C9A15C; border:2px solid #fff; border-radius:3px; cursor:nwse-resize; display:none; }
+  .user-sticker .sticker-flip { position:absolute; bottom:-12px; left:-12px; width:24px; height:24px; border-radius:50%; background:#1B0F08; color:#fff; border:2px solid #fff; font-size:12px; line-height:1; display:none; align-items:center; justify-content:center; cursor:pointer; }
+  body.edit-mode .user-sticker .sticker-del, body.edit-mode .user-sticker .sticker-rs, body.edit-mode .user-sticker .sticker-flip { display:flex; }
+  body.edit-mode .user-sticker .sticker-rs { display:block; }
+</style>
+<button id="edit-toggle" type="button">🖼️ Modo edição</button>
+<button id="edit-save" type="button">💾 Salvar HTML</button>
+<div id="edit-hint">Modo edição ligado: cole uma imagem (Ctrl+V) em qualquer lugar da página. Arraste pra mover, puxe o quadradinho dourado pra redimensionar, × pra apagar, ↔ (ou tecla F com a imagem selecionada) pra inverter horizontalmente. Depois clica em "Salvar HTML".</div>
+<script>
+(function () {
+  var editOn = false;
+  var toggle = document.getElementById("edit-toggle");
+  var saveBtn = document.getElementById("edit-save");
+  var stickerN = 0;
+  var selected = null;
+
+  function selectSticker(wrap) {
+    if (selected) selected.classList.remove("selected");
+    selected = wrap;
+    if (selected) selected.classList.add("selected");
+  }
+
+  toggle.addEventListener("click", function () {
+    editOn = !editOn;
+    document.body.classList.toggle("edit-mode", editOn);
+    toggle.classList.toggle("on", editOn);
+    toggle.textContent = editOn ? "✖ Sair do modo edição" : "🖼️ Modo edição";
+  });
+
+  function addSticker(src, x, y) {
+    stickerN++;
+    var wrap = document.createElement("div");
+    wrap.className = "user-sticker";
+    wrap.style.left = (x - 90) + "px";
+    wrap.style.top = (y - 90) + "px";
+    wrap.style.width = "180px";
+    wrap.style.height = "180px";
+    var img = document.createElement("img");
+    img.src = src;
+    var del = document.createElement("span");
+    del.className = "sticker-del";
+    del.textContent = "×";
+    del.addEventListener("click", function (e) { e.stopPropagation(); if (selected === wrap) selected = null; wrap.remove(); });
+    var rs = document.createElement("span");
+    rs.className = "sticker-rs";
+    var flip = document.createElement("span");
+    flip.className = "sticker-flip";
+    flip.textContent = "⇆";
+    flip.addEventListener("click", function (e) { e.stopPropagation(); img.classList.toggle("flipped"); });
+    wrap.appendChild(img);
+    wrap.appendChild(del);
+    wrap.appendChild(rs);
+    wrap.appendChild(flip);
+    document.body.appendChild(wrap);
+    selectSticker(wrap);
+
+    // drag to move
+    wrap.addEventListener("mousedown", function (e) {
+      if (!editOn || e.target === rs || e.target === del || e.target === flip) return;
+      selectSticker(wrap);
+      e.preventDefault();
+      var startX = e.clientX, startY = e.clientY;
+      var origLeft = wrap.offsetLeft, origTop = wrap.offsetTop;
+      function onMove(e2) {
+        wrap.style.left = (origLeft + e2.clientX - startX) + "px";
+        wrap.style.top = (origTop + e2.clientY - startY) + "px";
+      }
+      function onUp() {
+        document.removeEventListener("mousemove", onMove);
+        document.removeEventListener("mouseup", onUp);
+      }
+      document.addEventListener("mousemove", onMove);
+      document.addEventListener("mouseup", onUp);
+    });
+
+    // drag corner to resize
+    rs.addEventListener("mousedown", function (e) {
+      if (!editOn) return;
+      e.preventDefault(); e.stopPropagation();
+      var startX = e.clientX, startY = e.clientY;
+      var origW = wrap.offsetWidth, origH = wrap.offsetHeight;
+      function onMove(e2) {
+        wrap.style.width = Math.max(30, origW + e2.clientX - startX) + "px";
+        wrap.style.height = Math.max(30, origH + e2.clientY - startY) + "px";
+      }
+      function onUp() {
+        document.removeEventListener("mousemove", onMove);
+        document.removeEventListener("mouseup", onUp);
+      }
+      document.addEventListener("mousemove", onMove);
+      document.addEventListener("mouseup", onUp);
+    });
+  }
+  window.addSticker = addSticker; // exposed for manual/debug use too
+
+  var lastClick = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  document.addEventListener("click", function (e) {
+    lastClick = { x: e.pageX, y: e.pageY };
+    if (!e.target.closest(".user-sticker")) selectSticker(null);
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (!editOn || !selected) return;
+    if (e.key === "f" || e.key === "F") {
+      var tag = (document.activeElement || {}).tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+      selected.querySelector("img").classList.toggle("flipped");
+    }
+  });
+
+  document.addEventListener("paste", function (e) {
+    if (!editOn) return;
+    var items = (e.clipboardData || window.clipboardData).items;
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].type.indexOf("image") === 0) {
+        var file = items[i].getAsFile();
+        var reader = new FileReader();
+        reader.onload = function (ev) { addSticker(ev.target.result, lastClick.x, lastClick.y); };
+        reader.readAsDataURL(file);
+      }
+    }
+  });
+
+  async function saveHtml() {
+    var clone = document.documentElement.cloneNode(true);
+    clone.querySelectorAll("#edit-toggle,#edit-save,#edit-hint").forEach(function (el) { el.remove(); });
+    clone.querySelectorAll(".user-sticker").forEach(function (el) {
+      el.querySelectorAll(".sticker-del,.sticker-rs").forEach(function (h) { h.remove(); });
+    });
+    var html = "<!doctype html>\n" + clone.outerHTML;
+    if (window.showSaveFilePicker) {
+      try {
+        var handle = await window.showSaveFilePicker({ suggestedName: "index.html", types: [{ description: "HTML", accept: { "text/html": [".html"] } }] });
+        var writable = await handle.createWritable();
+        await writable.write(html);
+        await writable.close();
+        alert("Salvo!");
+        return;
+      } catch (err) { if (err.name === "AbortError") return; }
+    }
+    var blob = new Blob([html], { type: "text/html" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "index.html";
+    a.click();
+  }
+  saveBtn.addEventListener("click", saveHtml);
+})();
+</script>
