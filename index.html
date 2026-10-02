@@ -324,6 +324,88 @@
   .faq-item p { margin:10px 0 0; font-size:14px; color:var(--ink-soft); }
 
   .btn.dark { background:var(--ember-900); color:var(--cream-100); }
+
+  /* MOBILE — acabamento dedicado para telas de 360–430 px */
+  @media(max-width:760px){
+    html,body{max-width:100%;overflow-x:hidden;}
+    body{font-size:14.5px;line-height:1.58;background-attachment:scroll,scroll;}
+    .wrap,.wrap-page{padding-left:16px;padding-right:16px;}
+    section{padding:42px 0;background-attachment:scroll;}
+    .card{padding:30px 18px;border-radius:14px;}
+    .kicker{font-size:10px;letter-spacing:.1em;line-height:1.45;}
+    h2{font-size:clamp(22px,7vw,28px);line-height:1.18;}
+    h3{line-height:1.25;}
+    .btn{width:100%;min-height:52px;justify-content:center;text-align:center;font-size:14px;line-height:1.25;padding:14px 18px;}
+
+    .hero{padding:26px 0 34px;background-position:center;}
+    .hero-grid{gap:22px;}
+    .hero-grid>div:first-child{text-align:center;}
+    .brand-logo{width:76px;margin:0 auto 12px;}
+    .hero h1{font-size:clamp(28px,8.4vw,35px);line-height:1.08;margin:10px auto 14px;max-width:13ch;}
+    .hero h2{font-size:15px;line-height:1.5;max-width:34ch;}
+    .hero-photo{order:initial;width:min(100%,330px);margin:0 auto;overflow:visible;}
+    .hero-photo img{max-height:300px;object-fit:contain;filter:drop-shadow(0 12px 20px rgba(0,0,0,.42));}
+    .stat-row{margin-top:20px;padding-top:18px;gap:16px 8px;}
+    .stat{align-items:flex-start;gap:7px;text-align:left;}
+    .stat .ic{width:32px;height:32px;}
+    .stat .ic svg{width:17px;height:17px;}
+    .stat b{font-size:20px;white-space:normal;}
+    .stat span{font-size:9px;letter-spacing:0;}
+
+    .bridge-cta-img img{width:min(520px,112vw);}
+    .bridge-cta-overlay{left:29%;top:38%;width:42%;}
+    .bridge-cta-overlay span,.bridge-cta-overlay svg{font-size:11px;}
+    .autoridade{padding:56px 16px 36px;}
+    .autoridade-card{border-radius:14px;}
+    .autoridade-photo{min-height:0;height:190px;}
+    .autoridade-copy{padding:26px 20px;}
+    .autoridade-copy p{font-size:13.5px;}
+    .autoridade-badges{gap:16px;margin-top:20px;}
+    .autoridade-badge{max-width:none;width:100%;}
+
+    .grid-photos{gap:8px;}
+    .photo-slot .cap{font-size:10.5px;padding:24px 8px 8px;}
+    .desc-stat{display:flex;border-radius:14px;padding:10px 13px;font-size:12px;line-height:1.35;}
+    .formula-photo{max-width:190px;}
+    .formula-pill{width:min(86%,210px);}
+    .formula-op{width:38px;height:38px;font-size:18px;}
+    .benefits-row,.personas,.bonus-grid,.pricing-row{gap:14px;}
+    .persona{padding:16px 14px;gap:11px;}
+    .desc-cta{display:block;text-align:center;}
+    .desc-cta p{font-size:14px;margin:0 auto 14px;}
+    .curric-cat div{font-size:13px;gap:8px;}
+    .mech-steps{gap:8px;}
+    .mech-step .txt{padding:26px 9px 10px;}
+    .mech-step h3{font-size:12px;}
+    .mech-step p{font-size:10.5px;}
+    .sim-controls{display:grid;grid-template-columns:1fr;gap:9px;}
+    .sim-controls select,.sim-controls button{width:100%;min-height:48px;}
+    .sim-stage{max-width:280px;}
+    .bonus-card{padding:18px 16px;}
+    .label-showcase{gap:22px;}
+    .label-showcase__visual{padding:10px;}
+    .label-showcase__copy h3{font-size:20px;}
+    .price-card{padding:25px 18px;}
+    .price-card .price-tag{font-size:32px;}
+    .price-card .seal{right:12px;max-width:calc(100% - 24px);text-align:center;}
+    .faq-item{padding:13px 14px;}
+    .faq-item summary{font-size:14px;line-height:1.35;gap:10px;}
+    .faq-item p{font-size:13px;}
+    .interstitial{padding:28px 0;}
+    .interstitial h2{font-size:20px;line-height:1.25;}
+  }
+
+  @media(max-width:380px){
+    .wrap,.wrap-page{padding-left:13px;padding-right:13px;}
+    .card{padding-left:15px;padding-right:15px;}
+    .hero h1{font-size:28px;}
+    .hero-photo{width:min(100%,292px);}
+    .hero-photo img{max-height:270px;}
+    .stat{gap:5px;}
+    .stat .ic{width:29px;height:29px;}
+    .stat b{font-size:18px;}
+    .stat span{font-size:8.5px;}
+  }
 </style>
 
 <svg style="display:none" aria-hidden="true">
