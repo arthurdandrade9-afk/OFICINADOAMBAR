@@ -1,5 +1,9 @@
 <meta charset="utf-8">
-<title>Chama &amp; Âmbar — Almanaque de Velas</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Receitas de velas, essências e um método completo para criar, precificar e vender produtos artesanais com identidade.">
+<link rel="icon" type="image/png" href="assets/brand/logo-oficina.png">
+<link rel="shortcut icon" href="favicon.ico">
+<title>Oficina do Âmbar — Almanaque de Velas</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Manrope:wght@400;500;700;800&display=swap">
 <style>
   :root {
@@ -61,6 +65,7 @@
   .hero h1 { font-size:clamp(26px,3.6vw,42px); line-height:1.14; color:var(--cream-100); margin:14px 0 16px; }
   .hero h1 .hl { color:var(--flame-500); }
   .hero h2 { font-family:'Manrope',sans-serif; font-weight:500; font-size:16px; color:var(--cream-text-soft); max-width:56ch; }
+  .brand-logo { width:clamp(86px,9vw,118px); height:auto; display:block; margin:0 0 16px; filter:drop-shadow(0 10px 22px rgba(0,0,0,.45)); }
   @media(min-width:1600px){
     .wrap { max-width:1500px; }
     .hero h1 { font-size:56px; }
@@ -87,7 +92,7 @@
   .hero-photo { width:100%; }
   .hero-photo img { width:100%; height:auto; object-fit:contain; display:block; filter:drop-shadow(0 18px 30px rgba(0,0,0,.45)); }
   @media(min-width:761px){ .hero-photo { transform:scale(1.02); transform-origin:top right; } }
-  @media(max-width:760px){ .hero-grid{grid-template-columns:1fr;} .hero-photo{order:-1; transform:none;} }
+  @media(max-width:760px){ .hero-grid{grid-template-columns:minmax(0,1fr);} .hero-photo{order:-1;transform:none;min-width:0;overflow:hidden;} .brand-logo{width:92px;margin:0 auto 14px;} .hero-grid>div:first-child{text-align:center;min-width:0;} .hero h2{margin-left:auto;margin-right:auto;} .stat-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 10px;width:100%;} .stat{min-width:0;justify-content:center;} .stat span{white-space:normal;line-height:1.2;} }
 
   /* CTA PONTE — entre hero e autoridade */
   .hero-bridge-cta { position:relative; z-index:20; height:0; display:flex; justify-content:center; align-items:flex-start; overflow:visible; }
@@ -348,6 +353,7 @@
     <div class="wrap">
       <div class="hero-grid">
         <div>
+          <img class="brand-logo" src="assets/brand/logo-oficina.png" alt="Oficina do Âmbar">
           <div class="kicker">Super Almanaque de Velas &amp; Essências</div>
           <h1>Qual é a sua combinação perfeita de <span class="hl">vela e essência</span>?</h1>
           <h2>Mais de 50 essências caseiras, 288 receitas de vela testadas, quase 14 mil combinações pra explorar – tudo pra você criar a vela de alta qualidade que só a sua marca tem.</h2>
@@ -706,9 +712,9 @@
           <li><svg><use href="#ic-check"/></svg> 50 essências caseiras — 6 famílias</li>
           <li><svg><use href="#ic-check"/></svg> Acesso vitalício</li>
         </ul>
-        <div class="price-tag">R$ 37</div>
+        <div class="price-tag">R$ 27</div>
         <div class="price-note">à vista</div>
-        <a class="btn dark" href="#">Quero só as receitas</a>
+        <a class="btn dark" href="https://pay.cakto.com.br/38y6qrc_1165230" rel="noopener">Quero só as receitas</a>
       </div>
       <div class="price-card premium">
         <span class="seal">Mais completo</span>
@@ -724,12 +730,8 @@
         </ul>
         <div class="price-tag">R$ 47</div>
         <div class="price-note">à vista</div>
-        <a class="btn" href="#">Quero o pacote completo</a>
+        <a class="btn" href="https://pay.cakto.com.br/r8g74az_1165268" rel="noopener">Quero o pacote completo</a>
       </div>
-    </div>
-    <div class="placeholder" style="text-align:left;border-color:var(--gold-500);margin-top:24px">
-      <span class="ph-tag">Link de checkout pendente</span>
-      <p>Os 2 botões acima precisam apontar pros checkouts reais assim que os dados de empresa/processador de pagamento forem definidos (§9).</p>
     </div>
   </div>
 </div>
@@ -774,21 +776,7 @@
 </div>
 </section>
 
-<!-- ===== CTA DE DÚVIDA ===== -->
-<section class="bg-3">
-<div class="wrap-page">
-  <div class="card card-terracotta center">
-    <h2 style="font-size:22px;color:var(--ink)">Ainda com dúvida?</h2>
-    <div class="placeholder">
-      <span class="ph-tag">Link de WhatsApp pendente</span>
-      <p>Definir número de contato/suporte antes de publicar (dados de empresa/checkout, §9).</p>
-    </div>
-    <a class="btn dark" href="#">Pergunte aqui</a>
-  </div>
-</div>
-</section>
-
-<footer>Chama &amp; Âmbar · Super Almanaque de Velas &amp; Essências · rascunho, blocos marcados ainda precisam de decisão antes de publicar.</footer>
+<footer>Oficina do Âmbar · Super Almanaque de Velas &amp; Essências · acesso digital e vitalício.</footer>
 
 <script>
 (function () {
@@ -947,166 +935,5 @@
   nextBtn.addEventListener("click", next);
 })();
 </script>
-
-<!-- ===== MODO EDIÇÃO MANUAL — colar PNG direto na página (não faz parte do site publicado) ===== -->
-<style>
-  #edit-toggle { position:fixed; bottom:20px; right:20px; z-index:9999; background:#1B0F08; color:#F7F1E6; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; border:2px solid #C9A15C; border-radius:999px; padding:12px 20px; cursor:pointer; box-shadow:0 8px 24px rgba(0,0,0,.4); }
-  #edit-toggle.on { background:#E8491F; border-color:#E8491F; }
-  #edit-save { position:fixed; bottom:20px; right:200px; z-index:9999; background:#4F9B6E; color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; border:none; border-radius:999px; padding:12px 20px; cursor:pointer; box-shadow:0 8px 24px rgba(0,0,0,.4); display:none; }
-  #edit-hint { position:fixed; bottom:70px; right:20px; z-index:9999; background:rgba(27,15,8,.92); color:#F7F1E6; font-size:12.5px; padding:10px 16px; border-radius:10px; max-width:240px; display:none; }
-  body.edit-mode #edit-hint, body.edit-mode #edit-save { display:block; }
-  .user-sticker { position:absolute; z-index:500; cursor:move; outline:2px dashed transparent; }
-  body.edit-mode .user-sticker { outline-color:rgba(232,73,31,.6); }
-  body.edit-mode .user-sticker.selected { outline-color:#4F9B6E; outline-style:solid; }
-  .user-sticker img { display:block; width:100%; height:100%; pointer-events:none; transition:transform .15s ease; }
-  .user-sticker img.flipped { transform:scaleX(-1); }
-  .user-sticker .sticker-del { position:absolute; top:-12px; right:-12px; width:24px; height:24px; border-radius:50%; background:#E8491F; color:#fff; border:2px solid #fff; font-size:13px; line-height:1; display:none; align-items:center; justify-content:center; cursor:pointer; }
-  .user-sticker .sticker-rs { position:absolute; bottom:-8px; right:-8px; width:16px; height:16px; background:#C9A15C; border:2px solid #fff; border-radius:3px; cursor:nwse-resize; display:none; }
-  .user-sticker .sticker-flip { position:absolute; bottom:-12px; left:-12px; width:24px; height:24px; border-radius:50%; background:#1B0F08; color:#fff; border:2px solid #fff; font-size:12px; line-height:1; display:none; align-items:center; justify-content:center; cursor:pointer; }
-  body.edit-mode .user-sticker .sticker-del, body.edit-mode .user-sticker .sticker-rs, body.edit-mode .user-sticker .sticker-flip { display:flex; }
-  body.edit-mode .user-sticker .sticker-rs { display:block; }
-</style>
-<button id="edit-toggle" type="button">🖼️ Modo edição</button>
-<button id="edit-save" type="button">💾 Salvar HTML</button>
-<div id="edit-hint">Modo edição ligado: cole uma imagem (Ctrl+V) em qualquer lugar da página. Arraste pra mover, puxe o quadradinho dourado pra redimensionar, × pra apagar, ↔ (ou tecla F com a imagem selecionada) pra inverter horizontalmente. Depois clica em "Salvar HTML".</div>
-<script>
-(function () {
-  var editOn = false;
-  var toggle = document.getElementById("edit-toggle");
-  var saveBtn = document.getElementById("edit-save");
-  var stickerN = 0;
-  var selected = null;
-
-  function selectSticker(wrap) {
-    if (selected) selected.classList.remove("selected");
-    selected = wrap;
-    if (selected) selected.classList.add("selected");
-  }
-
-  toggle.addEventListener("click", function () {
-    editOn = !editOn;
-    document.body.classList.toggle("edit-mode", editOn);
-    toggle.classList.toggle("on", editOn);
-    toggle.textContent = editOn ? "✖ Sair do modo edição" : "🖼️ Modo edição";
-  });
-
-  function addSticker(src, x, y) {
-    stickerN++;
-    var wrap = document.createElement("div");
-    wrap.className = "user-sticker";
-    wrap.style.left = (x - 90) + "px";
-    wrap.style.top = (y - 90) + "px";
-    wrap.style.width = "180px";
-    wrap.style.height = "180px";
-    var img = document.createElement("img");
-    img.src = src;
-    var del = document.createElement("span");
-    del.className = "sticker-del";
-    del.textContent = "×";
-    del.addEventListener("click", function (e) { e.stopPropagation(); if (selected === wrap) selected = null; wrap.remove(); });
-    var rs = document.createElement("span");
-    rs.className = "sticker-rs";
-    var flip = document.createElement("span");
-    flip.className = "sticker-flip";
-    flip.textContent = "⇆";
-    flip.addEventListener("click", function (e) { e.stopPropagation(); img.classList.toggle("flipped"); });
-    wrap.appendChild(img);
-    wrap.appendChild(del);
-    wrap.appendChild(rs);
-    wrap.appendChild(flip);
-    document.body.appendChild(wrap);
-    selectSticker(wrap);
-
-    // drag to move
-    wrap.addEventListener("mousedown", function (e) {
-      if (!editOn || e.target === rs || e.target === del || e.target === flip) return;
-      selectSticker(wrap);
-      e.preventDefault();
-      var startX = e.clientX, startY = e.clientY;
-      var origLeft = wrap.offsetLeft, origTop = wrap.offsetTop;
-      function onMove(e2) {
-        wrap.style.left = (origLeft + e2.clientX - startX) + "px";
-        wrap.style.top = (origTop + e2.clientY - startY) + "px";
-      }
-      function onUp() {
-        document.removeEventListener("mousemove", onMove);
-        document.removeEventListener("mouseup", onUp);
-      }
-      document.addEventListener("mousemove", onMove);
-      document.addEventListener("mouseup", onUp);
-    });
-
-    // drag corner to resize
-    rs.addEventListener("mousedown", function (e) {
-      if (!editOn) return;
-      e.preventDefault(); e.stopPropagation();
-      var startX = e.clientX, startY = e.clientY;
-      var origW = wrap.offsetWidth, origH = wrap.offsetHeight;
-      function onMove(e2) {
-        wrap.style.width = Math.max(30, origW + e2.clientX - startX) + "px";
-        wrap.style.height = Math.max(30, origH + e2.clientY - startY) + "px";
-      }
-      function onUp() {
-        document.removeEventListener("mousemove", onMove);
-        document.removeEventListener("mouseup", onUp);
-      }
-      document.addEventListener("mousemove", onMove);
-      document.addEventListener("mouseup", onUp);
-    });
-  }
-  window.addSticker = addSticker; // exposed for manual/debug use too
-
-  var lastClick = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-  document.addEventListener("click", function (e) {
-    lastClick = { x: e.pageX, y: e.pageY };
-    if (!e.target.closest(".user-sticker")) selectSticker(null);
-  });
-
-  document.addEventListener("keydown", function (e) {
-    if (!editOn || !selected) return;
-    if (e.key === "f" || e.key === "F") {
-      var tag = (document.activeElement || {}).tagName;
-      if (tag === "INPUT" || tag === "TEXTAREA") return;
-      selected.querySelector("img").classList.toggle("flipped");
-    }
-  });
-
-  document.addEventListener("paste", function (e) {
-    if (!editOn) return;
-    var items = (e.clipboardData || window.clipboardData).items;
-    for (var i = 0; i < items.length; i++) {
-      if (items[i].type.indexOf("image") === 0) {
-        var file = items[i].getAsFile();
-        var reader = new FileReader();
-        reader.onload = function (ev) { addSticker(ev.target.result, lastClick.x, lastClick.y); };
-        reader.readAsDataURL(file);
-      }
-    }
-  });
-
-  async function saveHtml() {
-    var clone = document.documentElement.cloneNode(true);
-    clone.querySelectorAll("#edit-toggle,#edit-save,#edit-hint").forEach(function (el) { el.remove(); });
-    clone.querySelectorAll(".user-sticker").forEach(function (el) {
-      el.querySelectorAll(".sticker-del,.sticker-rs").forEach(function (h) { h.remove(); });
-    });
-    var html = "<!doctype html>\n" + clone.outerHTML;
-    if (window.showSaveFilePicker) {
-      try {
-        var handle = await window.showSaveFilePicker({ suggestedName: "index.html", types: [{ description: "HTML", accept: { "text/html": [".html"] } }] });
-        var writable = await handle.createWritable();
-        await writable.write(html);
-        await writable.close();
-        alert("Salvo!");
-        return;
-      } catch (err) { if (err.name === "AbortError") return; }
-    }
-    var blob = new Blob([html], { type: "text/html" });
-    var a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "index.html";
-    a.click();
-  }
-  saveBtn.addEventListener("click", saveHtml);
-})();
-</script>
+</body>
+</html>
