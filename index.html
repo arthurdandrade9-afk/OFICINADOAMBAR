@@ -18,6 +18,7 @@
     color-scheme: light;
   }
   * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:20px; }
   body {
     margin:0; color:var(--ink-soft); font-family:'Manrope',system-ui,sans-serif; font-size:15.5px; line-height:1.65;
     background:
@@ -50,6 +51,8 @@
   }
   .btn { display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg,var(--flame-500),var(--flame-600)); color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; padding:14px 32px; border-radius:999px; text-decoration:none; margin-top:18px; box-shadow:0 6px 18px rgba(232,73,31,.4); }
   .btn svg { width:16px; height:16px; }
+  .section-offer-cta { display:flex; justify-content:center; margin-top:26px; }
+  .section-offer-cta .btn { margin-top:0; }
 
   /* ===== TELA DE ABERTURA — hero + autoridade juntos ocupam 100vh ===== */
   .opening-screen { min-height:100vh; display:flex; flex-direction:column; }
@@ -475,6 +478,9 @@
             <div class="autoridade-badge"><span class="ic"><svg><use href="#ic-leaf"/></svg></span><div><strong>Ordem de infusão</strong><span>Notas delicadas e resistentes são trabalhadas em momentos diferentes</span></div></div>
           </div>
           <p style="margin-top:20px"><strong style="color:var(--terracotta-600)">O resultado:</strong> essências com perfil aromático mais completo e melhor permanência no ambiente, desenvolvidas para você criar combinações marcantes nas suas velas.</p>
+          <div class="section-offer-cta">
+            <a class="btn" href="#oferta">Ver as duas opções <svg><use href="#ic-arrow"/></svg></a>
+          </div>
         </div>
         <img class="autoridade-photo" src="assets/livro/cat-flores-naturais.jpg" alt="">
       </div>
@@ -622,6 +628,9 @@
       <div>Gourmet <span class="n">8</span></div>
       <div>Frescas e Herbais <span class="n">8</span></div>
       <div>Orientais e Especiarias <span class="n">8</span></div>
+    </div>
+    <div class="section-offer-cta">
+      <a class="btn" href="#oferta">Escolher meu acesso <svg><use href="#ic-arrow"/></svg></a>
     </div>
   </div>
 </div>
