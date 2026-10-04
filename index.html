@@ -13,6 +13,7 @@
     --flame-600:#E8491F; --flame-500:#FF6B35;
     --sun-400:#FFC857;
     --sage-500:#4F9B6E;
+    --conversion-green:#22A861; --conversion-green-dark:#147343; --conversion-mint:#DDF5E8;
     --cream-100:#F0E8D8; --cream-050:#F7F1E6; --cream-text-soft:#DECBA6;
     --ink:#241A12; --ink-soft:#3D2E1E; --border-soft:#D9C7A0;
     color-scheme: light;
@@ -51,6 +52,19 @@
   }
   .btn { display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg,var(--flame-500),var(--flame-600)); color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; padding:14px 32px; border-radius:999px; text-decoration:none; margin-top:18px; box-shadow:0 6px 18px rgba(232,73,31,.4); }
   .btn svg { width:16px; height:16px; }
+  .btn-buy { background:linear-gradient(135deg,var(--conversion-green),var(--conversion-green-dark)); box-shadow:0 8px 24px rgba(34,168,97,.42); transition:transform .2s ease,box-shadow .2s ease,filter .2s ease; }
+  .btn-buy:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(34,168,97,.5); filter:saturate(1.08); }
+  .hero-actions { display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:20px; }
+  .hero-actions .btn { margin-top:0; }
+  .hero-alt-link { color:var(--cream-100); font-weight:800; font-size:13px; text-underline-offset:4px; }
+  .trust-line { display:flex; justify-content:center; flex-wrap:wrap; gap:8px 18px; margin-top:13px; color:var(--ink-soft); font-size:11.5px; font-weight:700; }
+  .trust-line span { display:inline-flex; align-items:center; gap:6px; }
+  .trust-line span::before { content:"✓"; display:grid; place-items:center; width:17px; height:17px; border-radius:50%; background:var(--conversion-mint); color:var(--conversion-green-dark); font-weight:900; font-size:11px; }
+  .trust-line--hero { justify-content:flex-start; color:var(--cream-text-soft); }
+  .conversion-cta { margin-top:26px; padding:20px; text-align:center; border:1px solid rgba(34,168,97,.34); border-radius:14px; background:linear-gradient(135deg,rgba(221,245,232,.82),rgba(255,255,255,.55)); }
+  .conversion-cta p { max-width:58ch; margin:0 auto 3px; color:var(--ink-soft); }
+  .conversion-cta strong { color:var(--conversion-green-dark); }
+  .conversion-cta .btn { margin-top:12px; }
   .section-offer-cta { display:flex; justify-content:center; margin-top:26px; }
   .section-offer-cta .btn { margin-top:0; }
 
@@ -170,7 +184,7 @@
   .photo-slot { position:relative; aspect-ratio:3/4; border-radius:10px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.22); }
   .photo-slot img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease; }
   .photo-slot:hover img { transform:scale(1.07); }
-  .photo-slot .num { position:absolute; top:10px; left:10px; width:24px; height:24px; border-radius:50%; background:rgba(15,8,4,.75); color:var(--sun-400); font-family:'Poppins',sans-serif; font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center; }
+  .photo-slot .num { position:absolute; top:10px; left:10px; width:26px; height:26px; border-radius:50%; background:var(--conversion-green); color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(20,115,67,.45); }
   .photo-slot .cap { position:absolute; left:0; right:0; bottom:0; padding:26px 10px 10px; background:linear-gradient(180deg, rgba(15,8,4,0) 0%, rgba(15,8,4,.82) 100%); color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:12px; line-height:1.25; }
   @media(max-width:700px){ .grid-photos{grid-template-columns:repeat(2,1fr);} }
 
@@ -219,7 +233,7 @@
   /* CURRICULO */
   .curric-cat { columns:2; column-gap:28px; margin-top:14px; }
   .curric-cat div { break-inside:avoid; padding:7px 0; border-bottom:1px solid var(--border-soft); font-size:14px; display:flex; justify-content:space-between; gap:10px; color:var(--ink-soft); }
-  .curric-cat span.n { color:var(--flame-600); font-family:'Poppins',sans-serif; font-weight:800; font-size:12px; white-space:nowrap; }
+  .curric-cat span.n { display:inline-flex; align-items:center; justify-content:center; min-width:29px; height:24px; padding:0 7px; border-radius:999px; background:var(--conversion-mint); color:var(--conversion-green-dark); font-family:'Poppins',sans-serif; font-weight:900; font-size:11px; white-space:nowrap; }
   @media(max-width:700px){ .curric-cat{columns:1;} }
 
   /* MECANISMO */
@@ -228,7 +242,7 @@
   .mech-step { position:relative; border-radius:10px; overflow:hidden; aspect-ratio:3/4; box-shadow:0 10px 24px rgba(0,0,0,.35); }
   .mech-step .photo { position:absolute; inset:0; display:block; }
   .mech-step .photo img { width:100%; height:100%; object-fit:cover; display:block; }
-  .mech-step .n { position:absolute; top:10px; right:10px; z-index:2; width:26px; height:26px; border-radius:50%; background:rgba(15,8,4,.6); border:1px solid rgba(255,200,87,.4); color:var(--sun-400); font-family:'Poppins',sans-serif; font-weight:900; font-size:12px; display:flex; align-items:center; justify-content:center; }
+  .mech-step .n { position:absolute; top:10px; right:10px; z-index:2; width:29px; height:29px; border-radius:50%; background:var(--conversion-green); border:2px solid rgba(255,255,255,.7); color:#fff; font-family:'Poppins',sans-serif; font-weight:900; font-size:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 5px 14px rgba(20,115,67,.45); }
   .mech-step .txt { position:absolute; left:0; right:0; bottom:0; z-index:2; padding:30px 14px 14px; background:linear-gradient(180deg, rgba(15,8,4,0) 0%, rgba(15,8,4,.92) 55%, rgba(15,8,4,.97) 100%); }
   .mech-step h3 { font-size:13.5px; margin:0 0 4px; color:#fff; }
   .mech-step p { color:var(--cream-text-soft); font-size:11.5px; margin:0; line-height:1.35; }
@@ -261,7 +275,8 @@
   /* BONUS */
   .bonus-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
   .bonus-card { background:rgba(0,0,0,.28); border-radius:8px; padding:20px 22px; }
-  .bonus-card .num { font-family:'Poppins',sans-serif; color:var(--sun-400); font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+  .bonus-card .num { display:inline-flex; align-items:center; gap:6px; font-family:'Poppins',sans-serif; color:#8CF0B6; font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+  .bonus-card .num::before { content:"✓"; display:grid; place-items:center; width:18px; height:18px; border-radius:50%; color:#fff; background:var(--conversion-green); font-size:11px; }
   .bonus-card h3 { font-size:16.5px; margin:6px 0 8px; }
   .bonus-card p { color:var(--cream-text-soft); font-size:13.3px; margin:0; }
   .bonus-card.special { background:rgba(92,26,43,.55); }
@@ -271,6 +286,18 @@
   .label-showcase{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:34px;align-items:center;margin-top:28px;text-align:left}.label-showcase__visual{position:relative;padding:20px;border:1px solid rgba(201,161,92,.45);background:linear-gradient(145deg,#1b0f08,#341019);box-shadow:0 20px 45px rgba(27,15,8,.25)}.label-showcase__visual img{display:block;width:100%;height:auto}.label-showcase__copy h3{font-size:23px;margin-bottom:12px}.label-showcase__copy ul{margin:18px 0;padding:0;list-style:none}.label-showcase__copy li{position:relative;margin:10px 0;padding-left:24px}.label-showcase__copy li::before{content:"✓";position:absolute;left:0;color:var(--sage-500);font-weight:900}.label-showcase__copy .btn{margin-top:6px}.label-showcase__note{font-size:11.5px;color:var(--ink-soft)}@media(max-width:780px){.label-showcase{grid-template-columns:1fr}.label-showcase__visual{order:-1}}
 
   /* OFERTA */
+  .value-anchor-card { border:2px solid rgba(34,168,97,.35); box-shadow:0 18px 46px rgba(27,15,8,.18); }
+  .value-anchor-card>p { max-width:68ch; }
+  .value-grid { display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr); gap:18px; margin-top:24px; }
+  .value-option { border:1px solid var(--border-soft); border-radius:14px; padding:22px; background:rgba(255,255,255,.56); }
+  .value-option--complete { border:2px solid var(--conversion-green); background:linear-gradient(145deg,#F5FFF9,var(--conversion-mint)); box-shadow:0 12px 28px rgba(34,168,97,.14); }
+  .value-option h3 { font-size:18px; margin-bottom:8px; }
+  .value-option .value-price { font-family:'Poppins',sans-serif; font-size:30px; line-height:1; font-weight:900; color:var(--ink); }
+  .value-option--complete .value-price { color:var(--conversion-green-dark); }
+  .value-option p { font-size:13px; margin:8px 0 14px; }
+  .value-check { position:relative; padding:7px 0 7px 30px; border-top:1px solid rgba(20,115,67,.14); font-size:13px; font-weight:700; color:var(--ink-soft); }
+  .value-check::before { content:"✓"; position:absolute; left:0; top:8px; display:grid; place-items:center; width:20px; height:20px; border-radius:50%; background:var(--conversion-green); color:#fff; font-size:12px; font-weight:900; }
+  .value-upgrade { display:inline-flex; align-items:center; gap:7px; margin-bottom:10px; padding:6px 11px; border-radius:999px; background:var(--conversion-green); color:#fff; font-family:'Poppins',sans-serif; font-size:11px; font-weight:900; text-transform:uppercase; }
   .price-tag { font-family:'Poppins',sans-serif; font-size:44px; font-weight:900; color:var(--sun-400); }
   .price-note { font-size:12.5px; color:var(--cream-text-soft); text-transform:uppercase; letter-spacing:.05em; margin-top:4px; }
 
@@ -284,8 +311,11 @@
   .price-card .price-tag { font-size:34px; }
   .price-card .price-note { margin-bottom:4px; }
   .price-card .btn { width:100%; justify-content:center; margin-top:16px; }
-  .price-card.premium { background:linear-gradient(160deg, rgba(255,200,87,.16) 0%, rgba(255,255,255,.05) 65%); border:2px solid var(--gold-500); box-shadow:0 0 44px rgba(255,200,87,.2); }
-  .price-card .seal { position:absolute; top:-14px; right:22px; background:linear-gradient(135deg,var(--gold-500),var(--sun-400)); color:var(--ember-900); font-family:'Poppins',sans-serif; font-weight:800; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; padding:7px 14px; border-radius:999px; box-shadow:0 6px 14px rgba(0,0,0,.4); }
+  .price-card.premium { background:linear-gradient(160deg, rgba(34,168,97,.22) 0%, rgba(255,255,255,.06) 68%); border:2px solid var(--conversion-green); box-shadow:0 0 48px rgba(34,168,97,.25); transform:scale(1.02); }
+  .price-card.premium .price-tag { color:#8CF0B6; }
+  .price-card .seal { position:absolute; top:-14px; right:22px; background:linear-gradient(135deg,var(--conversion-green),var(--conversion-green-dark)); color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; padding:7px 14px; border-radius:999px; box-shadow:0 6px 14px rgba(0,0,0,.4); }
+  .price-card .trust-line { color:var(--cream-text-soft); gap:7px; align-items:flex-start; flex-direction:column; }
+  .price-card .trust-line span::before { flex:0 0 17px; }
   @media(max-width:760px){ .pricing-row{grid-template-columns:1fr;} }
 
   .guarantee-badge { width:56px; height:56px; border-radius:50%; background:rgba(139,74,46,.14); display:flex; align-items:center; justify-content:center; margin:0 auto 14px; }
@@ -327,11 +357,15 @@
   .faq-item p { margin:10px 0 0; font-size:14px; color:var(--ink-soft); }
 
   .btn.dark { background:var(--ember-900); color:var(--cream-100); }
+  .sticky-offer { position:fixed; left:0; right:0; bottom:0; z-index:1000; display:none; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:rgba(20,32,24,.97); border-top:1px solid rgba(140,240,182,.34); box-shadow:0 -8px 28px rgba(0,0,0,.32); backdrop-filter:blur(10px); }
+  .sticky-offer__copy { color:#fff; font-size:11px; line-height:1.2; }
+  .sticky-offer__copy strong { display:block; color:#8CF0B6; font-family:'Poppins',sans-serif; font-size:15px; }
+  .sticky-offer .btn { width:auto; min-height:44px; margin:0; padding:11px 17px; font-size:12px; white-space:nowrap; }
 
   /* MOBILE — acabamento dedicado para telas de 360–430 px */
   @media(max-width:760px){
     html,body{max-width:100%;overflow-x:hidden;}
-    body{font-size:14.5px;line-height:1.58;background-attachment:scroll,scroll;}
+    body{font-size:14.5px;line-height:1.58;background-attachment:scroll,scroll;padding-bottom:74px;}
     .wrap,.wrap-page{padding-left:16px;padding-right:16px;}
     section{padding:42px 0;background-attachment:scroll;}
     .card{padding:30px 18px;border-radius:14px;}
@@ -339,6 +373,14 @@
     h2{font-size:clamp(22px,7vw,28px);line-height:1.18;}
     h3{line-height:1.25;}
     .btn{width:100%;min-height:52px;justify-content:center;text-align:center;font-size:14px;line-height:1.25;padding:14px 18px;}
+    .hero-actions{display:block;}
+    .hero-alt-link{display:inline-block;margin-top:13px;}
+    .trust-line--hero{justify-content:center;gap:7px 12px;}
+    .value-grid{grid-template-columns:1fr;}
+    .value-option{padding:19px 16px;}
+    .conversion-cta{padding:18px 14px;}
+    .price-card.premium{transform:none;}
+    .sticky-offer{display:flex;}
 
     .hero{padding:26px 0 34px;background-position:center;}
     .hero-grid{gap:22px;}
@@ -440,8 +482,13 @@
         <div>
           <img class="brand-logo" src="assets/brand/logo-oficina.png" alt="Oficina do Âmbar">
           <div class="kicker">Super Almanaque de Velas &amp; Essências</div>
-          <h1>Qual é a sua combinação perfeita de <span class="hl">vela e essência</span>?</h1>
-          <h2>Mais de 50 essências caseiras, 288 receitas de vela testadas, quase 14 mil combinações pra explorar – tudo pra você criar a vela de alta qualidade que só a sua marca tem.</h2>
+          <h1>Crie velas que parecem exclusivas — <span class="hl">sem depender de uma única receita.</span></h1>
+          <h2>Use 288 receitas, 50 essências caseiras e um sistema completo para criar, calcular, rotular e vender velas com identidade própria.</h2>
+          <div class="hero-actions">
+            <a class="btn btn-buy" href="#oferta">Quero o pacote completo por R$ 27 <svg><use href="#ic-arrow"/></svg></a>
+            <a class="hero-alt-link" href="#valor">Ver tudo que está incluído</a>
+          </div>
+          <div class="trust-line trust-line--hero"><span>Acesso vitalício</span><span>Garantia de 7 dias</span><span>Pagamento seguro</span></div>
           <div class="stat-row">
             <div class="stat"><span class="ic"><svg><use href="#ic-book"/></svg></span><div><b>288</b><span>Receitas-base</span></div></div>
             <div class="stat"><span class="ic"><svg><use href="#ic-flask"/></svg></span><div><b>50</b><span>Essências caseiras</span></div></div>
@@ -456,9 +503,9 @@
 
   <!-- ===== CTA "ponte" — centralizado, furando a linha entre Hero e Autoridade ===== -->
   <div class="hero-bridge-cta">
-    <a class="bridge-cta-img" href="#simulador" aria-label="Crie sua vela">
-      <img src="assets/decor/bridge-cta-garland.png" alt="Crie sua vela">
-      <span class="bridge-cta-overlay"><span>Crie sua vela!</span><svg><use href="#ic-arrow"/></svg></span>
+    <a class="bridge-cta-img" href="#oferta" aria-label="Ver as ofertas">
+      <img src="assets/decor/bridge-cta-garland.png" alt="Ver as ofertas">
+      <span class="bridge-cta-overlay"><span>Ver as ofertas</span><svg><use href="#ic-arrow"/></svg></span>
     </a>
   </div>
 
@@ -511,6 +558,42 @@
 </div>
 </section>
 
+<!-- ===== ANCORAGEM DE VALOR ===== -->
+<section id="valor" class="bg-4">
+<div class="wrap-page">
+  <div class="card card-neutral value-anchor-card">
+    <div class="kicker">Uma escolha simples</div>
+    <h2 style="font-size:27px;margin-top:8px;color:var(--ink)">Leve só as 338 receitas por R$ 17 — ou transforme isso num sistema completo por apenas R$ 10 a mais.</h2>
+    <p>Se você já domina produção, as bibliotecas podem bastar. Mas se quer criar com mais segurança e saber como precificar, apresentar e vender, o Pacote Completo concentra toda a jornada em um único acesso.</p>
+    <div class="value-grid">
+      <div class="value-option">
+        <h3>Somente as receitas</h3>
+        <div class="value-price">R$ 17</div>
+        <p>Para quem já conhece a técnica e quer ampliar o repertório.</p>
+        <div class="value-check">288 receitas de velas</div>
+        <div class="value-check">50 essências caseiras</div>
+        <div class="value-check">Acesso digital e vitalício</div>
+      </div>
+      <div class="value-option value-option--complete">
+        <span class="value-upgrade">✓ Por apenas R$ 10 a mais</span>
+        <h3>O sistema completo</h3>
+        <div class="value-price">R$ 27</div>
+        <p>Para sair da receita e chegar a um produto com custo, preço e apresentação definidos.</p>
+        <div class="value-check">Tudo do plano de receitas</div>
+        <div class="value-check">Guia Fundamentos completo — 372 páginas</div>
+        <div class="value-check">Planilha de Custo e Preço</div>
+        <div class="value-check">Ateliê de Rótulos + 6 bônus</div>
+      </div>
+    </div>
+    <div class="conversion-cta">
+      <p><strong>É uma diferença de só R$ 10</strong> para receber o processo completo, não apenas as fórmulas.</p>
+      <a class="btn btn-buy" href="#oferta">Quero ver o pacote completo por R$ 27 <svg><use href="#ic-arrow"/></svg></a>
+      <div class="trust-line"><span>Compra protegida</span><span>Acesso vitalício</span><span>7 dias de garantia</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
 <!-- ===== DOR CURTA ===== -->
 <section class="bg-7">
 <div class="wrap-page">
@@ -556,8 +639,8 @@
     </div>
 
     <div class="desc-cta">
-      <p>Quer ver como funciona na prática? Simule sua combinação agora e descubra quantas possibilidades você pode criar.</p>
-      <a class="btn" href="#simulador">Simular minha combinação <svg><use href="#ic-arrow"/></svg></a>
+      <p>Você pode testar a combinação abaixo — ou ir direto para a oferta completa e começar com todo o sistema.</p>
+      <a class="btn btn-buy" href="#oferta">Quero criar e vender minhas velas <svg><use href="#ic-arrow"/></svg></a>
     </div>
   </div>
 </div>
@@ -587,6 +670,7 @@
 
     <p class="process-close">Da ideia ao produto pronto pra venda — sem depender de receitas soltas ou tentar descobrir tudo sozinha.</p>
     <div class="bonus-banner"><span class="ic"><svg><use href="#ic-tag"/></svg></span><span>E ainda vamos te ajudar a criar o rótulo!</span></div>
+    <div class="section-offer-cta"><a class="btn btn-buy" href="#oferta">Quero o sistema completo por R$ 27 <svg><use href="#ic-arrow"/></svg></a></div>
   </div>
 </div>
 </section>
@@ -672,6 +756,7 @@
       <div class="combo-ex"><strong>Gourmet + Orientais</strong>Sobremesa com tempero raro — foge do óbvio.</div>
     </div>
     <p class="mech-callout">O Guia Fundamentos + as 19 categorias de vela + as 6 famílias de essência juntos já funcionam como o seu guia de combinações — você escolhe o par, a técnica ensina o resto.</p>
+    <div class="section-offer-cta"><a class="btn btn-buy" href="#oferta">Quero aplicar esse método <svg><use href="#ic-arrow"/></svg></a></div>
   </div>
 </div>
 </section>
@@ -713,6 +798,10 @@
         <span class="sim-ember" style="left:75%;"></span>
       </div>
       <p class="sim-caption" id="sim-caption"></p>
+    </div>
+    <div class="conversion-cta">
+      <p><strong>Gostou da possibilidade?</strong> No Pacote Completo você recebe as receitas, a técnica, a planilha e o Ateliê de Rótulos.</p>
+      <a class="btn btn-buy" href="#oferta">Ver meu acesso completo <svg><use href="#ic-arrow"/></svg></a>
     </div>
   </div>
 </div>
@@ -766,6 +855,7 @@
       <button class="testi-next" id="testi-next" type="button" aria-label="Próximo depoimento"><svg><use href="#ic-arrow"/></svg></button>
     </div>
     <div class="testi-dots" id="testi-dots"></div>
+    <div class="section-offer-cta"><a class="btn btn-buy" href="#oferta">Quero começar com o pacote completo <svg><use href="#ic-arrow"/></svg></a></div>
   </div>
 </div>
 </section>
@@ -785,6 +875,7 @@
       <div class="bonus-card"><div class="num">Bônus 6</div><h3>Planejador Anual</h3><p>Calendário comercial brasileiro cruzado com a Biblioteca — nunca mais perder uma data.</p></div>
       <div class="bonus-card special" style="grid-column:1/-1"><div class="num">Bônus Especial</div><h3>Planilha de Custo e Preço (.xlsx)</h3><p>5 abas, fórmulas prontas, as 338 receitas já listadas — o que o concorrente cobra separado ou nem tem, aqui já vem incluso.</p></div>
     </div>
+    <div class="section-offer-cta"><a class="btn btn-buy" href="#oferta">Quero receber tudo por R$ 27 <svg><use href="#ic-arrow"/></svg></a></div>
   </div>
 </div>
 </section>
@@ -793,7 +884,9 @@
 <section id="oferta" class="bg-7">
 <div class="wrap-page">
   <div class="card card-dark center">
-    <h2>Escolha o plano que faz mais sentido pra você — sem mensalidade, sem taxa escondida.</h2>
+    <div class="kicker">Escolha seu acesso</div>
+    <h2>Comece pelas receitas por R$ 17 — ou leve o sistema completo por apenas R$ 10 a mais.</h2>
+    <p style="max-width:66ch;margin:10px auto 0;color:var(--cream-text-soft)">O plano de R$ 17 entrega repertório. O de R$ 27 acrescenta a técnica, a precificação, os rótulos e os bônus para transformar esse repertório em produto.</p>
     <div class="pricing-row">
       <div class="price-card">
         <h3>Receitas de Velas &amp; Essências</h3>
@@ -806,9 +899,10 @@
         <div class="price-tag">R$ 17</div>
         <div class="price-note">à vista</div>
         <a class="btn dark" href="https://pay.cakto.com.br/38y6qrc_1165230" rel="noopener">Quero só as receitas</a>
+        <div class="trust-line"><span>Pagamento seguro pela Cakto</span><span>Acesso digital</span><span>7 dias de garantia</span></div>
       </div>
       <div class="price-card premium">
-        <span class="seal">Mais completo</span>
+        <span class="seal">Mais completo • só R$ 10 a mais</span>
         <h3>Pacote Completo</h3>
         <div class="sub">Tudo que existe no Super Almanaque</div>
         <ul>
@@ -821,7 +915,8 @@
         </ul>
         <div class="price-tag">R$ 27</div>
         <div class="price-note">à vista</div>
-        <a class="btn" href="https://pay.cakto.com.br/r8g74az_1165268" rel="noopener">Quero o pacote completo</a>
+        <a class="btn btn-buy" href="https://pay.cakto.com.br/r8g74az_1165268" rel="noopener">Quero o pacote completo</a>
+        <div class="trust-line"><span>Pagamento seguro pela Cakto</span><span>Acesso digital</span><span>7 dias de garantia</span></div>
       </div>
     </div>
   </div>
@@ -868,6 +963,11 @@
 </section>
 
 <footer>Oficina do Âmbar · Super Almanaque de Velas &amp; Essências · acesso digital e vitalício.</footer>
+
+<div class="sticky-offer" role="region" aria-label="Atalho para a oferta">
+  <div class="sticky-offer__copy"><span>Pacote Completo</span><strong>R$ 27 à vista</strong></div>
+  <a class="btn btn-buy" href="#oferta">Ver oferta <svg><use href="#ic-arrow"/></svg></a>
+</div>
 
 <script>
 (function () {
