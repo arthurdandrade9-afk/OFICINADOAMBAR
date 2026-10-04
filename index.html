@@ -228,6 +228,27 @@
   .desc-cta { margin-top:28px; padding-top:24px; border-top:1px solid rgba(93,58,26,.18); display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
   .desc-cta p { margin:0; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); max-width:38ch; }
   .desc-cta .btn { margin-top:0; }
+  .method-comparison { margin-top:34px; padding-top:30px; border-top:1px solid rgba(20,115,67,.22); }
+  .method-comparison__head { text-align:center; max-width:760px; margin:0 auto 20px; }
+  .method-comparison__head h3 { font-size:24px; margin-top:7px; }
+  .method-comparison__head p { margin:8px auto 0; max-width:64ch; font-size:14px; }
+  .method-comparison__grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .method-result { border-radius:14px; padding:24px 22px; }
+  .method-result h3 { display:flex; align-items:center; gap:10px; font-size:18px; margin-bottom:7px; }
+  .method-result h3::before { display:grid; place-items:center; width:27px; height:27px; border-radius:50%; color:#fff; font-size:15px; font-weight:900; flex:0 0 27px; }
+  .method-result>p { margin:0 0 15px; font-size:13px; }
+  .method-result ul { list-style:none; margin:0; padding:0; }
+  .method-result li { position:relative; padding:10px 0 10px 28px; border-top:1px solid rgba(36,26,18,.11); font-size:13px; line-height:1.45; }
+  .method-result li::before { position:absolute; left:0; top:10px; font-weight:900; }
+  .method-result--without { background:linear-gradient(145deg,#FFF4F1,#F4D3CB); border:1px solid rgba(170,55,38,.28); }
+  .method-result--without h3 { color:#8F2F25; }
+  .method-result--without h3::before { content:"×"; background:#B84836; }
+  .method-result--without li::before { content:"×"; color:#B84836; }
+  .method-result--with { background:linear-gradient(145deg,#F4FFF8,var(--conversion-mint)); border:2px solid var(--conversion-green); box-shadow:0 12px 28px rgba(34,168,97,.15); }
+  .method-result--with h3 { color:var(--conversion-green-dark); }
+  .method-result--with h3::before { content:"✓"; background:var(--conversion-green); }
+  .method-result--with li::before { content:"✓"; color:var(--conversion-green-dark); }
+  .method-comparison__note { margin:14px auto 0; text-align:center; font-size:11.5px; color:var(--ink-soft); max-width:70ch; }
   @media(max-width:700px){ .personas{grid-template-columns:1fr;} }
 
   /* CURRICULO */
@@ -298,6 +319,12 @@
   .value-check { position:relative; padding:7px 0 7px 30px; border-top:1px solid rgba(20,115,67,.14); font-size:13px; font-weight:700; color:var(--ink-soft); }
   .value-check::before { content:"✓"; position:absolute; left:0; top:8px; display:grid; place-items:center; width:20px; height:20px; border-radius:50%; background:var(--conversion-green); color:#fff; font-size:12px; font-weight:900; }
   .value-upgrade { display:inline-flex; align-items:center; gap:7px; margin-bottom:10px; padding:6px 11px; border-radius:999px; background:var(--conversion-green); color:#fff; font-family:'Poppins',sans-serif; font-size:11px; font-weight:900; text-transform:uppercase; }
+  .value-generator-callout { color:var(--conversion-green-dark); font-weight:900; }
+  .label-access-highlight { margin-top:16px; padding:17px 18px; border-radius:12px; color:#fff; background:linear-gradient(135deg,var(--conversion-green),var(--conversion-green-dark)); box-shadow:0 10px 24px rgba(34,168,97,.25); }
+  .label-access-highlight strong { display:block; font-family:'Poppins',sans-serif; font-size:16px; line-height:1.3; }
+  .label-access-highlight p { color:#fff; margin:6px 0 0; font-size:12.5px; }
+  .label-access-highlight__formats { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+  .label-access-highlight__formats span { padding:5px 9px; border-radius:999px; background:rgba(255,255,255,.18); font-size:10.5px; font-weight:800; }
   .price-tag { font-family:'Poppins',sans-serif; font-size:44px; font-weight:900; color:var(--sun-400); }
   .price-note { font-size:12.5px; color:var(--cream-text-soft); text-transform:uppercase; letter-spacing:.05em; margin-top:4px; }
 
@@ -378,6 +405,9 @@
     .trust-line--hero{justify-content:center;gap:7px 12px;}
     .value-grid{grid-template-columns:1fr;}
     .value-option{padding:19px 16px;}
+    .method-comparison__grid{grid-template-columns:1fr;}
+    .method-result{padding:20px 16px;}
+    .method-comparison__head h3{font-size:21px;}
     .conversion-cta{padding:18px 14px;}
     .price-card.premium{transform:none;}
     .sticky-offer{display:flex;}
@@ -578,11 +608,24 @@
         <span class="value-upgrade">✓ Por apenas R$ 10 a mais</span>
         <h3>O sistema completo</h3>
         <div class="value-price">R$ 27</div>
-        <p>Para sair da receita e chegar a um produto com custo, preço e apresentação definidos.</p>
-        <div class="value-check">Tudo do plano de receitas</div>
+        <p>Você recebe cada biblioteca, guia, ferramenta e bônus abaixo — nada fica escondido em “e muito mais”.</p>
+        <div class="value-check">288 receitas de velas organizadas em 19 categorias</div>
+        <div class="value-check">50 receitas de essências caseiras em 6 famílias aromáticas</div>
         <div class="value-check">Guia Fundamentos completo — 372 páginas</div>
-        <div class="value-check">Planilha de Custo e Preço</div>
-        <div class="value-check">Ateliê de Rótulos + 6 bônus</div>
+        <div class="value-check">Planilha de Custo e Preço (.xlsx) com fórmulas prontas</div>
+        <div class="value-check">Guia de Rótulos com 50 estruturas de texto</div>
+        <div class="value-check"><span class="value-generator-callout">Gerador de Rótulos completo</span> para criar, visualizar e baixar seus arquivos</div>
+        <div class="value-check">Guia de Instagram com 32 orientações práticas</div>
+        <div class="value-check">Guia de Cuidados com a Vela para entregar ao cliente</div>
+        <div class="value-check">Guia de Envio Seguro para embalagem e despacho</div>
+        <div class="value-check">Guia de Escolha de Pavio com diagnóstico de 8 problemas</div>
+        <div class="value-check">Planejador Anual com calendário comercial</div>
+        <div class="value-check">Acesso digital e vitalício ao material</div>
+        <div class="label-access-highlight">
+          <strong>✓ Gerador de Rótulos 100% disponível no Pacote Completo</strong>
+          <p>Use quantas vezes precisar, sem mensalidade e sem nenhum custo adicional. Crie modelos retangulares, quadrados e redondos e faça download em PNG, SVG e PDF.</p>
+          <div class="label-access-highlight__formats"><span>Uso ilimitado</span><span>PNG</span><span>SVG</span><span>PDF</span><span>Sem custo extra</span></div>
+        </div>
       </div>
     </div>
     <div class="conversion-cta">
@@ -636,6 +679,39 @@
       <div class="benefit"><span class="b-ic" style="background:var(--flame-600)"><svg><use href="#ic-chart"/></svg></span><h3>Mais valor no seu produto</h3><p>Aromas exclusivos e combinações autorais aumentam suas vendas.</p></div>
       <div class="benefit"><span class="b-ic" style="background:var(--gold-500)"><svg><use href="#ic-heart"/></svg></span><h3>Liberdade para sua criatividade</h3><p>Use as receitas e essências do seu jeito e crie a sua linha de produtos.</p></div>
       <div class="benefit"><span class="b-ic" style="background:#5C7A5A"><svg><use href="#ic-shop"/></svg></span><h3>Pronta para vender</h3><p>Receitas testadas, seguras e com resultado profissional.</p></div>
+    </div>
+
+    <div class="method-comparison">
+      <div class="method-comparison__head">
+        <div class="kicker">O processo aparece no resultado</div>
+        <h3>Improvisar uma extração não é o mesmo que controlar uma extração.</h3>
+        <p>O Método Âmbar organiza as variáveis que mais alteram o aroma. As 288 receitas mostram onde aplicar cada essência para transformar o extrato em uma vela coerente.</p>
+      </div>
+      <div class="method-comparison__grid">
+        <div class="method-result method-result--without">
+          <h3>Sem o Método Âmbar</h3>
+          <p>O processo fica dependente de tentativa, memória e sorte.</p>
+          <ul>
+            <li><strong>Temperatura igual para todos os botânicos:</strong> notas delicadas podem evaporar e matérias resistentes podem extrair pouco.</li>
+            <li><strong>Tempo de infusão no achismo:</strong> o aroma pode ficar fraco, pesado ou desequilibrado.</li>
+            <li><strong>Tudo colocado ao mesmo tempo:</strong> uma nota domina enquanto outra praticamente desaparece.</li>
+            <li><strong>Sem registro de cada etapa:</strong> um lote funciona e o próximo pode sair diferente.</li>
+            <li><strong>Combinação escolhida no improviso:</strong> essência e estilo de vela podem não conversar entre si.</li>
+          </ul>
+        </div>
+        <div class="method-result method-result--with">
+          <h3>Com o Método Âmbar + 288 receitas</h3>
+          <p>Mais controle para buscar um aroma equilibrado e um resultado consistente.</p>
+          <ul>
+            <li><strong>Temperatura ajustada ao tipo de matéria-prima:</strong> cada botânico recebe o tratamento adequado.</li>
+            <li><strong>Janela de tempo definida:</strong> você sabe quando extrair e quando encerrar o processo.</li>
+            <li><strong>Ordem correta de infusão:</strong> notas delicadas e resistentes entram no momento certo.</li>
+            <li><strong>Processo registrado e repetível:</strong> fica mais fácil analisar, ajustar e reproduzir seus lotes.</li>
+            <li><strong>288 receitas + 50 essências:</strong> você parte de combinações organizadas para criar produtos com identidade.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="method-comparison__note">O resultado final também depende da qualidade dos insumos, das proporções e dos testes de segurança e desempenho feitos em cada formulação.</p>
     </div>
 
     <div class="desc-cta">
