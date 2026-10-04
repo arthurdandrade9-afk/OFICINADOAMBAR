@@ -490,10 +490,13 @@
   .almanaque-gallery__intro p { margin:11px auto 0; max-width:64ch; color:var(--ink-soft); }
   .lifetime-ribbon { display:inline-flex; align-items:center; gap:8px; margin-top:18px; padding:10px 16px; border-radius:999px; background:var(--conversion-mint); color:var(--conversion-green-dark); border:1px solid rgba(20,115,67,.25); font-family:'Poppins',sans-serif; font-size:12px; font-weight:800; }
   .lifetime-ribbon::before { content:'✓'; display:grid; place-items:center; width:20px; height:20px; border-radius:50%; background:var(--conversion-green); color:#fff; }
-  .almanaque-demo-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:30px; }
+  .almanaque-carousel { position:relative; margin-top:30px; }
+  .almanaque-carousel__viewport { overflow:hidden; margin:0 44px; border-radius:16px; }
+  .almanaque-carousel__track { display:flex; gap:16px; align-items:stretch; transition:transform .65s cubic-bezier(.22,.61,.36,1); will-change:transform; }
   .almanaque-demo-card { display:flex; flex-direction:column; width:100%; padding:0; overflow:hidden; text-align:left; cursor:pointer; border:1px solid rgba(92,26,43,.18); border-radius:14px; background:rgba(255,255,255,.72); box-shadow:0 10px 22px rgba(27,15,8,.15); transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease; }
+  .almanaque-carousel .almanaque-demo-card { flex:0 0 calc((100% - 48px) / 4); min-width:0; }
   .almanaque-demo-card:hover,.almanaque-demo-card:focus-visible { transform:translateY(-4px); border-color:var(--conversion-green); box-shadow:0 16px 28px rgba(27,15,8,.22); outline:none; }
-  .almanaque-demo-card img { display:block; width:100%; aspect-ratio:1.42/1; object-fit:cover; object-position:top center; background:#241a12; }
+  .almanaque-demo-card img { display:block; width:100%; aspect-ratio:992/1404; object-fit:contain; object-position:center top; background:#f1e8d8; }
   .almanaque-demo-card__copy { display:block; padding:14px 15px 16px; }
   .almanaque-demo-card__tag { display:block; margin-bottom:5px; color:var(--conversion-green-dark); font-family:'Poppins',sans-serif; font-size:10px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
   .almanaque-demo-card__copy strong { display:block; color:var(--ink); font-family:'Poppins',sans-serif; font-size:14px; line-height:1.28; }
@@ -502,13 +505,21 @@
   .almanaque-gallery__footer p { margin:0; color:var(--ink-soft); font-size:13px; }
   .almanaque-gallery__footer strong { color:var(--conversion-green-dark); }
   .almanaque-gallery__footer .btn { margin-top:0; white-space:nowrap; }
+  .almanaque-carousel__arrow { position:absolute; top:42%; z-index:2; display:grid; place-items:center; width:38px; height:38px; border:0; border-radius:50%; background:var(--conversion-green); color:#fff; cursor:pointer; box-shadow:0 8px 18px rgba(20,115,67,.32); }
+  .almanaque-carousel__arrow:hover,.almanaque-carousel__arrow:focus-visible { background:var(--conversion-green-dark); outline:3px solid rgba(34,168,97,.24); outline-offset:2px; }
+  .almanaque-carousel__arrow svg { width:18px; height:18px; }
+  .almanaque-carousel__arrow--prev { left:0; }
+  .almanaque-carousel__arrow--next { right:0; }
+  .almanaque-carousel__controls { display:flex; align-items:center; justify-content:center; gap:6px; margin-top:18px; }
+  .almanaque-carousel__dot { width:8px; height:8px; padding:0; border:0; border-radius:50%; background:rgba(61,46,30,.3); cursor:pointer; transition:all .2s ease; }
+  .almanaque-carousel__dot.active { width:24px; border-radius:5px; background:var(--conversion-green); }
   #almanaque-lightbox { width:min(940px,calc(100vw - 28px)); max-width:none; padding:12px; border:0; border-radius:16px; background:#160d08; color:var(--cream-100); box-shadow:0 25px 70px rgba(0,0,0,.55); }
   #almanaque-lightbox::backdrop { background:rgba(13,7,4,.82); backdrop-filter:blur(3px); }
   #almanaque-lightbox img { display:block; width:100%; max-height:78vh; object-fit:contain; border-radius:10px; background:#0e0805; }
   #almanaque-lightbox figcaption { padding:11px 4px 3px; color:var(--cream-100); font-size:13px; text-align:center; }
   .almanaque-lightbox__close { position:absolute; top:20px; right:20px; width:38px; height:38px; border:0; border-radius:50%; background:rgba(0,0,0,.7); color:#fff; font-size:24px; line-height:1; cursor:pointer; }
-  @media(max-width:900px){ .almanaque-demo-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
-  @media(max-width:760px){ .almanaque-gallery .card{padding:28px 16px;} .almanaque-demo-grid{grid-template-columns:1fr;gap:14px;margin-top:22px;} .almanaque-demo-card img{aspect-ratio:1.5/1;} .almanaque-gallery__footer{grid-template-columns:1fr;text-align:center;padding:16px;} .almanaque-gallery__footer .btn{width:100%;} .lifetime-ribbon{font-size:11px;line-height:1.35;text-align:left;} #almanaque-lightbox{padding:8px;} #almanaque-lightbox img{max-height:72vh;} }
+  @media(max-width:900px){ .almanaque-carousel .almanaque-demo-card{flex-basis:calc((100% - 16px) / 2);} }
+  @media(max-width:760px){ .almanaque-gallery .card{padding:28px 16px;} .almanaque-carousel__viewport{margin:0 32px;} .almanaque-carousel .almanaque-demo-card{flex-basis:100%;} .almanaque-demo-card img{aspect-ratio:992/1404;} .almanaque-gallery__footer{grid-template-columns:1fr;text-align:center;padding:16px;} .almanaque-gallery__footer .btn{width:100%;} .lifetime-ribbon{font-size:11px;line-height:1.35;text-align:left;} #almanaque-lightbox{padding:8px;} #almanaque-lightbox img{max-height:72vh;} }
 </style>
 
 <svg style="display:none" aria-hidden="true">
@@ -991,35 +1002,30 @@
     <div class="almanaque-gallery__intro">
       <div class="kicker">Veja antes de decidir</div>
       <h2>Veja por dentro do Almanaque</h2>
-      <p>Você recebe um produto editorial completo: capa com direção de arte, mapa do pacote, fichas de receita, referências para combinações e ferramentas para transformar a ideia em produto.</p>
+      <p>Dez páginas reais do material, em tamanho completo, para você enxergar a direção de arte, a organização e a profundidade do que recebe.</p>
       <p style="font-size:12px;font-weight:800;color:var(--conversion-green-dark);margin-top:12px">Acesso digital e vitalício a todo o Almanaque, ferramentas e futuras atualizações desta edição.</p>
       <div class="lifetime-ribbon">Acesso digital e vitalício a todo o Almanaque, ferramentas e futuras atualizações desta edição.</div>
     </div>
-    <div class="almanaque-demo-grid">
-      <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-cover.webp" data-caption="Capa e direção de arte Chama &amp; Âmbar">
-        <img src="assets/demos/almanaque-cover.webp" alt="Capa premium do Super Almanaque de Velas e Essências" loading="lazy">
-        <span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Direção de arte</span><strong>Uma edição com cara de produto premium</strong><span>Capa, paleta e acabamento visual pensados para você perceber valor antes mesmo de abrir.</span></span>
-      </button>
-      <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-package-map.webp" data-caption="Mapa de tudo que acompanha a edição">
-        <img src="assets/demos/almanaque-package-map.webp" alt="Mapa dos componentes incluídos no Almanaque" loading="lazy">
-        <span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Mapa do pacote</span><strong>Tudo organizado em uma visão só</strong><span>Biblioteca, método, bônus, planilha e gerador aparecem separados para você saber exatamente o que recebe.</span></span>
-      </button>
-      <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-recipe.webp" data-caption="Ficha de receita com materiais, preparo, cura e aplicação">
-        <img src="assets/demos/almanaque-recipe.webp" alt="Página interna com uma ficha de receita de vela" loading="lazy">
-        <span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Receitas aplicáveis</span><strong>Não é uma lista rasa de ideias</strong><span>Cada ficha guia materiais, processo, cura, acabamento e aplicação para sair do improviso.</span></span>
-      </button>
-      <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-method.webp" data-caption="Comparação Sem o Método Âmbar / Com o Método Âmbar">
-        <img src="assets/demos/almanaque-method.webp" alt="Página comparativa do Método Âmbar" loading="lazy">
-        <span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Método Âmbar</span><strong>O que muda quando existe um processo</strong><span>Temperatura, ordem, tempo e registro deixam de ser achismo e viram um resultado repetível.</span></span>
-      </button>
-      <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-combination.webp" data-caption="Referência visual para categoria + família aromática">
-        <img src="assets/demos/almanaque-combination.webp" alt="Página de referência visual de combinação de vela e essência" loading="lazy">
-        <span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Direção para criar</span><strong>Combinações que ajudam a imaginar a coleção</strong><span>Use categoria e família aromática para escolher uma direção visual antes de produzir.</span></span>
-      </button>
-      <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-label-generator.webp" data-caption="Gerador incluído, uso ilimitado, sem mensalidade e sem custo adicional">
-        <img src="assets/demos/almanaque-label-generator.webp" alt="Página de apresentação do Gerador de Rótulos" loading="lazy">
-        <span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Ferramenta incluída</span><strong>Gerador de Rótulos 100% disponível</strong><span>Uso ilimitado, sem mensalidade e sem custo adicional, com exportação em PNG, SVG e PDF.</span></span>
-      </button>
+    <div class="almanaque-carousel" data-visible-slides="4">
+      <button class="almanaque-carousel__arrow almanaque-carousel__arrow--prev" type="button" aria-label="Páginas anteriores"><svg><use href="#ic-arrow"/></svg></button>
+      <div class="almanaque-carousel__viewport">
+        <div class="almanaque-carousel__track">
+          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-cover.webp" data-caption="Capa e direção de arte Chama &amp; Âmbar"><img src="assets/demos/almanaque-cover.webp" alt="Capa premium do Super Almanaque de Velas e Essências" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Capa premium</span><strong>Uma edição com cara de produto premium</strong><span>Direção de arte, paleta e acabamento visual da coleção.</span></span></button>
+          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-package-map.webp" data-caption="Mapa de tudo que acompanha a edição"><img src="assets/demos/almanaque-package-map.webp" alt="Mapa dos componentes incluídos no Almanaque" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Mapa do pacote</span><strong>Tudo organizado em uma visão só</strong><span>Biblioteca, método, bônus, planilha e gerador.</span></span></button>
+          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-toc.webp" data-caption="Sumário e arquitetura completa do Almanaque"><img src="assets/demos/almanaque-toc.webp" alt="Sumário do Super Almanaque" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Arquitetura</span><strong>Um caminho claro para usar o material</strong><span>As partes do sistema ficam visíveis antes de você começar.</span></span></button>
+          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-category-divider.webp" data-caption="Divisória de categoria com fotografia editorial"><img src="assets/demos/almanaque-category-divider.webp" alt="Divisória editorial de categoria de velas" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Direção visual</span><strong>Cada categoria tem sua própria atmosfera</strong><span>Divisórias fotográficas para inspirar a coleção.</span></span></button>
+          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-recipe.webp" data-caption="Ficha de receita com materiais, preparo, cura e aplicação"><img src="assets/demos/almanaque-recipe.webp" alt="Página interna com uma ficha de receita de vela" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Receita aplicável</span><strong>Não é uma lista rasa de ideias</strong><span>Materiais, processo, cura e aplicação na mesma ficha.</span></span></button>
+          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-combination.webp" data-caption="Referência visual para categoria e família aromática"><img src="assets/demos/almanaque-combination.webp" alt="Página de referência visual de combinação de vela e essência" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Combinações</span><strong>Uma direção para imaginar sua coleção</strong><span>Categoria e família aromática viram ponto de partida.</span></span></button>
+          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-spiritual-divider.webp" data-caption="Divisória fotográfica da coleção Espirituais de 7 Dias"><img src="assets/demos/almanaque-spiritual-divider.webp" alt="Divisória editorial da coleção Espirituais de 7 Dias" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Coleção temática</span><strong>Capítulos com atmosfera própria</strong><span>Um exemplo de como as linhas temáticas ganham identidade.</span></span></button>
+          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-method.webp" data-caption="Comparação Sem o Método Âmbar e Com o Método Âmbar"><img src="assets/demos/almanaque-method.webp" alt="Página comparativa do Método Âmbar" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Método Âmbar</span><strong>O que muda quando existe um processo</strong><span>Temperatura, ordem, tempo e registro deixam de ser achismo.</span></span></button>
+          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-essence-library.webp" data-caption="Biblioteca de 50 Essências Caseiras de Aromas Naturais"><img src="assets/demos/almanaque-essence-library.webp" alt="Página da Biblioteca de Essências Caseiras" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">50 essências</span><strong>Uma biblioteca para criar aromas de assinatura</strong><span>Famílias aromáticas organizadas para combinar e testar.</span></span></button>
+          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-label-generator.webp" data-caption="Gerador incluído, uso ilimitado, sem mensalidade e sem custo adicional"><img src="assets/demos/almanaque-label-generator.webp" alt="Página de apresentação do Gerador de Rótulos" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Ferramenta incluída</span><strong>Gerador de Rótulos 100% disponível</strong><span>Uso ilimitado, sem mensalidade e sem custo adicional.</span></span></button>
+        </div>
+      </div>
+      <button class="almanaque-carousel__arrow almanaque-carousel__arrow--next" type="button" aria-label="Próximas páginas"><svg><use href="#ic-arrow"/></svg></button>
+      <div class="almanaque-carousel__controls" role="tablist" aria-label="Escolher página da demonstração">
+        <button class="almanaque-carousel__dot active" type="button" role="tab" aria-label="Ir para o grupo 1" data-slide="0"></button><button class="almanaque-carousel__dot" type="button" role="tab" aria-label="Ir para o grupo 2" data-slide="1"></button><button class="almanaque-carousel__dot" type="button" role="tab" aria-label="Ir para o grupo 3" data-slide="2"></button><button class="almanaque-carousel__dot" type="button" role="tab" aria-label="Ir para o grupo 4" data-slide="3"></button><button class="almanaque-carousel__dot" type="button" role="tab" aria-label="Ir para o grupo 5" data-slide="4"></button><button class="almanaque-carousel__dot" type="button" role="tab" aria-label="Ir para o grupo 6" data-slide="5"></button><button class="almanaque-carousel__dot" type="button" role="tab" aria-label="Ir para o grupo 7" data-slide="6"></button>
+      </div>
     </div>
     <div class="almanaque-gallery__footer">
       <p><strong>Acesso digital e vitalício a todo o Almanaque, ferramentas e futuras atualizações desta edição.</strong><br>Você compra uma vez e pode voltar às receitas, referências e ferramentas sempre que precisar.</p>
@@ -1279,6 +1285,49 @@
   var timer = setInterval(next, 8000);
   function resetTimer() { clearInterval(timer); timer = setInterval(next, 8000); }
   nextBtn.addEventListener("click", next);
+})();
+
+(function () {
+  var gallery = document.getElementById("por-dentro");
+  var opening = document.querySelector(".opening-screen");
+  var authority = document.querySelector(".autoridade");
+  if (gallery && opening && authority) opening.insertBefore(gallery, authority);
+  var carousel = document.querySelector(".almanaque-carousel");
+  if (!carousel) return;
+  var track = carousel.querySelector(".almanaque-carousel__track");
+  var cards = Array.prototype.slice.call(track.querySelectorAll(".almanaque-demo-card"));
+  var dots = Array.prototype.slice.call(carousel.querySelectorAll(".almanaque-carousel__dot"));
+  var previous = carousel.querySelector(".almanaque-carousel__arrow--prev");
+  var nextButton = carousel.querySelector(".almanaque-carousel__arrow--next");
+  var index = 0;
+  var timer;
+  function visibleCount() { return window.innerWidth <= 760 ? 1 : (window.innerWidth <= 900 ? 2 : 4); }
+  function maxIndex() { return Math.max(0, cards.length - visibleCount()); }
+  function render() {
+    index = Math.min(index, maxIndex());
+    var first = cards[0];
+    var gap = parseFloat(getComputedStyle(track).gap) || 0;
+    var step = first.getBoundingClientRect().width + gap;
+    track.style.transform = "translate3d(" + (-index * step) + "px,0,0)";
+    dots.forEach(function (dot, i) {
+      var active = i === index;
+      dot.classList.toggle("active", active);
+      dot.setAttribute("aria-selected", active ? "true" : "false");
+    });
+  }
+  function go(nextIndex) { index = (nextIndex + maxIndex() + 1) % (maxIndex() + 1); render(); resetTimer(); }
+  function next() { go(index + 1); }
+  function resetTimer() { clearInterval(timer); timer = setInterval(next, 5200); }
+  previous.addEventListener("click", function () { go(index - 1); });
+  nextButton.addEventListener("click", next);
+  dots.forEach(function (dot) { dot.addEventListener("click", function () { go(Number(dot.dataset.slide)); }); });
+  carousel.addEventListener("mouseenter", function () { clearInterval(timer); });
+  carousel.addEventListener("mouseleave", resetTimer);
+  carousel.addEventListener("focusin", function () { clearInterval(timer); });
+  carousel.addEventListener("focusout", function (event) { if (!carousel.contains(event.relatedTarget)) resetTimer(); });
+  window.addEventListener("resize", render);
+  render();
+  resetTimer();
 })();
 
 (function () {
