@@ -6,17 +6,20 @@ Reposicionar o Super Almanaque de Sabonete como um sistema completo para criar, 
 
 ## Estrutura de valor
 
-O produto-base entrega 540 receitas organizadas, Técnica-Mãe, Guia de Fornecedores, Guia de Custos + Planilha e 15 Dicas de Economia. O Pacote Completo recebe uma pilha de sete bônus que resolve as etapas posteriores à receita: decidir o que produzir, dar nome, apresentar, precificar, rotular e vender.
+O produto-base entrega 540 receitas organizadas e a Técnica-Mãe. O Pacote Completo recebe uma pilha de dez bônus que resolve as etapas posteriores à receita: decidir o que produzir, dar nome, apresentar, precificar, rotular e vender.
 
-1. Kit Primeira Venda em 7 Dias (novo PDF)
-2. Mapa das 30 Coleções que Vendem (novo PDF)
-3. Banco de 100 Nomes para Coleções e Sabonetes (novo PDF)
-4. Kit Vitrine que Vende: fotos e textos (novo PDF)
-5. Cartões de Cuidado + Tags para Imprimir (novo PDF)
-6. Calendário de Datas que Vendem Sabonete (novo PDF)
-7. Ateliê de Rótulos Premium (já existe)
+1. Guia de Fornecedores (já existe)
+2. Guia de Custos + Planilha de Precificação (já existe)
+3. 15 Dicas de Economia (já existe)
+4. Ateliê de Rótulos Premium (já existe)
+5. Kit Primeira Venda em 7 Dias (novo PDF)
+6. Mapa das 30 Coleções que Vendem (novo PDF)
+7. Banco de 100 Nomes para Coleções e Sabonetes (novo PDF)
+8. Kit Vitrine que Vende: fotos e textos (novo PDF)
+9. Cartões de Cuidado + Tags para Imprimir (novo PDF)
+10. Calendário de Datas que Vendem Sabonete (novo PDF)
 
-Na comunicação comercial, os sete bônus serão apresentados como um sistema, não como arquivos aleatórios. Os guias e a planilha existentes continuam sendo entregáveis do Pacote Completo, mas não inflarão artificialmente a contagem de bônus.
+Na comunicação comercial, os dez bônus serão apresentados como um sistema, não como arquivos aleatórios. Cada bônus será descrito pelo resultado prático que entrega e terá o seu valor individual exibido no quadro de valor.
 
 ## Conteúdo dos novos materiais
 
