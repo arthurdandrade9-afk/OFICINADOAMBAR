@@ -1,1354 +1,543 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Receitas de velas, essências e um método completo para criar, precificar e vender produtos artesanais com identidade.">
-<link rel="icon" type="image/png" href="assets/brand/logo-oficina.png">
-<link rel="shortcut icon" href="favicon.ico">
-<title>Oficina do Âmbar — Almanaque de Velas</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Manrope:wght@400;500;700;800&display=swap">
-<style>
-  :root {
-    --ember-900:#1B0F08; --ember-800:#341019; --bordeaux-700:#5C1A2B;
-    --gold-500:#C9A15C; --gold-400:#DCC08A;
-    --terracotta-600:#8B4A2E; --terracotta-500:#A85D38;
-    --flame-600:#E8491F; --flame-500:#FF6B35;
-    --sun-400:#FFC857;
-    --sage-500:#4F9B6E;
-    --conversion-green:#22A861; --conversion-green-dark:#147343; --conversion-mint:#DDF5E8;
-    --cream-100:#F0E8D8; --cream-050:#F7F1E6; --cream-text-soft:#DECBA6;
-    --ink:#241A12; --ink-soft:#3D2E1E; --border-soft:#D9C7A0;
-    color-scheme: light;
-  }
-  * { box-sizing:border-box; }
-  html { scroll-behavior:smooth; scroll-padding-top:20px; }
-  body {
-    margin:0; color:var(--ink-soft); font-family:'Manrope',system-ui,sans-serif; font-size:15.5px; line-height:1.65;
-    background:
-      linear-gradient(180deg, rgba(27,15,8,.88) 0%, rgba(27,15,8,.8) 100%),
-      url('assets/decor/page-bg-bar.jpg');
-    background-size:100% auto, 100% auto;
-    background-repeat:repeat-y, repeat-y;
-    background-attachment:fixed, fixed;
-  }
-  .wrap-page { max-width:1200px; margin:0 auto; padding:0 24px; }
-  section {
-    padding:64px 0; position:relative; background-size:cover; background-position:center;
-    background-image:linear-gradient(180deg, rgba(15,8,4,.84) 0%, rgba(27,15,8,.8) 100%), url('assets/decor/page-bg-bar.jpg');
-  }
-  .bg-1 { background-image:linear-gradient(180deg, rgba(15,8,4,.82) 0%, rgba(27,15,8,.78) 100%), url('assets/decor/fundo-opcao-1.jpg'); }
-  .bg-3 { background-image:linear-gradient(180deg, rgba(15,8,4,.82) 0%, rgba(27,15,8,.78) 100%), url('assets/decor/fundo-opcao-3.jpg'); }
-  .bg-4 { background-image:linear-gradient(180deg, rgba(15,8,4,.82) 0%, rgba(27,15,8,.78) 100%), url('assets/decor/fundo-opcao-4.jpg'); }
-  .bg-5 { background-image:linear-gradient(180deg, rgba(15,8,4,.82) 0%, rgba(27,15,8,.78) 100%), url('assets/decor/fundo-opcao-5.jpg'); }
-  .bg-6 { background-image:linear-gradient(180deg, rgba(15,8,4,.82) 0%, rgba(27,15,8,.78) 100%), url('assets/decor/fundo-opcao-6.jpg'); }
-  .bg-7 { background-image:linear-gradient(180deg, rgba(15,8,4,.82) 0%, rgba(27,15,8,.78) 100%), url('assets/decor/fundo-opcao-7.jpg'); }
-  h1,h2,h3 { font-family:'Poppins',system-ui,sans-serif; color:var(--ink); text-wrap:balance; font-weight:800; margin:0; }
-  .wrap { max-width:1200px; margin:0 auto; padding:0 24px; width:100%; }
-  .kicker { font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--flame-600); }
-  .kicker::before {
-    content:""; display:inline-block; width:13px; height:13px; margin-right:6px; vertical-align:-2px;
-    background-color:currentColor;
-    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 20C4 11 11 4 20 4c0 9-7 16-16 16z'/%3E%3C/svg%3E");
-    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 20C4 11 11 4 20 4c0 9-7 16-16 16z'/%3E%3C/svg%3E");
-    -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-size:contain; mask-size:contain;
-  }
-  .btn { display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg,var(--flame-500),var(--flame-600)); color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; padding:14px 32px; border-radius:999px; text-decoration:none; margin-top:18px; box-shadow:0 6px 18px rgba(232,73,31,.4); }
-  .btn svg { width:16px; height:16px; }
-  .btn-buy { background:linear-gradient(135deg,var(--conversion-green),var(--conversion-green-dark)); box-shadow:0 8px 24px rgba(34,168,97,.42); transition:transform .2s ease,box-shadow .2s ease,filter .2s ease; }
-  .btn-buy:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(34,168,97,.5); filter:saturate(1.08); }
-  .hero-actions { display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:20px; }
-  .hero-actions .btn { margin-top:0; }
-  .hero-alt-link { color:var(--cream-100); font-weight:800; font-size:13px; text-underline-offset:4px; }
-  .trust-line { display:flex; justify-content:center; flex-wrap:wrap; gap:8px 18px; margin-top:13px; color:var(--ink-soft); font-size:11.5px; font-weight:700; }
-  .trust-line span { display:inline-flex; align-items:center; gap:6px; }
-  .trust-line span::before { content:"✓"; display:grid; place-items:center; width:17px; height:17px; border-radius:50%; background:var(--conversion-mint); color:var(--conversion-green-dark); font-weight:900; font-size:11px; }
-  .trust-line--hero { justify-content:flex-start; color:var(--cream-text-soft); }
-  .conversion-cta { margin-top:26px; padding:20px; text-align:center; border:1px solid rgba(34,168,97,.34); border-radius:14px; background:linear-gradient(135deg,rgba(221,245,232,.82),rgba(255,255,255,.55)); }
-  .conversion-cta p { max-width:58ch; margin:0 auto 3px; color:var(--ink-soft); }
-  .conversion-cta strong { color:var(--conversion-green-dark); }
-  .conversion-cta .btn { margin-top:12px; }
-  .section-offer-cta { display:flex; justify-content:center; margin-top:26px; }
-  .section-offer-cta .btn { margin-top:0; }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Almanaque de Sabonete — Da receita ao primeiro rótulo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=atelie-3">
+</head>
+<body>
 
-  /* ===== TELA DE ABERTURA — hero + autoridade juntos ocupam 100vh ===== */
-  .opening-screen { min-height:100vh; display:flex; flex-direction:column; }
-
-  /* HERO */
-  .hero {
-    flex:1.35; display:flex; align-items:center; position:relative; overflow:hidden;
-    background-size:cover; background-position:center 40%;
-    background-image:linear-gradient(105deg, rgba(15,8,4,.85) 0%, rgba(27,15,8,.72) 42%, rgba(27,15,8,.32) 65%, rgba(27,15,8,.25) 100%), url('assets/decor/page-bg-bar.jpg');
-    color:var(--cream-100); padding:32px 0;
-  }
-  .hero-grid { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); gap:50px; align-items:center; width:100%; }
-  .hero h1 { font-size:clamp(26px,3.6vw,42px); line-height:1.14; color:var(--cream-100); margin:14px 0 16px; }
-  .hero h1 .hl { color:var(--flame-500); }
-  .hero h2 { font-family:'Manrope',sans-serif; font-weight:500; font-size:16px; color:var(--cream-text-soft); max-width:56ch; }
-  .brand-logo { width:clamp(86px,9vw,118px); height:auto; display:block; margin:0 0 16px; filter:drop-shadow(0 10px 22px rgba(0,0,0,.45)); }
-  @media(min-width:1600px){
-    .wrap { max-width:1500px; }
-    .hero h1 { font-size:56px; }
-    .hero h2 { font-size:20px; max-width:60ch; }
-    .kicker { font-size:13px; }
-    .stat-row { gap:26px; margin-top:32px; padding-top:26px; }
-    .btn { font-size:18px; padding:17px 38px; }
-    .hero-photo { transform:scale(1.05) !important; }
-    .hero-grid { grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr) !important; gap:90px !important; }
-    .stat-row { grid-template-columns:repeat(2,auto) !important; row-gap:14px; }
-  }
-  @media(min-width:2100px){
-    .wrap { max-width:1800px; }
-    .hero h1 { font-size:68px; }
-    .hero h2 { font-size:23px; }
-    .hero-photo { transform:scale(1.2) !important; }
-  }
-  .stat-row { display:grid; grid-template-columns:repeat(4,auto); gap:30px; margin-top:26px; padding-top:24px; border-top:1px solid rgba(255,255,255,.15); }
-  .stat { display:flex; align-items:center; gap:11px; }
-  .stat .ic { width:38px; height:38px; border-radius:50%; background:rgba(255,200,87,.14); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .stat .ic svg { width:20px; height:20px; color:var(--sun-400); }
-  .stat b { display:block; font-family:'Poppins',sans-serif; font-size:25px; color:var(--sun-400); line-height:1.1; white-space:nowrap; }
-  .stat span { font-size:10.5px; text-transform:uppercase; letter-spacing:.02em; color:var(--cream-text-soft); white-space:nowrap; }
-  .hero-photo { width:100%; }
-  .hero-photo img { width:100%; height:auto; object-fit:contain; display:block; filter:drop-shadow(0 18px 30px rgba(0,0,0,.45)); }
-  @media(min-width:761px){ .hero-photo { transform:scale(1.02); transform-origin:top right; } }
-  @media(max-width:760px){ .hero-grid{grid-template-columns:minmax(0,1fr);} .hero-photo{order:-1;transform:none;min-width:0;overflow:hidden;} .brand-logo{width:92px;margin:0 auto 14px;} .hero-grid>div:first-child{text-align:center;min-width:0;} .hero h2{margin-left:auto;margin-right:auto;} .stat-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 10px;width:100%;} .stat{min-width:0;justify-content:center;} .stat span{white-space:normal;line-height:1.2;} }
-
-  /* CTA PONTE — entre hero e autoridade */
-  .hero-bridge-cta { position:relative; z-index:20; height:0; display:flex; justify-content:center; align-items:flex-start; overflow:visible; }
-  .bridge-cta-img { position:relative; display:block; transform:translateY(-50%); transition:transform .2s ease, filter .2s ease; filter:drop-shadow(0 10px 26px rgba(0,0,0,.45)); }
-  .bridge-cta-img img { display:block; width:min(880px,62vw); height:auto; pointer-events:none; }
-  .bridge-cta-img:hover { transform:translateY(-50%) scale(1.03); filter:drop-shadow(0 14px 32px rgba(0,0,0,.55)); }
-  .bridge-cta-overlay { position:absolute; left:32%; top:39%; width:36%; height:20%; background:rgb(248,102,24); border-radius:999px; display:flex; align-items:center; justify-content:center; gap:8px; }
-  .bridge-cta-overlay span { font-family:'Poppins',sans-serif; font-weight:800; color:#1B0F08; font-size:clamp(11px, 2.1vw, 20px); white-space:nowrap; }
-  .bridge-cta-overlay svg { width:1em; height:1em; font-size:clamp(11px, 2.1vw, 20px); color:#1B0F08; flex-shrink:0; }
-
-  /* AUTORIDADE */
-  .autoridade {
-    flex:1; display:flex; align-items:center; justify-content:center; position:relative; padding:48px 24px;
-    background-size:cover; background-position:center;
-    background-image:linear-gradient(rgba(247,241,230,.35),rgba(247,241,230,.42)), url('assets/decor/autoridade-bg-lavender.jpg');
-  }
-  .autoridade-card {
-    width:100%; max-width:1080px; display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.3fr) minmax(0,.8fr); align-items:stretch;
-    background:linear-gradient(135deg, var(--cream-100) 0%, #E3C9A8 100%);
-    border-radius:22px; padding:0; overflow:hidden;
-    box-shadow:0 24px 54px rgba(27,15,8,.32);
-  }
-  .autoridade-photo { width:100%; height:100%; min-height:340px; object-fit:cover; display:block; }
-  .autoridade-copy { padding:44px 36px; }
-  .autoridade-copy p { font-size:14.5px; max-width:56ch; margin-top:10px; color:var(--ink-soft); }
-  .autoridade-badges { display:flex; gap:22px; margin-top:26px; flex-wrap:wrap; }
-  .autoridade-badge { display:flex; align-items:flex-start; gap:10px; max-width:180px; text-align:left; }
-  .autoridade-badge .ic { width:34px; height:34px; border-radius:50%; background:rgba(139,74,46,.12); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .autoridade-badge .ic svg { width:17px; height:17px; color:var(--terracotta-600); }
-  .autoridade-badge strong { display:block; font-size:12.5px; color:var(--ink); }
-  .autoridade-badge span { font-size:11.5px; color:var(--ink-soft); line-height:1.35; }
-  @media(max-width:760px){ .opening-screen{min-height:auto;} .autoridade-card{grid-template-columns:1fr;} .autoridade-photo{min-height:160px;} .autoridade-copy{padding:28px 26px;} }
-  @media(min-width:1600px){
-    .autoridade-card { max-width:1320px; }
-    .autoridade-copy { padding:56px 48px; }
-    .autoridade-photo { min-height:420px; }
-    .autoridade-copy h2 { font-size:32px !important; }
-    .autoridade-copy p { font-size:17px; max-width:64ch; }
-    .autoridade-badges { gap:30px; margin-top:32px; }
-    .autoridade-badge { max-width:220px; }
-    .autoridade-badge .ic { width:42px; height:42px; }
-    .autoridade-badge .ic svg { width:21px; height:21px; }
-    .autoridade-badge strong { font-size:15px; }
-    .autoridade-badge span { font-size:13.5px; }
-  }
-
-  footer { text-align:center; padding:30px 20px; color:var(--cream-text-soft); font-size:12px; background:var(--ember-900); }
-
-  /* ===== RESTO DA PÁGINA ===== */
-  .card { position:relative; border-radius:16px; padding:44px 32px; margin:0 auto; max-width:1152px; }
-  .card-gold { background:linear-gradient(135deg, var(--cream-100) 0%, var(--gold-400) 100%); }
-  .card-sage { background:linear-gradient(135deg, #E3EEE6 0%, #C3DECB 100%); }
-  .card-terracotta { background:linear-gradient(135deg, var(--cream-100) 0%, #E3C9A8 100%); }
-  .card-neutral { background:linear-gradient(135deg, var(--cream-050) 0%, var(--cream-100) 100%); }
-  .card-dark { background:linear-gradient(155deg, rgba(27,15,8,.95) 0%, rgba(61,42,14,.9) 55%, rgba(27,15,8,.95) 100%); color:var(--cream-100); }
-  .card-dark h2, .card-dark h3 { color:var(--cream-100); }
-  .card-dark .kicker { color:var(--sun-400); }
-  .interstitial { text-align:center; padding:36px 0; }
-  .interstitial h2 { color:var(--cream-100); font-size:22px; }
-  .interstitial p { color:var(--cream-text-soft); }
-  .center { text-align:center; }
-
-  .placeholder { border:2px dashed var(--terracotta-500); background:repeating-linear-gradient(135deg,rgba(231,218,184,.5),rgba(231,218,184,.5) 10px,rgba(240,232,216,.7) 10px,rgba(240,232,216,.7) 20px); border-radius:8px; padding:18px 20px; margin:14px 0; }
-  .placeholder .ph-tag { font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--terracotta-600); display:block; margin-bottom:6px; }
-  .placeholder p { margin:0; font-size:14px; color:var(--ink-soft); }
-  .card-dark .placeholder { border-color:var(--gold-500); background:repeating-linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.06) 10px,rgba(255,255,255,.1) 10px,rgba(255,255,255,.1) 20px); }
-  .card-dark .placeholder p { color:var(--cream-text-soft); }
-  .card-dark .placeholder .ph-tag { color:var(--sun-400); }
-
-  /* PREVIA */
-  .grid-photos { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px; }
-  .photo-slot { position:relative; aspect-ratio:3/4; border-radius:10px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.22); }
-  .photo-slot img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease; }
-  .photo-slot:hover img { transform:scale(1.07); }
-  .photo-slot .num { position:absolute; top:10px; left:10px; width:26px; height:26px; border-radius:50%; background:var(--conversion-green); color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(20,115,67,.45); }
-  .photo-slot .cap { position:absolute; left:0; right:0; bottom:0; padding:26px 10px 10px; background:linear-gradient(180deg, rgba(15,8,4,0) 0%, rgba(15,8,4,.82) 100%); color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:12px; line-height:1.25; }
-  @media(max-width:700px){ .grid-photos{grid-template-columns:repeat(2,1fr);} }
-
-  /* DOR */
-  .dor-inner h2 { color:var(--cream-100); font-size:24px; max-width:56ch; margin:10px auto 14px; }
-  .bullet { display:inline-block; background:var(--flame-500); color:#fff; font-family:'Poppins',sans-serif; font-size:13px; font-weight:800; padding:8px 18px; border-radius:999px; }
-
-  /* PUBLICO */
-  .desc-stat { display:inline-flex; align-items:center; gap:8px; margin-top:18px; background:rgba(139,74,46,.1); border:1px solid rgba(139,74,46,.3); border-radius:999px; padding:11px 22px; font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; color:var(--terracotta-600); }
-  .desc-stat strong { color:var(--ink); font-weight:800; }
-
-  .formula-row { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:start; gap:6px; margin-top:30px; }
-  .formula-item { text-align:center; }
-  .formula-photo { position:relative; aspect-ratio:1/1; max-width:220px; margin:0 auto; border-radius:42% 58% 55% 45% / 48% 40% 60% 52%; overflow:hidden; background:linear-gradient(160deg, #EFE3CC 0%, #E3C9A8 100%); box-shadow:0 14px 26px rgba(27,15,8,.16); }
-  .formula-photo img { width:100%; height:100%; object-fit:cover; display:block; }
-  .formula-pill { position:relative; width:86%; margin:-20px auto 0; background:var(--cream-050); border-radius:999px; padding:12px 8px 10px; box-shadow:0 8px 18px rgba(27,15,8,.14); }
-  .formula-pill b { display:block; font-family:'Poppins',sans-serif; font-weight:900; font-size:24px; color:var(--terracotta-600); line-height:1.1; }
-  .formula-pill span { font-size:10px; text-transform:uppercase; letter-spacing:.03em; font-weight:700; color:var(--ink-soft); }
-  .formula-op { width:44px; height:44px; border-radius:50%; background:var(--sage-500); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; margin-top:78px; }
-  @media(max-width:760px){
-    .formula-row { grid-template-columns:1fr; gap:14px; }
-    .formula-op { margin:-6px auto; }
-  }
-
-  .benefits-row { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:30px; }
-  .benefit { position:relative; background:var(--cream-050); border-radius:8px; padding:22px 16px 18px; }
-  .benefit .b-ic { position:absolute; top:-16px; left:16px; width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 14px rgba(27,15,8,.2); }
-  .benefit .b-ic svg { width:18px; height:18px; color:#fff; }
-  .benefit h3 { font-size:14px; color:var(--ink); margin:8px 0 6px; line-height:1.25; }
-  .benefit p { margin:0; font-size:12.3px; color:var(--ink-soft); line-height:1.4; }
-  @media(max-width:900px){ .benefits-row{grid-template-columns:1fr 1fr;} }
-  @media(max-width:520px){ .benefits-row{grid-template-columns:1fr;} }
-  .personas { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
-  .persona { display:flex; align-items:flex-start; gap:14px; background:var(--cream-100); border:1px solid var(--border-soft); border-left:4px solid var(--sage-500); border-radius:6px; padding:18px 20px; transition:transform .2s ease, box-shadow .2s ease; }
-  .persona:hover { transform:translateY(-2px); box-shadow:0 8px 18px rgba(27,15,8,.1); }
-  .persona:nth-child(2n) { border-left-color:var(--flame-500); }
-  .persona .p-ic { width:36px; height:36px; border-radius:50%; background:rgba(139,74,46,.12); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .persona .p-ic svg { width:18px; height:18px; color:var(--terracotta-600); }
-  .persona h3 { font-size:15px; margin-bottom:6px; color:var(--ink); }
-  .persona p { margin:0; font-size:13.8px; color:var(--ink-soft); }
-  .desc-cta { margin-top:28px; padding-top:24px; border-top:1px solid rgba(93,58,26,.18); display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
-  .desc-cta p { margin:0; font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:var(--ink); max-width:38ch; }
-  .desc-cta .btn { margin-top:0; }
-  .method-comparison { margin-top:34px; padding-top:30px; border-top:1px solid rgba(20,115,67,.22); }
-  .method-comparison__head { text-align:center; max-width:760px; margin:0 auto 20px; }
-  .method-comparison__head h3 { font-size:24px; margin-top:7px; }
-  .method-comparison__head p { margin:8px auto 0; max-width:64ch; font-size:14px; }
-  .method-comparison__grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-  .method-result { border-radius:14px; padding:24px 22px; }
-  .method-result h3 { display:flex; align-items:center; gap:10px; font-size:18px; margin-bottom:7px; }
-  .method-result h3::before { display:grid; place-items:center; width:27px; height:27px; border-radius:50%; color:#fff; font-size:15px; font-weight:900; flex:0 0 27px; }
-  .method-result>p { margin:0 0 15px; font-size:13px; }
-  .method-result ul { list-style:none; margin:0; padding:0; }
-  .method-result li { position:relative; padding:10px 0 10px 28px; border-top:1px solid rgba(36,26,18,.11); font-size:13px; line-height:1.45; }
-  .method-result li::before { position:absolute; left:0; top:10px; font-weight:900; }
-  .method-result--without { background:linear-gradient(145deg,#FFF4F1,#F4D3CB); border:1px solid rgba(170,55,38,.28); }
-  .method-result--without h3 { color:#8F2F25; }
-  .method-result--without h3::before { content:"×"; background:#B84836; }
-  .method-result--without li::before { content:"×"; color:#B84836; }
-  .method-result--with { background:linear-gradient(145deg,#F4FFF8,var(--conversion-mint)); border:2px solid var(--conversion-green); box-shadow:0 12px 28px rgba(34,168,97,.15); }
-  .method-result--with h3 { color:var(--conversion-green-dark); }
-  .method-result--with h3::before { content:"✓"; background:var(--conversion-green); }
-  .method-result--with li::before { content:"✓"; color:var(--conversion-green-dark); }
-  .method-comparison__note { margin:14px auto 0; text-align:center; font-size:11.5px; color:var(--ink-soft); max-width:70ch; }
-  @media(max-width:700px){ .personas{grid-template-columns:1fr;} }
-
-  /* CURRICULO */
-  .curric-cat { columns:2; column-gap:28px; margin-top:14px; }
-  .curric-cat div { break-inside:avoid; padding:7px 0; border-bottom:1px solid var(--border-soft); font-size:14px; display:flex; justify-content:space-between; gap:10px; color:var(--ink-soft); }
-  .curric-cat span.n { display:inline-flex; align-items:center; justify-content:center; min-width:29px; height:24px; padding:0 7px; border-radius:999px; background:var(--conversion-mint); color:var(--conversion-green-dark); font-family:'Poppins',sans-serif; font-weight:900; font-size:11px; white-space:nowrap; }
-  @media(max-width:700px){ .curric-cat{columns:1;} }
-
-  /* MECANISMO */
-  .mech-stat { text-align:center; font-family:'Poppins',sans-serif; font-weight:800; color:var(--sun-400); font-size:15px; margin:20px auto 0; background:rgba(255,200,87,.1); border:1px solid rgba(255,200,87,.3); border-radius:999px; padding:10px 20px; display:table; }
-  .mech-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:28px; }
-  .mech-step { position:relative; border-radius:10px; overflow:hidden; aspect-ratio:3/4; box-shadow:0 10px 24px rgba(0,0,0,.35); }
-  .mech-step .photo { position:absolute; inset:0; display:block; }
-  .mech-step .photo img { width:100%; height:100%; object-fit:cover; display:block; }
-  .mech-step .n { position:absolute; top:10px; right:10px; z-index:2; width:29px; height:29px; border-radius:50%; background:var(--conversion-green); border:2px solid rgba(255,255,255,.7); color:#fff; font-family:'Poppins',sans-serif; font-weight:900; font-size:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 5px 14px rgba(20,115,67,.45); }
-  .mech-step .txt { position:absolute; left:0; right:0; bottom:0; z-index:2; padding:30px 14px 14px; background:linear-gradient(180deg, rgba(15,8,4,0) 0%, rgba(15,8,4,.92) 55%, rgba(15,8,4,.97) 100%); }
-  .mech-step h3 { font-size:13.5px; margin:0 0 4px; color:#fff; }
-  .mech-step p { color:var(--cream-text-soft); font-size:11.5px; margin:0; line-height:1.35; }
-  @media(max-width:700px){ .mech-steps{grid-template-columns:1fr 1fr;} }
-  @media(max-width:700px){ .mech-steps{grid-template-columns:1fr 1fr;} }
-  .combo-examples { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:24px; }
-  .combo-ex { background:rgba(255,255,255,.06); border-left:3px solid var(--sun-400); border-radius:6px; padding:12px 14px; font-size:12.5px; color:var(--cream-text-soft); }
-  .combo-ex strong { display:block; color:var(--cream-100); font-size:13px; margin-bottom:4px; }
-  @media(max-width:700px){ .combo-examples{grid-template-columns:1fr;} }
-  .mech-callout { margin-top:26px; text-align:center; font-size:13px; font-style:italic; color:var(--cream-text-soft); border-top:1px solid rgba(255,255,255,.15); padding-top:18px; }
-
-  /* SIMULADOR */
-  .sim-controls { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:20px; }
-  .sim-controls select { font-family:'Manrope',sans-serif; font-size:14px; font-weight:700; padding:12px 16px; border-radius:8px; border:1px solid var(--border-soft); background:var(--cream-100); color:var(--ink); }
-  .sim-controls button { font-family:'Poppins',sans-serif; font-weight:800; font-size:14px; padding:12px 26px; border-radius:8px; border:none; background:linear-gradient(135deg,var(--flame-500),var(--flame-600)); color:#fff; cursor:pointer; }
-  .sim-stage { max-width:340px; margin:26px auto 0; position:relative; }
-  .sim-photo-wrap { position:relative; aspect-ratio:3/4; background:var(--cream-100); border-radius:10px; display:flex; align-items:center; justify-content:center; overflow:visible; }
-  .sim-photo-wrap img { width:100%; height:100%; object-fit:cover; border-radius:10px; display:none; }
-  .sim-placeholder-text { font-size:12px; color:var(--terracotta-600); padding:20px; text-align:center; }
-  .sim-caption { margin-top:12px; font-family:'Poppins',sans-serif; font-weight:700; font-size:14.5px; color:var(--ink); opacity:0; }
-  .sim-caption--reveal { animation:simCaptionIn .6s ease-out .35s both; }
-  @keyframes simPhotoIn { 0%{opacity:0;transform:scale(.86) translateY(14px);filter:blur(24px);} 100%{opacity:1;transform:scale(1) translateY(0);filter:blur(0);} }
-  .sim-photo--reveal { animation:simPhotoIn 1.1s cubic-bezier(.16,1,.3,1) both; }
-  @keyframes simCaptionIn { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
-  @keyframes simEmber { 0%{opacity:0;transform:scale(.3) translateY(0);} 25%{opacity:.9;} 100%{opacity:0;transform:scale(1.8) translateY(-46px);} }
-  .sim-ember { position:absolute; width:34px; height:34px; border-radius:50%; bottom:6%; background:radial-gradient(circle, rgba(255,200,87,.95), rgba(255,107,53,.45) 55%, transparent 72%); filter:blur(5px); mix-blend-mode:screen; pointer-events:none; opacity:0; z-index:3; }
-  .sim-ember--play { animation:simEmber 950ms ease-out both; }
-  @media (prefers-reduced-motion: reduce) { .sim-photo--reveal, .sim-caption--reveal, .sim-ember--play { animation:none !important; opacity:1 !important; filter:none !important; transform:none !important; } }
-
-  /* BONUS */
-  .bonus-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
-  .bonus-card { background:rgba(0,0,0,.28); border-radius:8px; padding:20px 22px; }
-  .bonus-card .num { display:inline-flex; align-items:center; gap:6px; font-family:'Poppins',sans-serif; color:#8CF0B6; font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
-  .bonus-card .num::before { content:"✓"; display:grid; place-items:center; width:18px; height:18px; border-radius:50%; color:#fff; background:var(--conversion-green); font-size:11px; }
-  .bonus-card h3 { font-size:16.5px; margin:6px 0 8px; }
-  .bonus-card p { color:var(--cream-text-soft); font-size:13.3px; margin:0; }
-  .bonus-card.special { background:rgba(92,26,43,.55); }
-  @media(max-width:700px){ .bonus-grid{grid-template-columns:1fr;} }
-
-  /* CRIADOR DE RÓTULOS */
-  .label-showcase{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:34px;align-items:center;margin-top:28px;text-align:left}.label-showcase__visual{position:relative;padding:20px;border:1px solid rgba(201,161,92,.45);background:linear-gradient(145deg,#1b0f08,#341019);box-shadow:0 20px 45px rgba(27,15,8,.25)}.label-showcase__visual img{display:block;width:100%;height:auto}.label-showcase__copy h3{font-size:23px;margin-bottom:12px}.label-showcase__copy ul{margin:18px 0;padding:0;list-style:none}.label-showcase__copy li{position:relative;margin:10px 0;padding-left:24px}.label-showcase__copy li::before{content:"✓";position:absolute;left:0;color:var(--sage-500);font-weight:900}.label-showcase__copy .btn{margin-top:6px}.label-showcase__note{font-size:11.5px;color:var(--ink-soft)}@media(max-width:780px){.label-showcase{grid-template-columns:1fr}.label-showcase__visual{order:-1}}
-
-  /* OFERTA */
-  .value-anchor-card { border:2px solid rgba(34,168,97,.35); box-shadow:0 18px 46px rgba(27,15,8,.18); }
-  .value-anchor-card>p { max-width:68ch; }
-  .value-grid { display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr); gap:18px; margin-top:24px; }
-  .value-option { border:1px solid var(--border-soft); border-radius:14px; padding:22px; background:rgba(255,255,255,.56); }
-  .value-option--complete { border:2px solid var(--conversion-green); background:linear-gradient(145deg,#F5FFF9,var(--conversion-mint)); box-shadow:0 12px 28px rgba(34,168,97,.14); }
-  .value-option h3 { font-size:18px; margin-bottom:8px; }
-  .value-option .value-price { font-family:'Poppins',sans-serif; font-size:30px; line-height:1; font-weight:900; color:var(--ink); }
-  .value-option--complete .value-price { color:var(--conversion-green-dark); }
-  .value-option p { font-size:13px; margin:8px 0 14px; }
-  .value-check { position:relative; padding:7px 0 7px 30px; border-top:1px solid rgba(20,115,67,.14); font-size:13px; font-weight:700; color:var(--ink-soft); }
-  .value-check::before { content:"✓"; position:absolute; left:0; top:8px; display:grid; place-items:center; width:20px; height:20px; border-radius:50%; background:var(--conversion-green); color:#fff; font-size:12px; font-weight:900; }
-  .value-upgrade { display:inline-flex; align-items:center; gap:7px; margin-bottom:10px; padding:6px 11px; border-radius:999px; background:var(--conversion-green); color:#fff; font-family:'Poppins',sans-serif; font-size:11px; font-weight:900; text-transform:uppercase; }
-  .value-generator-callout { color:var(--conversion-green-dark); font-weight:900; }
-  .label-access-highlight { margin-top:16px; padding:17px 18px; border-radius:12px; color:#fff; background:linear-gradient(135deg,var(--conversion-green),var(--conversion-green-dark)); box-shadow:0 10px 24px rgba(34,168,97,.25); }
-  .label-access-highlight strong { display:block; font-family:'Poppins',sans-serif; font-size:16px; line-height:1.3; }
-  .label-access-highlight p { color:#fff; margin:6px 0 0; font-size:12.5px; }
-  .label-access-highlight__formats { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
-  .label-access-highlight__formats span { padding:5px 9px; border-radius:999px; background:rgba(255,255,255,.18); font-size:10.5px; font-weight:800; }
-  .price-tag { font-family:'Poppins',sans-serif; font-size:44px; font-weight:900; color:var(--sun-400); }
-  .price-note { font-size:12.5px; color:var(--cream-text-soft); text-transform:uppercase; letter-spacing:.05em; margin-top:4px; }
-
-  .pricing-row { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:28px; text-align:left; }
-  .price-card { position:relative; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:14px; padding:28px 26px; display:flex; flex-direction:column; }
-  .price-card h3 { font-size:18px; color:var(--cream-100); margin:0 0 4px; }
-  .price-card .sub { font-size:12.5px; color:var(--cream-text-soft); margin-bottom:18px; }
-  .price-card ul { list-style:none; margin:0 0 22px; padding:0; flex:1; }
-  .price-card li { display:flex; gap:8px; font-size:13.3px; color:var(--cream-text-soft); margin-bottom:10px; line-height:1.4; }
-  .price-card li svg { width:16px; height:16px; color:var(--sage-500); flex-shrink:0; margin-top:2px; }
-  .price-card .price-tag { font-size:34px; }
-  .price-card .price-note { margin-bottom:4px; }
-  .price-card .btn { width:100%; justify-content:center; margin-top:16px; }
-  .price-card.premium { background:linear-gradient(160deg, rgba(34,168,97,.22) 0%, rgba(255,255,255,.06) 68%); border:2px solid var(--conversion-green); box-shadow:0 0 48px rgba(34,168,97,.25); transform:scale(1.02); }
-  .price-card.premium .price-tag { color:#8CF0B6; }
-  .price-card .seal { position:absolute; top:-14px; right:22px; background:linear-gradient(135deg,var(--conversion-green),var(--conversion-green-dark)); color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; padding:7px 14px; border-radius:999px; box-shadow:0 6px 14px rgba(0,0,0,.4); }
-  .price-card .trust-line { color:var(--cream-text-soft); gap:7px; align-items:flex-start; flex-direction:column; }
-  .price-card .trust-line span::before { flex:0 0 17px; }
-  @media(max-width:760px){ .pricing-row{grid-template-columns:1fr;} }
-
-  .guarantee-badge { width:56px; height:56px; border-radius:50%; background:rgba(139,74,46,.14); display:flex; align-items:center; justify-content:center; margin:0 auto 14px; }
-  .guarantee-badge svg { width:28px; height:28px; color:var(--terracotta-600); }
-
-  .process-row { display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:center; gap:8px; margin:34px 0 22px; }
-  .process-step { display:flex; flex-direction:column; align-items:center; gap:9px; width:140px; text-align:center; }
-  .process-step .ic { width:46px; height:46px; border-radius:50%; background:rgba(139,74,46,.12); display:flex; align-items:center; justify-content:center; }
-  .process-step .ic svg { width:22px; height:22px; color:var(--terracotta-600); }
-  .process-step span { font-family:'Poppins',sans-serif; font-weight:800; font-size:11.5px; letter-spacing:.02em; color:var(--ink); text-transform:uppercase; line-height:1.3; }
-  .process-arrow { align-self:center; margin-top:14px; color:var(--flame-500); opacity:.55; }
-  .process-arrow svg { width:18px; height:18px; }
-  .process-close { margin-top:8px; padding-top:20px; border-top:1px solid var(--border-soft); text-align:center; font-size:13.5px; font-style:italic; color:var(--ink-soft); }
-  .bonus-banner { margin-top:22px; background:linear-gradient(135deg, var(--sage-500) 0%, #3B6E52 100%); border-radius:12px; padding:16px 22px; display:flex; align-items:center; justify-content:center; gap:12px; box-shadow:0 10px 22px rgba(79,155,110,.35); }
-  .bonus-banner .ic { width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,.22); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .bonus-banner .ic svg { width:17px; height:17px; color:#fff; }
-  .bonus-banner span { font-family:'Poppins',sans-serif; font-weight:800; font-size:15px; color:#fff; text-align:center; letter-spacing:.01em; }
-  @media(max-width:600px){ .bonus-banner{padding:14px 18px;} .bonus-banner span{font-size:13px;} }
-
-  .testi-carousel { position:relative; max-width:380px; margin:26px auto 0; }
-  .testi-track { position:relative; width:100%; height:480px; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 16px 34px rgba(27,15,8,.2); }
-  .testi-track img { position:absolute; inset:0; margin:auto; max-width:94%; max-height:94%; width:auto; height:auto; object-fit:contain; display:none; border-radius:10px; }
-  .testi-track img.active { display:block; animation:testiFade .4s ease; }
-  @keyframes testiFade { from{opacity:0; transform:scale(.98);} to{opacity:1; transform:scale(1);} }
-  .testi-next { position:absolute; top:50%; right:-20px; transform:translateY(-50%); width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,var(--flame-500),var(--flame-600)); color:#fff; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 8px 20px rgba(232,73,31,.45); z-index:3; }
-  .testi-next svg { width:20px; height:20px; }
-  .testi-dots { display:flex; gap:6px; justify-content:center; flex-wrap:wrap; max-width:340px; margin:18px auto 0; }
-  .testi-dots span { width:7px; height:7px; border-radius:50%; background:var(--border-soft); cursor:pointer; transition:all .2s; }
-  .testi-dots span.active { background:var(--flame-500); width:20px; border-radius:4px; }
-  @media(max-width:600px){ .testi-carousel{max-width:270px;} .testi-track{height:400px;} .testi-next{right:-8px; width:40px; height:40px;} }
-  @media(max-width:760px){ .process-step{width:42%;} .process-arrow{display:none;} }
-
-  /* FAQ */
-  .faq-item { background:rgba(255,255,255,.5); border-radius:6px; padding:14px 16px; margin-bottom:8px; }
-  .faq-item summary { font-weight:700; font-size:15px; cursor:pointer; color:var(--ink); list-style:none; display:flex; justify-content:space-between; align-items:center; }
-  .faq-item summary::-webkit-details-marker { display:none; }
-  .faq-item summary:after { content:'+'; font-family:'Poppins',sans-serif; font-size:20px; color:var(--flame-600); }
-  .faq-item[open] summary:after { content:'–'; }
-  .faq-item p { margin:10px 0 0; font-size:14px; color:var(--ink-soft); }
-
-  .btn.dark { background:var(--ember-900); color:var(--cream-100); }
-  .sticky-offer { position:fixed; left:0; right:0; bottom:0; z-index:1000; display:none; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:rgba(20,32,24,.97); border-top:1px solid rgba(140,240,182,.34); box-shadow:0 -8px 28px rgba(0,0,0,.32); backdrop-filter:blur(10px); }
-  .sticky-offer__copy { color:#fff; font-size:11px; line-height:1.2; }
-  .sticky-offer__copy strong { display:block; color:#8CF0B6; font-family:'Poppins',sans-serif; font-size:15px; }
-  .sticky-offer .btn { width:auto; min-height:44px; margin:0; padding:11px 17px; font-size:12px; white-space:nowrap; }
-
-  /* MOBILE — acabamento dedicado para telas de 360–430 px */
-  @media(max-width:760px){
-    html,body{max-width:100%;overflow-x:hidden;}
-    body{font-size:14.5px;line-height:1.58;background-attachment:scroll,scroll;padding-bottom:74px;}
-    .wrap,.wrap-page{padding-left:16px;padding-right:16px;}
-    section{padding:42px 0;background-attachment:scroll;}
-    .card{padding:30px 18px;border-radius:14px;}
-    .kicker{font-size:10px;letter-spacing:.1em;line-height:1.45;}
-    h2{font-size:clamp(22px,7vw,28px);line-height:1.18;}
-    h3{line-height:1.25;}
-    .btn{width:100%;min-height:52px;justify-content:center;text-align:center;font-size:14px;line-height:1.25;padding:14px 18px;}
-    .hero-actions{display:block;}
-    .hero-alt-link{display:inline-block;margin-top:13px;}
-    .trust-line--hero{justify-content:center;gap:7px 12px;}
-    .value-grid{grid-template-columns:1fr;}
-    .value-option{padding:19px 16px;}
-    .method-comparison__grid{grid-template-columns:1fr;}
-    .method-result{padding:20px 16px;}
-    .method-comparison__head h3{font-size:21px;}
-    .conversion-cta{padding:18px 14px;}
-    .price-card.premium{transform:none;}
-    .sticky-offer{display:flex;}
-
-    .hero{padding:26px 0 34px;background-position:center;}
-    .hero-grid{gap:22px;}
-    .hero-grid>div:first-child{text-align:center;}
-    .brand-logo{width:76px;margin:0 auto 12px;}
-    .hero h1{font-size:clamp(28px,8.4vw,35px);line-height:1.08;margin:10px auto 14px;max-width:13ch;}
-    .hero h2{font-size:15px;line-height:1.5;max-width:34ch;}
-    .hero-photo{order:initial;width:min(100%,330px);margin:0 auto;overflow:visible;}
-    .hero-photo img{max-height:300px;object-fit:contain;filter:drop-shadow(0 12px 20px rgba(0,0,0,.42));}
-    .stat-row{margin-top:20px;padding-top:18px;gap:16px 8px;}
-    .stat{align-items:flex-start;gap:7px;text-align:left;}
-    .stat .ic{width:32px;height:32px;}
-    .stat .ic svg{width:17px;height:17px;}
-    .stat b{font-size:20px;white-space:normal;}
-    .stat span{font-size:9px;letter-spacing:0;}
-
-    .bridge-cta-img img{width:min(520px,112vw);}
-    .bridge-cta-overlay{left:29%;top:38%;width:42%;}
-    .bridge-cta-overlay span,.bridge-cta-overlay svg{font-size:11px;}
-    .autoridade{padding:56px 16px 36px;}
-    .autoridade-card{border-radius:14px;}
-    .autoridade-photo{min-height:0;height:190px;}
-    .autoridade-copy{padding:26px 20px;}
-    .autoridade-copy p{font-size:13.5px;}
-    .autoridade-badges{gap:16px;margin-top:20px;}
-    .autoridade-badge{max-width:none;width:100%;}
-
-    .grid-photos{gap:8px;}
-    .photo-slot .cap{font-size:10.5px;padding:24px 8px 8px;}
-    .desc-stat{display:flex;border-radius:14px;padding:10px 13px;font-size:12px;line-height:1.35;}
-    .formula-photo{max-width:190px;}
-    .formula-pill{width:min(86%,210px);}
-    .formula-op{width:38px;height:38px;font-size:18px;}
-    .benefits-row,.personas,.bonus-grid,.pricing-row{gap:14px;}
-    .persona{padding:16px 14px;gap:11px;}
-    .desc-cta{display:block;text-align:center;}
-    .desc-cta p{font-size:14px;margin:0 auto 14px;}
-    .curric-cat div{font-size:13px;gap:8px;}
-    .mech-steps{gap:8px;}
-    .mech-step .txt{padding:26px 9px 10px;}
-    .mech-step h3{font-size:12px;}
-    .mech-step p{font-size:10.5px;}
-    .sim-controls{display:grid;grid-template-columns:1fr;gap:9px;}
-    .sim-controls select,.sim-controls button{width:100%;min-height:48px;}
-    .sim-stage{max-width:280px;}
-    .bonus-card{padding:18px 16px;}
-    .label-showcase{gap:22px;}
-    .label-showcase__visual{padding:10px;}
-    .label-showcase__copy h3{font-size:20px;}
-    .price-card{padding:25px 18px;}
-    .price-card .price-tag{font-size:32px;}
-    .price-card .seal{right:12px;max-width:calc(100% - 24px);text-align:center;}
-    .faq-item{padding:13px 14px;}
-    .faq-item summary{font-size:14px;line-height:1.35;gap:10px;}
-    .faq-item p{font-size:13px;}
-    .interstitial{padding:28px 0;}
-    .interstitial h2{font-size:20px;line-height:1.25;}
-  }
-
-  @media(max-width:380px){
-    .wrap,.wrap-page{padding-left:13px;padding-right:13px;}
-    .card{padding-left:15px;padding-right:15px;}
-    .hero h1{font-size:28px;}
-    .hero-photo{width:min(100%,292px);}
-    .hero-photo img{max-height:270px;}
-    .stat{gap:5px;}
-    .stat .ic{width:29px;height:29px;}
-    .stat b{font-size:18px;}
-    .stat span{font-size:8.5px;}
-  }
-
-  /* GALERIA REAL DO ENTREGAVEL */
-  .almanaque-gallery { background-image:linear-gradient(180deg,rgba(15,8,4,.88),rgba(27,15,8,.84)),url('assets/decor/page-bg-bar.jpg'); }
-  .almanaque-gallery .card { background:linear-gradient(145deg,rgba(247,241,230,.98),rgba(227,201,168,.96)); }
-  .almanaque-gallery__intro { max-width:720px; margin:0 auto; text-align:center; }
-  .almanaque-gallery__intro h2 { font-size:clamp(24px,3vw,34px); margin-top:8px; }
-  .almanaque-gallery__intro p { margin:11px auto 0; max-width:64ch; color:var(--ink-soft); }
-  .lifetime-ribbon { display:inline-flex; align-items:center; gap:8px; margin-top:18px; padding:10px 16px; border-radius:999px; background:var(--conversion-mint); color:var(--conversion-green-dark); border:1px solid rgba(20,115,67,.25); font-family:'Poppins',sans-serif; font-size:12px; font-weight:800; }
-  .lifetime-ribbon::before { content:'✓'; display:grid; place-items:center; width:20px; height:20px; border-radius:50%; background:var(--conversion-green); color:#fff; }
-  .almanaque-carousel { position:relative; margin-top:30px; }
-  .almanaque-carousel__viewport { overflow:hidden; margin:0 44px; border-radius:16px; }
-  .almanaque-carousel__track { display:flex; gap:16px; align-items:stretch; transition:transform .65s cubic-bezier(.22,.61,.36,1); will-change:transform; }
-  .almanaque-demo-card { display:flex; flex-direction:column; width:100%; padding:0; overflow:hidden; text-align:left; cursor:pointer; border:1px solid rgba(92,26,43,.18); border-radius:14px; background:rgba(255,255,255,.72); box-shadow:0 10px 22px rgba(27,15,8,.15); transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease; }
-  .almanaque-carousel .almanaque-demo-card { flex:0 0 calc((100% - 48px) / 4); min-width:0; }
-  .almanaque-demo-card:hover,.almanaque-demo-card:focus-visible { transform:translateY(-4px); border-color:var(--conversion-green); box-shadow:0 16px 28px rgba(27,15,8,.22); outline:none; }
-  .almanaque-demo-card img { display:block; width:100%; aspect-ratio:992/1404; object-fit:contain; object-position:center top; background:#f1e8d8; }
-  .almanaque-demo-card__copy { display:block; padding:14px 15px 16px; }
-  .almanaque-demo-card__tag { display:block; margin-bottom:5px; color:var(--conversion-green-dark); font-family:'Poppins',sans-serif; font-size:10px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
-  .almanaque-demo-card__copy strong { display:block; color:var(--ink); font-family:'Poppins',sans-serif; font-size:14px; line-height:1.28; }
-  .almanaque-demo-card__copy span { display:block; margin-top:6px; color:var(--ink-soft); font-size:12px; line-height:1.45; }
-  .almanaque-gallery__footer { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:18px; align-items:center; margin-top:26px; padding:18px 20px; border-radius:12px; background:rgba(255,255,255,.58); border:1px solid rgba(20,115,67,.2); }
-  .almanaque-gallery__footer p { margin:0; color:var(--ink-soft); font-size:13px; }
-  .almanaque-gallery__footer strong { color:var(--conversion-green-dark); }
-  .almanaque-gallery__footer .btn { margin-top:0; white-space:nowrap; }
-  .almanaque-carousel__arrow { position:absolute; top:42%; z-index:2; display:grid; place-items:center; width:38px; height:38px; border:0; border-radius:50%; background:var(--conversion-green); color:#fff; cursor:pointer; box-shadow:0 8px 18px rgba(20,115,67,.32); }
-  .almanaque-carousel__arrow:hover,.almanaque-carousel__arrow:focus-visible { background:var(--conversion-green-dark); outline:3px solid rgba(34,168,97,.24); outline-offset:2px; }
-  .almanaque-carousel__arrow svg { width:18px; height:18px; }
-  .almanaque-carousel__arrow--prev { left:0; }
-  .almanaque-carousel__arrow--next { right:0; }
-  .almanaque-carousel__controls { display:flex; align-items:center; justify-content:center; gap:6px; margin-top:18px; }
-  .almanaque-carousel__dot { width:8px; height:8px; padding:0; border:0; border-radius:50%; background:rgba(61,46,30,.3); cursor:pointer; transition:all .2s ease; }
-  .almanaque-carousel__dot.active { width:24px; border-radius:5px; background:var(--conversion-green); }
-  #almanaque-lightbox { width:min(940px,calc(100vw - 28px)); max-width:none; padding:12px; border:0; border-radius:16px; background:#160d08; color:var(--cream-100); box-shadow:0 25px 70px rgba(0,0,0,.55); }
-  #almanaque-lightbox::backdrop { background:rgba(13,7,4,.82); backdrop-filter:blur(3px); }
-  #almanaque-lightbox img { display:block; width:100%; max-height:78vh; object-fit:contain; border-radius:10px; background:#0e0805; }
-  #almanaque-lightbox figcaption { padding:11px 4px 3px; color:var(--cream-100); font-size:13px; text-align:center; }
-  .almanaque-lightbox__close { position:absolute; top:20px; right:20px; width:38px; height:38px; border:0; border-radius:50%; background:rgba(0,0,0,.7); color:#fff; font-size:24px; line-height:1; cursor:pointer; }
-  @media(max-width:900px){ .almanaque-carousel .almanaque-demo-card{flex-basis:calc((100% - 16px) / 2);} }
-  @media(max-width:760px){ .almanaque-gallery .card{padding:28px 16px;} .almanaque-carousel__viewport{margin:0 32px;} .almanaque-carousel .almanaque-demo-card{flex-basis:100%;} .almanaque-demo-card img{aspect-ratio:992/1404;} .almanaque-gallery__footer{grid-template-columns:1fr;text-align:center;padding:16px;} .almanaque-gallery__footer .btn{width:100%;} .lifetime-ribbon{font-size:11px;line-height:1.35;text-align:left;} #almanaque-lightbox{padding:8px;} #almanaque-lightbox img{max-height:72vh;} }
-</style>
-
-<svg style="display:none" aria-hidden="true">
-  <symbol id="ic-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H12v16H5.5c-.8 0-1.5-.7-1.5-1.5v-13z"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H12v16h6.5c.8 0 1.5-.7 1.5-1.5v-13z"/></g></symbol>
-  <symbol id="ic-flask" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4"/><path d="M10.5 3v6l-5.2 8.5c-.7 1.1.1 2.5 1.4 2.5h10.6c1.3 0 2.1-1.4 1.4-2.5L13.5 9V3"/><path d="M7.5 15h9"/></g></symbol>
-  <symbol id="ic-spark" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" d="M12 2c.8 4.4 2.6 6.2 7 7-4.4.8-6.2 2.6-7 7-.8-4.4-2.6-6.2-7-7 4.4-.8 6.2-2.6 7-7z"/></symbol>
-  <symbol id="ic-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></g></symbol>
-  <symbol id="ic-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-4 10 4-10 4-10-4z"/><path d="M6 11v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-4"/><path d="M20 9v5.5"/></g></symbol>
-  <symbol id="ic-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14.5 3v5h5"/><path d="M8 13l2.5 2.5L16 10"/></g></symbol>
-  <symbol id="ic-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 20.5s-7.5-4.6-9.8-9.3C.7 7.8 2.6 4.5 6 4.5c2 0 3.6 1.1 4.4 2.7C11.2 5.9 12.8 4.5 15 4.5c3.4 0 5.3 3.3 3.8 6.7C16.5 15.9 12 20.5 12 20.5z"/></symbol>
-  <symbol id="ic-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
-  <symbol id="ic-bulb" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></g></symbol>
-  <symbol id="ic-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M12 20V4"/><path d="M20 20v-7"/><path d="M2 20h20"/></g></symbol>
-  <symbol id="ic-shop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0"/><path d="M5 9v10h14V9"/><path d="M9.5 19v-5h5v5"/></g></symbol>
-  <symbol id="ic-candle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c1 1.3 1.6 2.3 1.6 3.1a1.6 1.6 0 1 1-3.2 0c0-.8.6-1.8 1.6-3.1z"/><rect x="8" y="8" width="8" height="13" rx="1.2"/><path d="M8 11.2h8"/></g></symbol>
-  <symbol id="ic-tag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 3H5a1 1 0 0 0-1 1v7.6c0 .3.1.5.3.7l9 9c.4.4 1 .4 1.4 0l7.6-7.6c.4-.4.4-1 0-1.4l-9-9a1 1 0 0 0-.7-.3z"/><circle cx="8.3" cy="8.3" r="1.2"/></g></symbol>
-  <symbol id="ic-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></symbol>
-  <symbol id="ic-thermo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14.5V5a2 2 0 1 0-4 0v9.5a4 4 0 1 0 4 0z"/><path d="M12 9h-2"/></g></symbol>
-  <symbol id="ic-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></g></symbol>
-  <symbol id="ic-leaf" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16z"/><path d="M6 18C10 14 14 10 19 5"/></g></symbol>
+<svg style="display:none">
+  <defs>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+    <symbol id="icon-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></symbol>
+    <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3L20 8"/><path d="M20 12a8 8 0 0 1-14 5.3L4 16"/><path d="M18 3v5h-5"/><path d="M6 21v-5h5"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.3 8-7 9-3.7-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></symbol>
+    <symbol id="icon-frown" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="10" r="1"/><path d="M8 16c1.2-1.5 2.6-2 4-2s2.8.5 4 2"/></symbol>
+    <symbol id="icon-repeat" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3L20 8"/><path d="M20 12a8 8 0 0 1-14 5.3L4 16"/><path d="M18 3v5h-5"/><path d="M6 21v-5h5"/></symbol>
+    <symbol id="icon-wallet" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M16 12h3"/></symbol>
+    <symbol id="icon-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2 6-6 2 2-6z"/></symbol>
+    <symbol id="icon-gift" viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1"/><path d="M4 9h16v3H4z"/><path d="M12 9v11"/><path d="M12 9c-1-3-4-3-4-1s2 1 4 1"/><path d="M12 9c1-3 4-3 4-1s-2 1-4 1"/></symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M5 19c8 0 14-6 14-14-8 0-14 6-14 14z"/><path d="M5 19c2-4 5-8 10-11"/></symbol>
+    <symbol id="icon-droplet" viewBox="0 0 24 24"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></symbol>
+    <symbol id="icon-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></symbol>
+    <symbol id="icon-blend" viewBox="0 0 24 24"><circle cx="9" cy="12" r="6.5"/><circle cx="15" cy="12" r="6.5"/></symbol>
+    <symbol id="icon-tag" viewBox="0 0 24 24"><path d="M20.59 13.41 12.59 21.41a2 2 0 0 1-2.83 0L3 14.66V4a1 1 0 0 1 1-1h10.66l6.93 6.93a2 2 0 0 1 0 2.83z"/><circle cx="8" cy="8" r="1.3" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="icon-infinity" viewBox="0 0 24 24"><path d="M7 9a3.2 3.2 0 1 0 0 6.4c1.6 0 2.7-1.1 5-4.4 2.3-3.3 3.4-4.4 5-4.4a3.2 3.2 0 1 1 0 6.4c-1.6 0-2.7-1.1-5-4.4-2.3-3.3-3.4-4.4-5-4.4z"/></symbol>
+  </defs>
 </svg>
 
-<div class="opening-screen">
+  <div class="topbar">Da primeira receita ao produto pronto para vender — inclusive o rótulo</div>
 
-  <!-- ===== HERO ===== -->
-  <div class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <img class="brand-logo" src="assets/brand/logo-oficina.png" alt="Oficina do Âmbar">
-          <div class="kicker">Super Almanaque de Velas &amp; Essências</div>
-          <h1>Crie velas que parecem exclusivas — <span class="hl">sem depender de uma única receita.</span></h1>
-          <h2>Use 288 receitas, 50 essências caseiras e um sistema completo para criar, calcular, rotular e vender velas com identidade própria.</h2>
-          <div class="hero-actions">
-            <a class="btn btn-buy" href="#oferta">Quero o pacote completo por R$ 27 <svg><use href="#ic-arrow"/></svg></a>
-            <a class="hero-alt-link" href="#valor">Ver tudo que está incluído</a>
-          </div>
-          <div class="trust-line trust-line--hero"><span>Acesso vitalício</span><span>Garantia de 7 dias</span><span>Pagamento seguro</span></div>
-          <div class="stat-row">
-            <div class="stat"><span class="ic"><svg><use href="#ic-book"/></svg></span><div><b>288</b><span>Receitas-base</span></div></div>
-            <div class="stat"><span class="ic"><svg><use href="#ic-flask"/></svg></span><div><b>50</b><span>Essências caseiras</span></div></div>
-            <div class="stat"><span class="ic"><svg><use href="#ic-spark"/></svg></span><div><b>14.400</b><span>Combinações possíveis</span></div></div>
-            <div class="stat"><span class="ic"><svg><use href="#ic-lock"/></svg></span><div><b>R$27</b><span>Acesso vitalício</span></div></div>
-          </div>
-        </div>
-        <div class="hero-photo"><img src="assets/decor/hero-mockup-obj.png" alt="Super Almanaque de Velas &amp; Essências — livro, velas e essências"></div>
+  <header class="hero">
+    <div class="hero__inner">
+      <span class="eyebrow-label">Super Almanaque de Sabonete</span>
+      <h1 class="hero__headline"><span class="hl-sage">540 receitas</span> para criar sabonetes que ninguém tem — <span class="hl-terracotta">e até o rótulo fica por nossa conta</span></h1>
+      <p class="hero__sub">Escolha uma receita, combine categorias, produza com a Técnica-Mãe, calcule o preço e monte o primeiro rótulo da sua marca. Um sistema completo para sair da ideia e chegar ao primeiro sabonete pronto para vender.</p>
+      <a href="#comprar" class="btn btn--primary btn--large">Quero criar minha linha de sabonetes<svg class="icon" style="color:#F5F1E6"><use href="#icon-arrow"/></svg></a>
+      <div class="trust-row">
+        <span><svg class="icon"><use href="#icon-lock"/></svg>Compra 100% segura</span>
+        <span><svg class="icon"><use href="#icon-bolt"/></svg>Acesso imediato</span>
+        <span><svg class="icon"><use href="#icon-refresh"/></svg>Garantia de 7 dias</span>
       </div>
+    </div>
+
+    <div class="hero__image-wrap">
+      <div class="hero__image-card">
+        <img src="assets/capa/capa-produto.jpg" alt="Super Almanaque dos Sabonetes">
+      </div>
+      <div class="hero__badge">540<strong>receitas</strong></div>
+    </div>
+  </header>
+
+  <div class="trust-strip">
+    <div class="trust-strip__inner">
+      <span class="trust-strip__item"><svg class="icon"><use href="#icon-droplet"/></svg>Sem soda cáustica</span>
+      <span class="trust-strip__item"><svg class="icon"><use href="#icon-clock"/></svg>Pronto em horas, não semanas</span>
+      <span class="trust-strip__item"><svg class="icon"><use href="#icon-grid"/></svg>12 categorias organizadas</span>
+      <span class="trust-strip__item"><svg class="icon"><use href="#icon-leaf"/></svg>Mesma técnica-base em todas as receitas</span>
     </div>
   </div>
 
-  <!-- ===== CTA "ponte" — centralizado, furando a linha entre Hero e Autoridade ===== -->
-  <div class="hero-bridge-cta">
-    <a class="bridge-cta-img" href="#oferta" aria-label="Ver as ofertas">
-      <img src="assets/decor/bridge-cta-garland.png" alt="Ver as ofertas">
-      <span class="bridge-cta-overlay"><span>Ver as ofertas</span><svg><use href="#ic-arrow"/></svg></span>
-    </a>
-  </div>
-
-  <!-- ===== AUTORIDADE ===== -->
-  <div class="autoridade">
-    <div class="wrap">
-      <div class="autoridade-card">
-        <img class="autoridade-photo" src="assets/livro/essencia-florais.jpg" alt="">
-        <div class="autoridade-copy">
-          <div class="kicker">Técnica exclusiva</div>
-          <h2 style="font-size:24px;margin-top:8px">Protocolo Âmbar™ de Extração Aromática</h2>
-          <p>Não extraímos todos os botânicos do mesmo jeito. O método controla tempo, temperatura e ordem de infusão de acordo com cada matéria-prima, buscando preservar notas aromáticas que podem se perder em processos convencionais.</p>
-          <div class="kicker" style="margin-top:22px">3 variáveis controladas</div>
-          <div class="autoridade-badges">
-            <div class="autoridade-badge"><span class="ic"><svg><use href="#ic-thermo"/></svg></span><div><strong>Temperatura</strong><span>Calor somente quando necessário</span></div></div>
-            <div class="autoridade-badge"><span class="ic"><svg><use href="#ic-clock"/></svg></span><div><strong>Tempo de extração</strong><span>Cada botânico possui sua própria janela</span></div></div>
-            <div class="autoridade-badge"><span class="ic"><svg><use href="#ic-leaf"/></svg></span><div><strong>Ordem de infusão</strong><span>Notas delicadas e resistentes são trabalhadas em momentos diferentes</span></div></div>
-          </div>
-          <p style="margin-top:20px"><strong style="color:var(--terracotta-600)">O resultado:</strong> essências com perfil aromático mais completo e melhor permanência no ambiente, desenvolvidas para você criar combinações marcantes nas suas velas.</p>
-          <div class="section-offer-cta">
-            <a class="btn" href="#oferta">Ver as duas opções <svg><use href="#ic-arrow"/></svg></a>
-          </div>
-        </div>
-        <img class="autoridade-photo" src="assets/livro/cat-flores-naturais.jpg" alt="">
-      </div>
+  <section class="pain">
+    <div class="pain__header">
+      <span class="eyebrow-label eyebrow-label--terracotta">A dificuldade não é você</span>
+      <h2 class="section-title">Se você se identifica com isso, o problema não é falta de talento.</h2>
+      <p class="section-lead">Você não precisa de mais um curso caro. Precisa de repertório de verdade.</p>
     </div>
-  </div>
-
-</div>
-
-<!-- ===== PRÉVIA DO PRODUTO ===== -->
-<section class="bg-1">
-<div class="wrap-page">
-  <div class="card card-gold">
-    <div class="kicker">Olha só o que tem dentro</div>
-    <h2 style="font-size:24px;margin-top:8px">338 receitas, cada uma com o passo a passo certo</h2>
-    <p style="max-width:64ch;color:var(--ink-soft)">Guia Fundamentos completo, 288 receitas de vela em 19 categorias, 50 essências caseiras extraídas de verdade — tudo já diagramado, com referências visuais reais de categorias, fundamentos, essências e bônus para orientar sua direção de arte.</p>
-    <div class="grid-photos">
-      <div class="photo-slot"><img src="assets/livro/cat-aromaticas-frutais.jpg" alt="Categoria Aromáticas Frutais"><span class="num">1</span><span class="cap">Aromáticas Frutais</span></div>
-      <div class="photo-slot"><img src="assets/livro/cat-base-cimento.jpg" alt="Categoria Base de Cimento"><span class="num">2</span><span class="cap">Base de Cimento</span></div>
-      <div class="photo-slot"><img src="assets/livro/cat-gel-luminarias.jpg" alt="Categoria Gel e Luminárias"><span class="num">3</span><span class="cap">Gel e Luminárias</span></div>
-      <div class="photo-slot"><img src="assets/livro/cat-coloridas-efeitos.jpg" alt="Categoria Coloridas e Efeitos Visuais"><span class="num">4</span><span class="cap">Coloridas e Efeitos</span></div>
-      <div class="photo-slot"><img src="assets/livro/cat-chakras.jpg" alt="Categoria 7 Chakras"><span class="num">5</span><span class="cap">7 Chakras</span></div>
-      <div class="photo-slot"><img src="assets/livro/cat-signos-zodiaco.jpg" alt="Categoria Signos do Zodíaco"><span class="num">6</span><span class="cap">Signos do Zodíaco</span></div>
-      <div class="photo-slot"><img src="assets/livro/cat-encomendas-eventos.jpg" alt="Categoria Encomendas e Eventos"><span class="num">7</span><span class="cap">Encomendas e Eventos</span></div>
-      <div class="photo-slot"><img src="assets/livro/cat-molde-silicone.jpg" alt="Categoria Molde de Silicone"><span class="num">8</span><span class="cap">Molde de Silicone</span></div>
+    <div class="pain-grid">
+      <div class="pain-card"><div class="pain-card__icon"><svg class="icon"><use href="#icon-frown"/></svg></div>Já testou receita solta de internet e não deu certo</div>
+      <div class="pain-card"><div class="pain-card__icon"><svg class="icon"><use href="#icon-repeat"/></svg></div>Fica repetindo os mesmos sabonetes de sempre, sem repertório novo</div>
+      <div class="pain-card"><div class="pain-card__icon"><svg class="icon"><use href="#icon-wallet"/></svg></div>Quase comprou curso caro achando que vinha com receita — e não vem</div>
+      <div class="pain-card"><div class="pain-card__icon"><svg class="icon"><use href="#icon-compass"/></svg></div>Não sabe por onde começar entre tantas técnicas diferentes</div>
     </div>
-    <p style="font-size:12.5px;color:var(--ink-soft);margin-top:14px">8 das 19 categorias do Almanaque — cada uma com sua própria identidade visual.</p>
-  </div>
-</div>
-</section>
 
-<!-- ===== ANCORAGEM DE VALOR ===== -->
-<section id="valor" class="bg-4">
-<div class="wrap-page">
-  <div class="card card-neutral value-anchor-card">
-    <div class="kicker">Uma escolha simples</div>
-    <h2 style="font-size:27px;margin-top:8px;color:var(--ink)">Leve só as 338 receitas por R$ 17 — ou transforme isso num sistema completo por apenas R$ 10 a mais.</h2>
-    <p>Se você já domina produção, as bibliotecas podem bastar. Mas se quer criar com mais segurança e saber como precificar, apresentar e vender, o Pacote Completo concentra toda a jornada em um único acesso.</p>
-    <div class="value-grid">
-      <div class="value-option">
-        <h3>Somente as receitas</h3>
-        <div class="value-price">R$ 17</div>
-        <p>Para quem já conhece a técnica e quer ampliar o repertório.</p>
-        <div class="value-check">288 receitas de velas</div>
-        <div class="value-check">50 essências caseiras</div>
-        <div class="value-check">Acesso digital e vitalício</div>
-      </div>
-      <div class="value-option value-option--complete">
-        <span class="value-upgrade">✓ Por apenas R$ 10 a mais</span>
-        <h3>O sistema completo</h3>
-        <div class="value-price">R$ 27</div>
-        <p>Você recebe cada biblioteca, guia, ferramenta e bônus abaixo — nada fica escondido em “e muito mais”.</p>
-        <div class="value-check">288 receitas de velas organizadas em 19 categorias</div>
-        <div class="value-check">50 receitas de essências caseiras em 6 famílias aromáticas</div>
-        <div class="value-check">Guia Fundamentos completo — 372 páginas</div>
-        <div class="value-check">Planilha de Custo e Preço (.xlsx) com fórmulas prontas</div>
-        <div class="value-check">Guia de Rótulos com 50 estruturas de texto</div>
-        <div class="value-check"><span class="value-generator-callout">Gerador de Rótulos completo</span> para criar, visualizar e baixar seus arquivos</div>
-        <div class="value-check">Guia de Instagram com 32 orientações práticas</div>
-        <div class="value-check">Guia de Cuidados com a Vela para entregar ao cliente</div>
-        <div class="value-check">Guia de Envio Seguro para embalagem e despacho</div>
-        <div class="value-check">Guia de Escolha de Pavio com diagnóstico de 8 problemas</div>
-        <div class="value-check">Planejador Anual com calendário comercial</div>
-        <div class="value-check">Acesso digital e vitalício ao material</div>
-        <div class="label-access-highlight">
-          <strong>✓ Gerador de Rótulos 100% disponível no Pacote Completo</strong>
-          <p>Use quantas vezes precisar, sem mensalidade e sem nenhum custo adicional. Crie modelos retangulares, quadrados e redondos e faça download em PNG, SVG e PDF.</p>
-          <div class="label-access-highlight__formats"><span>Uso ilimitado</span><span>PNG</span><span>SVG</span><span>PDF</span><span>Sem custo extra</span></div>
+    <div class="breathe">
+      <h3>Respira.</h3>
+      <p>Você não precisa de um curso de <span class="price-strike">R$997</span>. Precisa de um repertório organizado, uma técnica-base e as ferramentas certas para produzir, precificar, rotular e vender.</p>
+      <a href="#comprar" class="btn btn--outline">Quero conhecer o acervo completo</a>
+    </div>
+  </section>
+
+  <section class="reveal" id="acervo">
+    <div class="reveal__header">
+      <span class="eyebrow-label">O que você recebe</span>
+      <h2 class="section-title">Um acervo completo, não um punhado de receitas soltas</h2>
+      <p class="section-lead">12 coleções temáticas + a técnica-mãe que serve de base pra todas elas. No total: <span class="value-mark">540 receitas</span> organizadas para você criar uma linha inteira sem depender de receitas soltas.</p>
+    </div>
+
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-card__photo"><img src="assets/categorias/categoria-b.jpg?v=2" alt="Sabonetes Terapêuticos" loading="lazy"></div>
+        <div class="cat-card__body">
+          <span class="cat-card__count">100</span>
+          <span class="cat-card__label">Terapêuticos</span>
+          <p class="cat-card__desc">Sabonetes pensados pra um momento do dia: dormir melhor, acalmar a ansiedade, virar o humor ou soltar a tensão depois de um dia puxado.</p>
+          <span class="cat-card__value">vale R$ 247 avulso</span>
         </div>
       </div>
-    </div>
-    <div class="conversion-cta">
-      <p><strong>É uma diferença de só R$ 10</strong> para receber o processo completo, não apenas as fórmulas.</p>
-      <a class="btn btn-buy" href="#oferta">Quero ver o pacote completo por R$ 27 <svg><use href="#ic-arrow"/></svg></a>
-      <div class="trust-line"><span>Compra protegida</span><span>Acesso vitalício</span><span>7 dias de garantia</span></div>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- ===== DOR CURTA ===== -->
-<section class="bg-7">
-<div class="wrap-page">
-  <div class="card card-dark center" style="max-width:900px">
-    <div class="kicker" style="color:var(--sun-400)">O problema não é técnico</div>
-    <div class="dor-inner">
-      <h2>Quem aprende só uma vela, fica preso nela. Mesma cera, mesmo formato, mesmo cheiro — pro seu cliente, com o tempo, vira tudo igual. Sem repertório, a criatividade também acaba.</h2>
-      <span class="bullet">Repertório é o que separa quem repete do que cria</span>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- ===== DESCRIÇÃO + PÚBLICO ===== -->
-<section class="bg-4">
-<div class="wrap-page">
-  <div class="card card-sage">
-    <div class="kicker">O que você recebe</div>
-    <h2 style="font-size:26px;margin-top:8px;color:var(--ink)">Não é só um repertório de receitas. É <strong style="color:var(--flame-600)">um sistema</strong> para você criar suas próprias combinações.</h2>
-
-    <div class="formula-row">
-      <div class="formula-item">
-        <div class="formula-photo"><img src="assets/decor/formula-receitas.png" alt="288 receitas de vela"></div>
-        <div class="formula-pill"><b>288</b><span>Receitas de velas</span></div>
-      </div>
-      <div class="formula-op">+</div>
-      <div class="formula-item">
-        <div class="formula-photo"><img src="assets/decor/formula-essencias.png" alt="50 essências autorais"></div>
-        <div class="formula-pill"><b>50</b><span>Essências autorais</span></div>
-      </div>
-      <div class="formula-op">=</div>
-      <div class="formula-item">
-        <div class="formula-photo"><img src="assets/decor/formula-combinacoes.png" alt="14.400 combinações exclusivas"></div>
-        <div class="formula-pill"><b>14.400</b><span>Combinações exclusivas</span></div>
-      </div>
-    </div>
-
-    <div class="benefits-row">
-      <div class="benefit"><span class="b-ic" style="background:var(--sage-500)"><svg><use href="#ic-bulb"/></svg></span><h3>Crie velas que ninguém tem</h3><p>Combinações únicas para se diferenciar da concorrência.</p></div>
-      <div class="benefit"><span class="b-ic" style="background:var(--flame-600)"><svg><use href="#ic-chart"/></svg></span><h3>Mais valor no seu produto</h3><p>Aromas exclusivos e combinações autorais aumentam suas vendas.</p></div>
-      <div class="benefit"><span class="b-ic" style="background:var(--gold-500)"><svg><use href="#ic-heart"/></svg></span><h3>Liberdade para sua criatividade</h3><p>Use as receitas e essências do seu jeito e crie a sua linha de produtos.</p></div>
-      <div class="benefit"><span class="b-ic" style="background:#5C7A5A"><svg><use href="#ic-shop"/></svg></span><h3>Pronta para vender</h3><p>Receitas testadas, seguras e com resultado profissional.</p></div>
-    </div>
-
-    <div class="method-comparison">
-      <div class="method-comparison__head">
-        <div class="kicker">O processo aparece no resultado</div>
-        <h3>Improvisar uma extração não é o mesmo que controlar uma extração.</h3>
-        <p>O Método Âmbar organiza as variáveis que mais alteram o aroma. As 288 receitas mostram onde aplicar cada essência para transformar o extrato em uma vela coerente.</p>
-      </div>
-      <div class="method-comparison__grid">
-        <div class="method-result method-result--without">
-          <h3>Sem o Método Âmbar</h3>
-          <p>O processo fica dependente de tentativa, memória e sorte.</p>
-          <ul>
-            <li><strong>Temperatura igual para todos os botânicos:</strong> notas delicadas podem evaporar e matérias resistentes podem extrair pouco.</li>
-            <li><strong>Tempo de infusão no achismo:</strong> o aroma pode ficar fraco, pesado ou desequilibrado.</li>
-            <li><strong>Tudo colocado ao mesmo tempo:</strong> uma nota domina enquanto outra praticamente desaparece.</li>
-            <li><strong>Sem registro de cada etapa:</strong> um lote funciona e o próximo pode sair diferente.</li>
-            <li><strong>Combinação escolhida no improviso:</strong> essência e estilo de vela podem não conversar entre si.</li>
-          </ul>
-        </div>
-        <div class="method-result method-result--with">
-          <h3>Com o Método Âmbar + 288 receitas</h3>
-          <p>Mais controle para buscar um aroma equilibrado e um resultado consistente.</p>
-          <ul>
-            <li><strong>Temperatura ajustada ao tipo de matéria-prima:</strong> cada botânico recebe o tratamento adequado.</li>
-            <li><strong>Janela de tempo definida:</strong> você sabe quando extrair e quando encerrar o processo.</li>
-            <li><strong>Ordem correta de infusão:</strong> notas delicadas e resistentes entram no momento certo.</li>
-            <li><strong>Processo registrado e repetível:</strong> fica mais fácil analisar, ajustar e reproduzir seus lotes.</li>
-            <li><strong>288 receitas + 50 essências:</strong> você parte de combinações organizadas para criar produtos com identidade.</li>
-          </ul>
+      <div class="cat-card">
+        <div class="cat-card__photo"><img src="assets/categorias/categoria-c.jpg?v=2" alt="Sabonetes Fitoterápicos" loading="lazy"></div>
+        <div class="cat-card__body">
+          <span class="cat-card__count">80</span>
+          <span class="cat-card__label">Fitoterápicos</span>
+          <p class="cat-card__desc">A planta medicinal como protagonista — cada receita é construída em volta do que aquela erva realmente faz pela pele ou pela circulação.</p>
+          <span class="cat-card__value">vale R$ 197 avulso</span>
         </div>
       </div>
-      <p class="method-comparison__note">O resultado final também depende da qualidade dos insumos, das proporções e dos testes de segurança e desempenho feitos em cada formulação.</p>
-    </div>
-
-    <div class="desc-cta">
-      <p>Você pode testar a combinação abaixo — ou ir direto para a oferta completa e começar com todo o sistema.</p>
-      <a class="btn btn-buy" href="#oferta">Quero criar e vender minhas velas <svg><use href="#ic-arrow"/></svg></a>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- ===== DIFERENCIAL CONCRETO ===== -->
-<section class="bg-1">
-<div class="wrap-page">
-  <div class="card card-gold">
-    <div class="kicker">Muito além de um livro de receitas</div>
-    <h2 style="font-size:26px;margin-top:8px;color:var(--ink)">Você não recebe receitas para copiar. Recebe <strong style="color:var(--flame-600)">um sistema</strong> para criar, produzir e vender.</h2>
-    <p style="max-width:70ch;color:var(--ink-soft)">O Super Almanaque conecta receitas de velas, essências autorais, técnica de produção e precificação em um único método. Você aprende a combinar aromas para criar produtos próprios, produzir cada vela com um processo definido e usar a Planilha de Custo e Preço pra saber quanto ela realmente custa e por quanto vender.</p>
-
-    <div class="process-row">
-      <div class="process-step"><span class="ic"><svg><use href="#ic-book"/></svg></span><span>Escolha a receita</span></div>
-      <span class="process-arrow"><svg><use href="#ic-arrow"/></svg></span>
-      <div class="process-step"><span class="ic"><svg><use href="#ic-flask"/></svg></span><span>Crie o aroma</span></div>
-      <span class="process-arrow"><svg><use href="#ic-arrow"/></svg></span>
-      <div class="process-step"><span class="ic"><svg><use href="#ic-candle"/></svg></span><span>Produza</span></div>
-      <span class="process-arrow"><svg><use href="#ic-arrow"/></svg></span>
-      <div class="process-step"><span class="ic"><svg><use href="#ic-chart"/></svg></span><span>Calcule o custo</span></div>
-      <span class="process-arrow"><svg><use href="#ic-arrow"/></svg></span>
-      <div class="process-step"><span class="ic"><svg><use href="#ic-tag"/></svg></span><span>Defina o preço</span></div>
-      <span class="process-arrow"><svg><use href="#ic-arrow"/></svg></span>
-      <div class="process-step"><span class="ic"><svg><use href="#ic-shop"/></svg></span><span>Venda</span></div>
-    </div>
-
-    <p class="process-close">Da ideia ao produto pronto pra venda — sem depender de receitas soltas ou tentar descobrir tudo sozinha.</p>
-    <div class="bonus-banner"><span class="ic"><svg><use href="#ic-tag"/></svg></span><span>E ainda vamos te ajudar a criar o rótulo!</span></div>
-    <div class="section-offer-cta"><a class="btn btn-buy" href="#oferta">Quero o sistema completo por R$ 27 <svg><use href="#ic-arrow"/></svg></a></div>
-  </div>
-</div>
-</section>
-
-<!-- ===== CURRÍCULO COMPLETO ===== -->
-<section class="bg-6">
-<div class="wrap-page">
-  <div class="card card-gold">
-    <div class="kicker">O mapa completo</div>
-    <h2 style="font-size:24px;margin-top:8px;color:var(--ink)">Olha tudo que você vai ter dentro do Almanaque</h2>
-    <p style="max-width:66ch;color:var(--ink-soft)">O concorrente organiza 61 tópicos soltos numa lista única. Aqui, o mesmo território (história, materiais, pavio, fragrância, segurança, design, precificação, venda) vem reorganizado em <strong>9 módulos práticos</strong> — e depois disso vêm as bibliotecas que ele não tem.</p>
-    <h3 style="font-size:16px;margin-top:22px;color:var(--terracotta-600)">288 Receitas de Vela — 19 categorias</h3>
-    <div class="curric-cat">
-      <div>Cera de Soja <span class="n">25</span></div>
-      <div>Aromáticas Frutais <span class="n">20</span></div>
-      <div>Recipientes Decorados <span class="n">20</span></div>
-      <div>Molde de Silicone <span class="n">20</span></div>
-      <div>Gel e Luminárias <span class="n">15</span></div>
-      <div>Base de Cimento <span class="n">15</span></div>
-      <div>Gourmet <span class="n">15</span></div>
-      <div>Sazonais e Temáticas <span class="n">20</span></div>
-      <div>Coloridas e Efeitos Visuais <span class="n">20</span></div>
-      <div>Flores e Elementos Naturais <span class="n">15</span></div>
-      <div>Encomendas e Eventos <span class="n">15</span></div>
-      <div>Purificação e Limpeza <span class="n">12</span></div>
-      <div>Ansiedade e Relaxamento <span class="n">12</span></div>
-      <div>Finados e Memorial <span class="n">8</span></div>
-      <div>Feriados Nacionais <span class="n">10</span></div>
-      <div>Intenção — Propósito Pessoal <span class="n">18</span></div>
-      <div>Signos do Zodíaco <span class="n">12</span></div>
-      <div>7 Chakras <span class="n">7</span></div>
-      <div>Espirituais de 7 Dias <span class="n">9</span></div>
-    </div>
-    <h3 style="font-size:16px;margin-top:26px;color:var(--terracotta-600)">50 Essências Caseiras — 6 famílias de aroma</h3>
-    <div class="curric-cat">
-      <div>Florais <span class="n">10</span></div>
-      <div>Cítricas <span class="n">8</span></div>
-      <div>Amadeiradas <span class="n">8</span></div>
-      <div>Gourmet <span class="n">8</span></div>
-      <div>Frescas e Herbais <span class="n">8</span></div>
-      <div>Orientais e Especiarias <span class="n">8</span></div>
-    </div>
-    <div class="section-offer-cta">
-      <a class="btn" href="#oferta">Escolher meu acesso <svg><use href="#ic-arrow"/></svg></a>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- ===== MECANISMO ===== -->
-<section class="bg-4">
-<div class="wrap-page">
-  <div class="card card-dark center" style="border:2px solid var(--sun-400); box-shadow:0 0 40px rgba(255,200,87,.18);">
-    <span class="kicker">Como funciona na prática</span>
-    <h2>288 receitas. 50 essências. Combinações infinitas.</h2>
-    <p style="color:var(--cream-text-soft);max-width:56ch;margin:0 auto">Escolha a vela e a essência, crie sua receita exclusiva, produza com a técnica certa e rotule pra vender — a técnica ensina o resto.</p>
-    <div class="mech-stat">288 receitas-base × 50 essências caseiras = 14.400 combinações possíveis</div>
-    <div class="mech-steps">
-      <div class="mech-step">
-        <span class="photo"><img src="assets/decor/mech-step-01.jpg" alt="Escolha vela + essência"></span>
-        <span class="n">01</span>
-        <div class="txt"><h3>Escolha vela + essência</h3><p>Navegue pelas 19 categorias de vela (que já definem o formato) e as 6 famílias de essência.</p></div>
+      <div class="cat-card">
+        <div class="cat-card__photo"><img src="assets/categorias/categoria-d.jpg?v=2" alt="Sabonetes Veganos 100% Naturais" loading="lazy"></div>
+        <div class="cat-card__body">
+          <span class="cat-card__count">60</span>
+          <span class="cat-card__label">Veganos 100% Naturais</span>
+          <p class="cat-card__desc">Zero ingrediente de origem animal do início ao fim — abre a porta pro público vegano, que procura ativamente esse selo antes de comprar.</p>
+          <span class="cat-card__value">vale R$ 97 avulso</span>
+        </div>
       </div>
-      <div class="mech-step">
-        <span class="photo"><img src="assets/decor/mech-step-02.jpg" alt="Nasce sua receita exclusiva"></span>
-        <span class="n">02</span>
-        <div class="txt"><h3>Nasce sua receita exclusiva</h3><p>A combinação de categoria + essência vira uma receita só sua, com o Guia Fundamentos ensinando a técnica.</p></div>
+      <div class="cat-card">
+        <div class="cat-card__photo"><img src="assets/categorias/categoria-e.jpg?v=2" alt="Sabonetes Decorados" loading="lazy"></div>
+        <div class="cat-card__body">
+          <span class="cat-card__count">60</span>
+          <span class="cat-card__label">Decorados</span>
+          <p class="cat-card__desc">Camadas, marmorizado e embutidos — a técnica visual que transforma um sabonete comum em peça de vitrine e justifica preço mais alto por unidade.</p>
+          <span class="cat-card__value">vale R$ 97 avulso</span>
+        </div>
       </div>
-      <div class="mech-step">
-        <span class="photo"><img src="assets/decor/mech-step-03.jpg" alt="Produza com a técnica certa"></span>
-        <span class="n">03</span>
-        <div class="txt"><h3>Produza com a técnica certa</h3><p>Siga o passo a passo do Guia Fundamentos pra cada categoria, sem achismo.</p></div>
+      <div class="cat-card">
+        <div class="cat-card__photo"><img src="assets/categorias/categoria-f.jpg?v=2" alt="Sabonetes Fitoenergéticos" loading="lazy"></div>
+        <div class="cat-card__body">
+          <span class="cat-card__count">60</span>
+          <span class="cat-card__label">Fitoenergéticos</span>
+          <p class="cat-card__desc">Receitas com intenção: proteção, prosperidade, amor-próprio. Atende quem compra sabonete como parte de um ritual, não só higiene.</p>
+          <span class="cat-card__value">vale R$ 97 avulso</span>
+        </div>
       </div>
-      <div class="mech-step">
-        <span class="photo"><img src="assets/decor/mech-step-04.jpg" alt="Rotule e venda"></span>
-        <span class="n">04</span>
-        <div class="txt"><h3>Rotule e venda</h3><p>Preencha os dados da sua vela, escolha um estilo e visualize um rótulo pronto para revisar e imprimir.</p></div>
+      <div class="cat-card">
+        <div class="cat-card__photo"><img src="assets/categorias/categoria-g.jpg?v=2" alt="Sabonetes para Lembrancinhas" loading="lazy"></div>
+        <div class="cat-card__body">
+          <span class="cat-card__count">40</span>
+          <span class="cat-card__label">Lembrancinhas</span>
+          <p class="cat-card__desc">Casamento, chá de bebê, aniversário, formatura — receita pronta pra cada ocasião, já pensada pra produzir em lote e embalar bonito.</p>
+          <span class="cat-card__value">vale R$ 67 avulso</span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__photo"><img src="assets/categorias/categoria-h.jpg?v=2" alt="Sabonetes em Formato de Frutas" loading="lazy"></div>
+        <div class="cat-card__body">
+          <span class="cat-card__count">40</span>
+          <span class="cat-card__label">Formato de Frutas</span>
+          <p class="cat-card__desc">Fatias de fruta realistas, cítricas e tropicais — o tipo de sabonete que para o scroll no feed e vende sozinho pela curiosidade.</p>
+          <span class="cat-card__value">vale R$ 67 avulso</span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__photo"><img src="assets/categorias/categoria-i.jpg?v=2" alt="Sabonete Líquido" loading="lazy"></div>
+        <div class="cat-card__body">
+          <span class="cat-card__count">40</span>
+          <span class="cat-card__label">Sabonete Líquido</span>
+          <p class="cat-card__desc">Técnica própria de diluição e conservação, diferente da técnica-mãe em barra — expande seu catálogo sem reinventar a roda.</p>
+          <span class="cat-card__value">vale R$ 67 avulso</span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__photo"><img src="assets/categorias/categoria-j.jpg?v=2" alt="Linha Pets" loading="lazy"></div>
+        <div class="cat-card__body">
+          <span class="cat-card__count">20</span>
+          <span class="cat-card__label">Linha Pets</span>
+          <p class="cat-card__desc">Só pra cães, zero óleo essencial (tóxico pra eles) — restrição de segurança real, não escolha estética. Abre uma linha inteira pro público pet.</p>
+          <span class="cat-card__value">vale R$ 47 avulso</span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__photo"><img src="assets/categorias/categoria-k.jpg?v=2" alt="Sabonetes Espirituais" loading="lazy"></div>
+        <div class="cat-card__body">
+          <span class="cat-card__count">20</span>
+          <span class="cat-card__label">Espirituais</span>
+          <p class="cat-card__desc">Sete chakras, fases da lua, intenção pessoal. Nicho pequeno, mas com cliente fiel e disposto a pagar mais por um produto com significado.</p>
+          <span class="cat-card__value">vale R$ 47 avulso</span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__photo"><img src="assets/categorias/categoria-l.jpg?v=2" alt="Sabonetes Anti-inflamatórios" loading="lazy"></div>
+        <div class="cat-card__body">
+          <span class="cat-card__count">20</span>
+          <span class="cat-card__label">Anti-inflamatórios</span>
+          <p class="cat-card__desc">Conforto pra pele irritada do dia a dia — o sabonete que vira recompra recorrente porque resolve um incômodo real.</p>
+          <span class="cat-card__value">vale R$ 47 avulso</span>
+        </div>
+      </div>
+      <div class="cat-card cat-card--tecnica">
+        <div class="cat-card__photo"><img src="assets/categorias/categoria-a.jpg?v=2" alt="Técnica-Mãe" loading="lazy"></div>
+        <div class="cat-card__body">
+          <span class="cat-card__count">A</span>
+          <span class="cat-card__label">Técnica-Mãe</span>
+          <p class="cat-card__desc">O passo a passo mestre — derreter, temperar, moldar — que faz as outras 540 receitas funcionarem. Base de tudo.</p>
+          <span class="cat-card__value">vale R$ 97 avulso</span>
+        </div>
       </div>
     </div>
+  </section>
+
+  <section class="objection">
+    <div class="objection__card">
+      <svg class="icon objection__icon"><use href="#icon-compass"/></svg>
+      <div>
+        <span class="eyebrow-label eyebrow-label--terracotta">Já fez curso de sabonete?</span>
+        <h2 class="section-title">Isso não compete com o que você já tem. Expande.</h2>
+        <p class="section-lead">Curso te ensina a técnica — uma vez. A gente te dá 540 receitas pra nunca mais repetir o mesmo sabonete. É puro aumento de portfólio pra quem já sabe fazer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mechanism mechanism--spotlight">
+    <div class="mechanism__glow"></div>
+    <span class="mechanism__ribbon">★ O maior diferencial do acervo ★</span>
+    <div class="reveal__header">
+      <span class="eyebrow-label">O diferencial</span>
+      <h2 class="section-title mechanism__title">Não é só um livro de receitas. É um sistema para criar sua própria linha.</h2>
+    </div>
+
+    <div class="mechanism-stat mechanism-stat--big">
+      <svg class="icon mechanism-stat__icon"><use href="#icon-infinity"/></svg>
+      <span class="mechanism-stat__number">540 receitas + 12 coleções + sua identidade = um catálogo que não acaba no primeiro produto</span>
+    </div>
+
+    <div class="mechanism-formula">
+      <div class="mechanism-formula__piece">
+        <span class="tag-chip tag-chip--solid-sage">Terapêuticos</span>
+        <span class="mechanism-formula__hint">o aroma calmante</span>
+      </div>
+      <span class="mechanism-formula__op">+</span>
+      <div class="mechanism-formula__piece">
+        <span class="tag-chip tag-chip--solid-terracotta">Decorados</span>
+        <span class="mechanism-formula__hint">a camada marmorizada</span>
+      </div>
+      <span class="mechanism-formula__op">+</span>
+      <div class="mechanism-formula__piece">
+        <span class="tag-chip tag-chip--solid-gold">Sua intenção</span>
+        <span class="mechanism-formula__hint">o nome que você escolher</span>
+      </div>
+      <span class="mechanism-formula__op">=</span>
+      <div class="mechanism-formula__result mechanism-formula__result--glow">
+        <svg class="icon"><use href="#icon-tag"/></svg>
+        <span>Produto autoral, precificado e com rótulo pronto para testar</span>
+      </div>
+    </div>
+
     <div class="combo-examples">
-      <div class="combo-ex"><strong>Flores + Florais (lavanda)</strong>Vela botânica com aroma calmante de verdade.</div>
-      <div class="combo-ex"><strong>Relaxamento + Amadeiradas</strong>Spa em casa, base terrosa e envolvente.</div>
-      <div class="combo-ex"><strong>Gourmet + Orientais</strong>Sobremesa com tempero raro — foge do óbvio.</div>
-    </div>
-    <p class="mech-callout">O Guia Fundamentos + as 19 categorias de vela + as 6 famílias de essência juntos já funcionam como o seu guia de combinações — você escolhe o par, a técnica ensina o resto.</p>
-    <div class="section-offer-cta"><a class="btn btn-buy" href="#oferta">Quero aplicar esse método <svg><use href="#ic-arrow"/></svg></a></div>
-  </div>
-</div>
-</section>
-
-<!-- ===== SIMULADOR ===== -->
-<section id="simulador" class="bg-3">
-<div class="wrap-page">
-  <div class="card card-gold center">
-    <div class="kicker">Teste você mesma</div>
-    <h2 style="font-size:24px;margin-top:8px;color:var(--ink)">Simulador de combinações</h2>
-    <p style="max-width:52ch;margin:8px auto 0;color:var(--ink-soft)">Escolha uma categoria de vela e uma família de essência. A prévia visual é atualizada automaticamente.</p>
-    <div class="sim-controls">
-      <select id="sim-vela">
-        <option value="">Categoria de vela</option>
-        <option value="cera-de-soja">Cera de Soja</option>
-        <option value="recipientes-decorados">Recipientes Decorados</option>
-        <option value="gourmet">Gourmet</option>
-        <option value="sazonais-e-tematicas">Sazonais e Temáticas</option>
-        <option value="flores-e-elementos-naturais">Flores e Elementos Naturais</option>
-        <option value="ansiedade-e-relaxamento">Ansiedade e Relaxamento</option>
-      </select>
-      <select id="sim-essencia">
-        <option value="">Família de essência</option>
-        <option value="florais">Florais</option>
-        <option value="citricas">Cítricas</option>
-        <option value="amadeiradas">Amadeiradas</option>
-        <option value="gourmet">Gourmet</option>
-        <option value="frescas-e-herbais">Frescas e Herbais</option>
-        <option value="orientais-e-especiarias">Orientais e Especiarias</option>
-      </select>
-      <button id="sim-btn" type="button">Simular</button>
-    </div>
-    <div class="sim-stage">
-      <div class="sim-photo-wrap" id="sim-photo-wrap">
-        <span class="sim-placeholder-text" id="sim-placeholder-text">Escolha as duas opções acima e clique em Simular</span>
-        <img id="sim-photo" alt="">
-        <span class="sim-ember" style="left:20%;"></span>
-        <span class="sim-ember" style="left:48%;"></span>
-        <span class="sim-ember" style="left:75%;"></span>
-      </div>
-      <p class="sim-caption" id="sim-caption"></p>
-    </div>
-    <div class="conversion-cta">
-      <p><strong>Gostou da possibilidade?</strong> No Pacote Completo você recebe as receitas, a técnica, a planilha e o Ateliê de Rótulos.</p>
-      <a class="btn btn-buy" href="#oferta">Ver meu acesso completo <svg><use href="#ic-arrow"/></svg></a>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- ===== ATELIÊ DE RÓTULOS ===== -->
-<section id="rotulagem" class="bg-6">
-<div class="wrap-page">
-  <div class="card card-neutral">
-    <div class="center">
-      <div class="kicker">Da combinação à prateleira</div>
-      <h2 style="font-size:28px;margin-top:8px;color:var(--ink)">Até a primeira versão do rótulo fica por nossa conta.</h2>
-      <p style="max-width:64ch;margin:10px auto 0;color:var(--ink-soft)">Você informa sua marca e os dados da vela. O Ateliê de Rótulos organiza tudo em uma apresentação coerente com o produto — pronta para revisar, imprimir e testar na embalagem.</p>
-    </div>
-    <div class="label-showcase">
-      <div class="label-showcase__visual"><img src="assets/decor/exemplo-rotulo-artistico.png" alt="Exemplo artístico criado no Simulador Oficina do Âmbar"></div>
-      <div class="label-showcase__copy">
-        <div class="kicker">Ferramenta completa incluída</div>
-        <h3>Simulador Oficina do Âmbar</h3>
-        <p>É o mesmo criador de rótulos artístico da esteira, agora incluído no Pacote Completo de Velas — com o catálogo de 288 velas e 50 essências já conectado.</p>
-        <ul><li>918 opções entre sabonetes, velas, essências e perfis livres</li><li>Modelos em aquarela, caligrafia e diferentes paletas</li><li>Formatos retangular, quadrado e redondo</li><li>Download em PNG e SVG, além de impressão em PDF</li><li>Funciona offline e já acompanha o entregável</li></ul>
-        <a class="btn" href="https://oficinadoambar.shop/ferramentas/criador-de-rotulos.html" target="_blank" rel="noopener">Acessar o Ateliê de Rótulos incluído</a>
-        <p class="label-showcase__note"><strong>Demonstração aberta:</strong> você pode montar e visualizar seu rótulo. Os arquivos em PNG, SVG e PDF são liberados para clientes do Pacote Completo.</p>
-        <p class="label-showcase__note">O rótulo frontal é decorativo. Informações complementares e exigências aplicáveis devem ser revisadas antes da venda.</p>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- ===== PROVA SOCIAL 2 (placeholder) ===== -->
-<section class="bg-6">
-<div class="wrap-page">
-  <div class="card card-neutral center">
-    <div class="kicker">Prova social</div>
-    <h2 style="font-size:24px;margin-top:8px;color:var(--ink)">O que as outras pessoas que experimentaram esse produto estão dizendo!</h2>
-    <div class="testi-carousel">
-      <div class="testi-track" id="testi-track">
-        <img class="active" src="assets/prova-social/depoimento-01.jpg" alt="Depoimento 1">
-        <img src="assets/prova-social/depoimento-02.jpg" alt="Depoimento 2">
-        <img src="assets/prova-social/depoimento-03.jpg" alt="Depoimento 3">
-        <img src="assets/prova-social/depoimento-04.jpg" alt="Depoimento 4">
-        <img src="assets/prova-social/depoimento-05.jpg" alt="Depoimento 5">
-        <img src="assets/prova-social/depoimento-06.jpg" alt="Depoimento 6">
-        <img src="assets/prova-social/depoimento-07.jpg" alt="Depoimento 7">
-        <img src="assets/prova-social/depoimento-08.jpg" alt="Depoimento 8">
-        <img src="assets/prova-social/depoimento-09.jpg" alt="Depoimento 9">
-        <img src="assets/prova-social/depoimento-10.jpg" alt="Depoimento 10">
-        <img src="assets/prova-social/depoimento-11.jpg" alt="Depoimento 11">
-      </div>
-      <button class="testi-next" id="testi-next" type="button" aria-label="Próximo depoimento"><svg><use href="#ic-arrow"/></svg></button>
-    </div>
-    <div class="testi-dots" id="testi-dots"></div>
-    <div class="section-offer-cta"><a class="btn btn-buy" href="#oferta">Quero começar com o pacote completo <svg><use href="#ic-arrow"/></svg></a></div>
-  </div>
-</div>
-</section>
-
-<!-- ===== GRID DE BÔNUS ===== -->
-<section class="bg-1">
-<div class="wrap-page">
-  <div class="card card-dark">
-    <div class="kicker">E além de tudo isso</div>
-    <h2 style="font-size:24px;margin-top:8px">Você ainda ganha esses bônus</h2>
-    <div class="bonus-grid">
-      <div class="bonus-card"><div class="num">Bônus 1</div><h3>Guia + Ateliê de Rótulos</h3><p>50 estruturas de texto e um simulador visual para preencher, visualizar, revisar e imprimir seu próprio rótulo.</p></div>
-      <div class="bonus-card"><div class="num">Bônus 2</div><h3>Guia de Instagram</h3><p>32 dicas práticas pra vender vela em rede social, do zero.</p></div>
-      <div class="bonus-card"><div class="num">Bônus 3</div><h3>Guia de Cuidados com a Vela</h3><p>Pra imprimir e entregar junto de cada produto — seu cliente aprende a usar direito.</p></div>
-      <div class="bonus-card"><div class="num">Bônus 4</div><h3>Guia de Envio Seguro</h3><p>Como embalar e despachar sem perder produto no calor.</p></div>
-      <div class="bonus-card"><div class="num">Bônus 5</div><h3>Guia de Escolha de Pavio</h3><p>Se sua vela faz túnel, chama alta ou apaga sozinha — troubleshooting completo, 8 sintomas.</p></div>
-      <div class="bonus-card"><div class="num">Bônus 6</div><h3>Planejador Anual</h3><p>Calendário comercial brasileiro cruzado com a Biblioteca — nunca mais perder uma data.</p></div>
-      <div class="bonus-card special" style="grid-column:1/-1"><div class="num">Bônus Especial</div><h3>Planilha de Custo e Preço (.xlsx)</h3><p>5 abas, fórmulas prontas, as 338 receitas já listadas — o que o concorrente cobra separado ou nem tem, aqui já vem incluso.</p></div>
-    </div>
-    <div class="section-offer-cta"><a class="btn btn-buy" href="#oferta">Quero receber tudo por R$ 27 <svg><use href="#ic-arrow"/></svg></a></div>
-  </div>
-</div>
-</section>
-
-<!-- ===== POR DENTRO DO ALMANAQUE ===== -->
-<section id="por-dentro" class="almanaque-gallery">
-<div class="wrap-page">
-  <div class="card">
-    <div class="almanaque-gallery__intro">
-      <div class="kicker">Veja antes de decidir</div>
-      <h2>Veja por dentro do Almanaque</h2>
-      <p>Dez páginas reais do material, em tamanho completo, para você enxergar a direção de arte, a organização e a profundidade do que recebe.</p>
-      <p style="font-size:12px;font-weight:800;color:var(--conversion-green-dark);margin-top:12px">Acesso digital e vitalício a todo o Almanaque, ferramentas e futuras atualizações desta edição.</p>
-      <div class="lifetime-ribbon">Acesso digital e vitalício a todo o Almanaque, ferramentas e futuras atualizações desta edição.</div>
-    </div>
-    <div class="almanaque-carousel" data-visible-slides="4">
-      <button class="almanaque-carousel__arrow almanaque-carousel__arrow--prev" type="button" aria-label="Páginas anteriores"><svg><use href="#ic-arrow"/></svg></button>
-      <div class="almanaque-carousel__viewport">
-        <div class="almanaque-carousel__track">
-          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-cover.webp" data-caption="Capa e direção de arte Chama &amp; Âmbar"><img src="assets/demos/almanaque-cover.webp" alt="Capa premium do Super Almanaque de Velas e Essências" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Capa premium</span><strong>Uma edição com cara de produto premium</strong><span>Direção de arte, paleta e acabamento visual da coleção.</span></span></button>
-          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-package-map.webp" data-caption="Mapa de tudo que acompanha a edição"><img src="assets/demos/almanaque-package-map.webp" alt="Mapa dos componentes incluídos no Almanaque" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Mapa do pacote</span><strong>Tudo organizado em uma visão só</strong><span>Biblioteca, método, bônus, planilha e gerador.</span></span></button>
-          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-toc.webp" data-caption="Sumário e arquitetura completa do Almanaque"><img src="assets/demos/almanaque-toc.webp" alt="Sumário do Super Almanaque" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Arquitetura</span><strong>Um caminho claro para usar o material</strong><span>As partes do sistema ficam visíveis antes de você começar.</span></span></button>
-          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-category-divider.webp" data-caption="Divisória de categoria com fotografia editorial"><img src="assets/demos/almanaque-category-divider.webp" alt="Divisória editorial de categoria de velas" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Direção visual</span><strong>Cada categoria tem sua própria atmosfera</strong><span>Divisórias fotográficas para inspirar a coleção.</span></span></button>
-          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-recipe.webp" data-caption="Ficha de receita com materiais, preparo, cura e aplicação"><img src="assets/demos/almanaque-recipe.webp" alt="Página interna com uma ficha de receita de vela" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Receita aplicável</span><strong>Não é uma lista rasa de ideias</strong><span>Materiais, processo, cura e aplicação na mesma ficha.</span></span></button>
-          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-combination.webp" data-caption="Referência visual para categoria e família aromática"><img src="assets/demos/almanaque-combination.webp" alt="Página de referência visual de combinação de vela e essência" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Combinações</span><strong>Uma direção para imaginar sua coleção</strong><span>Categoria e família aromática viram ponto de partida.</span></span></button>
-          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-spiritual-divider.webp" data-caption="Divisória fotográfica da coleção Espirituais de 7 Dias"><img src="assets/demos/almanaque-spiritual-divider.webp" alt="Divisória editorial da coleção Espirituais de 7 Dias" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Coleção temática</span><strong>Capítulos com atmosfera própria</strong><span>Um exemplo de como as linhas temáticas ganham identidade.</span></span></button>
-          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-method.webp" data-caption="Comparação Sem o Método Âmbar e Com o Método Âmbar"><img src="assets/demos/almanaque-method.webp" alt="Página comparativa do Método Âmbar" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Método Âmbar</span><strong>O que muda quando existe um processo</strong><span>Temperatura, ordem, tempo e registro deixam de ser achismo.</span></span></button>
-          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-essence-library.webp" data-caption="Biblioteca de 50 Essências Caseiras de Aromas Naturais"><img src="assets/demos/almanaque-essence-library.webp" alt="Página da Biblioteca de Essências Caseiras" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">50 essências</span><strong>Uma biblioteca para criar aromas de assinatura</strong><span>Famílias aromáticas organizadas para combinar e testar.</span></span></button>
-          <button class="almanaque-demo-card" type="button" aria-label="Abrir demonstração ampliada" data-full="assets/demos/almanaque-label-generator.webp" data-caption="Gerador incluído, uso ilimitado, sem mensalidade e sem custo adicional"><img src="assets/demos/almanaque-label-generator.webp" alt="Página de apresentação do Gerador de Rótulos" loading="lazy"><span class="almanaque-demo-card__copy"><span class="almanaque-demo-card__tag">Ferramenta incluída</span><strong>Gerador de Rótulos 100% disponível</strong><span>Uso ilimitado, sem mensalidade e sem custo adicional.</span></span></button>
+      <p class="combo-examples__label">Outras combinações possíveis:</p>
+      <div class="combo-examples__grid">
+        <div class="combo-example">
+          <div class="combo-example__pair">
+            <span class="tag-chip tag-chip--solid-gold">Espirituais</span>
+            <span class="combo-example__plus">+</span>
+            <span class="tag-chip tag-chip--solid-sage">Fitoterápicos</span>
+          </div>
+          <p class="combo-example__result">Ritual + cura real.</p>
+        </div>
+        <div class="combo-example">
+          <div class="combo-example__pair">
+            <span class="tag-chip tag-chip--solid-sage">Terapêuticos</span>
+            <span class="combo-example__plus">+</span>
+            <span class="tag-chip tag-chip--solid-terracotta">Decorados</span>
+          </div>
+          <p class="combo-example__result">Relaxa e ainda vende pelo visual.</p>
+        </div>
+        <div class="combo-example">
+          <div class="combo-example__pair">
+            <span class="tag-chip tag-chip--solid-terracotta">Fitoenergéticos</span>
+            <span class="combo-example__plus">+</span>
+            <span class="tag-chip tag-chip--solid-gold">Lembrancinhas</span>
+          </div>
+          <p class="combo-example__result">Prosperidade pronta pra presentear.</p>
+        </div>
+        <div class="combo-example">
+          <div class="combo-example__pair">
+            <span class="tag-chip tag-chip--solid-gold">Veganos</span>
+            <span class="combo-example__plus">+</span>
+            <span class="tag-chip tag-chip--solid-sage">Formato de Frutas</span>
+          </div>
+          <p class="combo-example__result">Vegano com cara de doce.</p>
         </div>
       </div>
-      <button class="almanaque-carousel__arrow almanaque-carousel__arrow--next" type="button" aria-label="Próximas páginas"><svg><use href="#ic-arrow"/></svg></button>
-      <div class="almanaque-carousel__controls" role="tablist" aria-label="Escolher página da demonstração">
-        <button class="almanaque-carousel__dot active" type="button" role="tab" aria-label="Ir para o grupo 1" data-slide="0"></button><button class="almanaque-carousel__dot" type="button" role="tab" aria-label="Ir para o grupo 2" data-slide="1"></button><button class="almanaque-carousel__dot" type="button" role="tab" aria-label="Ir para o grupo 3" data-slide="2"></button><button class="almanaque-carousel__dot" type="button" role="tab" aria-label="Ir para o grupo 4" data-slide="3"></button><button class="almanaque-carousel__dot" type="button" role="tab" aria-label="Ir para o grupo 5" data-slide="4"></button><button class="almanaque-carousel__dot" type="button" role="tab" aria-label="Ir para o grupo 6" data-slide="5"></button><button class="almanaque-carousel__dot" type="button" role="tab" aria-label="Ir para o grupo 7" data-slide="6"></button>
+    </div>
+
+    <div class="mechanism-sim-cta">
+      <p>E se fosse a sua combinação?</p>
+      <a href="#simulador" class="btn btn--primary mechanism-sim-cta__btn">
+        <svg class="icon"><use href="#icon-blend"/></svg>
+        Simule a sua agora
+      </a>
+    </div>
+
+    <div class="mechanism-steps">
+      <div class="mechanism-step mechanism-step--sage">
+        <div class="mechanism-step__photo"><img src="assets/mecanismo/etapa-01-explorar.jpg?v=2" alt="Explore o repertório" loading="lazy"></div>
+        <span class="mechanism-step__num">01</span>
+        <h3>Explore</h3>
+        <p>540 receitas, 12 categorias.</p>
+      </div>
+      <div class="mechanism-step mechanism-step--terracotta">
+        <div class="mechanism-step__photo"><img src="assets/mecanismo/etapa-02-combinar.jpg?v=2" alt="Combine e crie sua fórmula" loading="lazy"></div>
+        <span class="mechanism-step__num">02</span>
+        <h3>Combine</h3>
+        <p>Misture técnica e ingrediente.</p>
+      </div>
+      <div class="mechanism-step mechanism-step--sage">
+        <div class="mechanism-step__photo"><img src="assets/mecanismo/etapa-03-produzir.jpg?v=2" alt="Produza com segurança" loading="lazy"></div>
+        <span class="mechanism-step__num">03</span>
+        <h3>Produza</h3>
+        <p>Sem soda cáustica. Horas, não semanas.</p>
+      </div>
+      <div class="mechanism-step mechanism-step--gold">
+        <div class="mechanism-step__photo"><img src="assets/mecanismo/etapa-04-lancar.jpg?v=2" alt="Batize, rotule e lance" loading="lazy"></div>
+        <span class="mechanism-step__num">04</span>
+        <h3>Rotule e venda</h3>
+        <p>Monte a identidade do produto e leve a primeira versão para a prateleira.</p>
       </div>
     </div>
-    <div class="almanaque-gallery__footer">
-      <p><strong>Acesso digital e vitalício a todo o Almanaque, ferramentas e futuras atualizações desta edição.</strong><br>Você compra uma vez e pode voltar às receitas, referências e ferramentas sempre que precisar.</p>
-      <a class="btn btn-buy" href="#oferta">Quero garantir meu acesso vitalício <svg><use href="#ic-arrow"/></svg></a>
+
+    <p class="mechanism-note">A Técnica-Mãe + as 12 coleções = seu guia de combinações.</p>
+  </section>
+
+  <section class="simulator" id="simulador">
+    <div class="reveal__header">
+      <span class="eyebrow-label">Teste você mesmo</span>
+      <h2 class="section-title">Simule sua combinação</h2>
     </div>
-  </div>
-</div>
-</section>
 
-<dialog id="almanaque-lightbox" aria-label="Demonstração ampliada do Almanaque">
-  <button class="almanaque-lightbox__close" type="button" aria-label="Fechar demonstração">×</button>
-  <figure style="margin:0"><img alt=""><figcaption></figcaption></figure>
-</dialog>
+    <div class="simulator__controls">
+      <select id="simCatA" class="simulator__select" aria-label="Primeira categoria"></select>
+      <span class="simulator__plus">+</span>
+      <select id="simCatB" class="simulator__select" aria-label="Segunda categoria"></select>
+      <button id="simGo" class="btn btn--primary">Simular</button>
+    </div>
 
-<!-- ===== OFERTA FINAL ===== -->
-<section id="oferta" class="bg-7">
-<div class="wrap-page">
-  <div class="card card-dark center">
-    <div class="kicker">Escolha seu acesso</div>
-    <h2>Comece pelas receitas por R$ 17 — ou leve o sistema completo por apenas R$ 10 a mais.</h2>
-    <p style="max-width:66ch;margin:10px auto 0;color:var(--cream-text-soft)">O plano de R$ 17 entrega repertório. O de R$ 27 acrescenta a técnica, a precificação, os rótulos e os bônus para transformar esse repertório em produto.</p>
-    <div class="pricing-row">
-      <div class="price-card">
-        <h3>Receitas de Velas &amp; Essências</h3>
-        <div class="sub">Só as bibliotecas, pra quem já sabe a técnica</div>
-        <ul>
-          <li><svg><use href="#ic-check"/></svg> 288 receitas de vela — 19 categorias</li>
-          <li><svg><use href="#ic-check"/></svg> 50 essências caseiras — 6 famílias</li>
-          <li><svg><use href="#ic-check"/></svg> Acesso vitalício</li>
+    <div class="simulator__result" id="simResult">
+      <div class="simulator__stage">
+        <span class="simulator__smoke simulator__smoke--1"></span>
+        <span class="simulator__smoke simulator__smoke--2"></span>
+        <span class="simulator__smoke simulator__smoke--3"></span>
+        <div class="img-placeholder img-placeholder--square simulator__result-img" id="simResultImg" data-label="escolha e clique em simular"></div>
+      </div>
+      <p class="simulator__caption" id="simCaption">Escolha duas categorias diferentes e clique em simular.</p>
+    </div>
+  </section>
+
+  <section class="label-studio" id="rotulos">
+    <div class="label-studio__inner">
+      <div class="label-studio__visual">
+        <img src="assets/rotulos/exemplo-rotulo-sabonete.png" alt="Exemplo de rótulo artístico para sabonete de lavanda e aveia" loading="lazy">
+      </div>
+      <div class="label-studio__copy">
+        <span class="eyebrow-label eyebrow-label--terracotta">Da combinação à prateleira</span>
+        <h2 class="section-title">Até a primeira versão do rótulo fica por nossa conta.</h2>
+        <p class="section-lead">Você escolhe o sabonete, informa a marca e personaliza o estilo. O Ateliê de Rótulos organiza a apresentação do produto para você visualizar, revisar e testar na embalagem.</p>
+        <ul class="label-studio__list">
+          <li><svg class="icon"><use href="#icon-check"/></svg>540 perfis de sabonete já conectados ao criador</li>
+          <li><svg class="icon"><use href="#icon-check"/></svg>Modelos artísticos, aquarela, caligrafia e diferentes paletas</li>
+          <li><svg class="icon"><use href="#icon-check"/></svg>Formatos retangular, quadrado e redondo</li>
+          <li><svg class="icon"><use href="#icon-check"/></svg>Exportação em PNG, SVG e PDF no Pacote Completo</li>
         </ul>
-        <div class="price-tag">R$ 17</div>
-        <div class="price-note">à vista</div>
-        <a class="btn dark" href="https://pay.cakto.com.br/38y6qrc_1165230" rel="noopener">Quero só as receitas</a>
-        <div class="trust-line"><span>Pagamento seguro pela Cakto</span><span>Acesso digital</span><span>7 dias de garantia</span></div>
+        <a class="btn btn--primary" href="ferramentas/criador-de-rotulos.html">Experimentar o Ateliê de Rótulos</a>
+        <p class="label-studio__note">A demonstração permite montar e visualizar o rótulo. A exportação é liberada para clientes do Pacote Completo. Revise as informações obrigatórias aplicáveis antes de vender.</p>
       </div>
-      <div class="price-card premium">
-        <span class="seal">Mais completo • só R$ 10 a mais</span>
-        <h3>Pacote Completo</h3>
-        <div class="sub">Tudo que existe no Super Almanaque</div>
-        <ul>
-          <li><svg><use href="#ic-check"/></svg> Tudo do plano de Receitas</li>
-          <li><svg><use href="#ic-check"/></svg> Guia Fundamentos completo — 372 páginas</li>
-          <li><svg><use href="#ic-check"/></svg> Planilha de Custo e Preço (.xlsx)</li>
-          <li><svg><use href="#ic-check"/></svg> Guia + Ateliê visual de Rótulos</li>
-          <li><svg><use href="#ic-check"/></svg> Os outros 5 bônus (Instagram, cuidados, envio, pavio e planejador anual)</li>
-          <li><svg><use href="#ic-check"/></svg> Acesso vitalício</li>
+    </div>
+  </section>
+
+  <section class="method">
+    <div class="method__inner">
+      <div class="method__text">
+        <span class="eyebrow-label">Por que melt &amp; pour</span>
+        <h2 class="section-title">Sem soda cáustica, sem 6 semanas de cura</h2>
+        <p class="section-lead">Toda receita parte de uma base pronta (glicerinada transparente, glicerinada branca ou sabão de coco) — o mesmo padrão em todas as 540 receitas. Você derrete, mistura, molda e usa em horas, não em semanas, e sem o risco de manuseio de soda cáustica do processo a frio.</p>
+      </div>
+      <div class="img-placeholder img-placeholder--square" data-src="assets/produto-realista/processo-bastidor-01.jpg" data-label="processo-bastidor-01.jpg"></div>
+    </div>
+  </section>
+
+  <section class="bonus" id="bonus">
+    <div class="reveal__header">
+      <span class="eyebrow-label">E não para por aí</span>
+      <h2 class="section-title">Bônus inclusos, sem custo extra</h2>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <span class="bonus-card__tag"><svg class="icon"><use href="#icon-gift"/></svg>Bônus incluso</span>
+        <h3>Guia de Fornecedores</h3>
+        <p>Checklist de 6 perguntas pra escolher fornecedor de matéria-prima sem cair em furada.</p>
+        <span class="bonus-card__value">vale R$ 67 avulso</span>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-card__tag"><svg class="icon"><use href="#icon-gift"/></svg>Bônus incluso</span>
+        <h3>Guia de Custos + Planilha de Precificação</h3>
+        <p>Planilha funcional (com fórmulas prontas) pra calcular o preço certo de cada sabonete que você fizer.</p>
+        <span class="bonus-card__value">vale R$ 197 avulso</span>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-card__tag"><svg class="icon"><use href="#icon-gift"/></svg>Bônus incluso</span>
+        <h3>15 Dicas de Economia</h3>
+        <p>Onde cortar custo de produção sem cortar qualidade do produto final.</p>
+        <span class="bonus-card__value">vale R$ 67 avulso</span>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-card__tag"><svg class="icon"><use href="#icon-gift"/></svg>Bônus do Pacote Completo</span>
+        <h3>Ateliê de Rótulos</h3>
+        <p>Crie, visualize, revise e exporte rótulos artísticos conectados aos 540 perfis de sabonete do Almanaque.</p>
+        <span class="bonus-card__value">vale R$ 197 avulso</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="value-stack" id="valor">
+    <div class="reveal__header">
+      <span class="eyebrow-label">Some e compare</span>
+      <h2 class="section-title">Quanto isso valeria se você comprasse cada parte separada?</h2>
+      <p class="section-lead">Cada coleção temática e cada bônus vendidos avulsos, como costuma ser nesse mercado, somam bem mais do que você vai pagar pelo acervo inteiro.</p>
+    </div>
+
+    <div class="value-stack__list">
+      <div class="value-stack__row"><span class="value-stack__row-name">Técnica-Mãe — guia fundamental</span><span class="value-stack__row-price">R$ 97</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Terapêuticos — 100 receitas</span><span class="value-stack__row-price">R$ 247</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Fitoterápicos — 80 receitas</span><span class="value-stack__row-price">R$ 197</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Veganos 100% Naturais — 60 receitas</span><span class="value-stack__row-price">R$ 97</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Decorados — 60 receitas</span><span class="value-stack__row-price">R$ 97</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Fitoenergéticos — 60 receitas</span><span class="value-stack__row-price">R$ 97</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Lembrancinhas — 40 receitas</span><span class="value-stack__row-price">R$ 67</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Formato de Frutas — 40 receitas</span><span class="value-stack__row-price">R$ 67</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Sabonete Líquido — 40 receitas</span><span class="value-stack__row-price">R$ 67</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Linha Pets — 20 receitas</span><span class="value-stack__row-price">R$ 47</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Espirituais — 20 receitas</span><span class="value-stack__row-price">R$ 47</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Anti-inflamatórios — 20 receitas</span><span class="value-stack__row-price">R$ 47</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Bônus — Guia de Fornecedores</span><span class="value-stack__row-price">R$ 67</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Bônus — Guia de Custos + Planilha</span><span class="value-stack__row-price">R$ 197</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Bônus — 15 Dicas de Economia</span><span class="value-stack__row-price">R$ 67</span></div>
+      <div class="value-stack__row"><span class="value-stack__row-name">Bônus — Ateliê de Rótulos</span><span class="value-stack__row-price">R$ 197</span></div>
+
+      <div class="value-stack__total">
+        <span>Valor total avulso</span>
+        <span class="value-stack__total-price">R$ 1.702</span>
+      </div>
+    </div>
+
+    <div class="value-stack__reveal">
+      <p class="value-stack__reveal-label">Hoje, tudo isso por apenas</p>
+      <p class="value-stack__reveal-price">a partir de R$ 27</p>
+      <a href="#comprar" class="btn btn--primary btn--large">Ver as duas opções<svg class="icon"><use href="#icon-arrow"/></svg></a>
+    </div>
+  </section>
+
+  <section class="pricing" id="comprar">
+    <div class="pricing__header">
+      <span class="eyebrow-label">Escolha seu acesso</span>
+      <h2 class="section-title">Comece pelas receitas ou leve o caminho completo até o rótulo.</h2>
+    </div>
+    <div class="pricing__grid">
+      <div class="pricing__card pricing__card--basic">
+        <span class="eyebrow-label">Biblioteca de receitas</span>
+        <p class="pricing__value">R$ 27</p>
+        <p class="pricing__per-recipe"><svg class="icon" style="width:15px;height:15px"><use href="#icon-bolt"/></svg>menos de 7 centavos por receita</p>
+        <ul class="pricing__checklist">
+          <li><svg class="icon"><use href="#icon-check"/></svg><strong>540 receitas</strong> de sabonete artesanal</li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><strong>12 coleções</strong> temáticas</li>
+          <li><svg class="icon"><use href="#icon-check"/></svg>Acesso digital vitalício</li>
+          <li><svg class="icon"><use href="#icon-check"/></svg>Garantia de <strong>7 dias</strong></li>
         </ul>
-        <p style="margin:12px 0 0;color:var(--conversion-green-dark);font-size:12px;font-weight:800">Acesso digital e vitalício a todo o Almanaque, ferramentas e futuras atualizações desta edição.</p>
-        <div class="price-tag">R$ 27</div>
-        <div class="price-note">à vista</div>
-        <a class="btn btn-buy" href="https://pay.cakto.com.br/r8g74az_1165268" rel="noopener">Quero o pacote completo</a>
-        <div class="trust-line"><span>Pagamento seguro pela Cakto</span><span>Acesso digital</span><span>7 dias de garantia</span></div>
+      </div>
+      <div class="pricing__card pricing__card--complete">
+        <span class="pricing__ribbon">Melhor custo-benefício</span>
+        <span class="eyebrow-label">Pacote completo</span>
+        <p class="pricing__value">R$ 47</p>
+        <p class="pricing__per-recipe"><svg class="icon" style="width:15px;height:15px"><use href="#icon-bolt"/></svg>da receita ao produto pronto</p>
+        <ul class="pricing__checklist">
+          <li><svg class="icon"><use href="#icon-check"/></svg>Tudo da Biblioteca de Receitas</li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><strong>Técnica-Mãe</strong> completa</li>
+          <li><svg class="icon"><use href="#icon-check"/></svg>Guia de Fornecedores</li>
+          <li><svg class="icon"><use href="#icon-check"/></svg>Guia de Custos + Planilha</li>
+          <li><svg class="icon"><use href="#icon-check"/></svg>15 Dicas de Economia</li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><strong>Ateliê de Rótulos</strong> com exportação</li>
+          <li><svg class="icon"><use href="#icon-check"/></svg>Acesso digital vitalício + 7 dias de garantia</li>
+        </ul>
       </div>
     </div>
-  </div>
-</div>
-</section>
+  </section>
 
-<!-- ===== GARANTIA ===== -->
-<section class="bg-5">
-<div class="wrap-page">
-  <div class="card card-sage center" style="max-width:640px">
-    <span class="guarantee-badge"><svg><use href="#ic-lock"/></svg></span>
-    <h2 style="font-size:22px;color:var(--ink)">Insegura se vale o investimento? Fique tranquila.</h2>
-    <p style="max-width:52ch;margin:10px auto 0;color:var(--ink-soft)">Você tem <strong style="color:var(--terracotta-600)">7 dias de garantia incondicional</strong>. Se por qualquer motivo o Almanaque não for pra você, é só pedir o reembolso — sem perguntas, sem burocracia.</p>
-  </div>
-</div>
-</section>
-
-<!-- ===== FAQ ===== -->
-<section class="bg-6">
-<div class="wrap-page">
-  <div class="card card-neutral">
-    <div class="kicker">Tire dúvidas</div>
-    <h2 style="font-size:24px;margin-top:8px;color:var(--ink)">Perguntas frequentes</h2>
-    <div style="margin-top:14px">
-      <details class="faq-item" open>
-        <summary>Como acesso o material depois de comprar?</summary>
-        <p>Logo após confirmar a compra você recebe um e-mail com o acesso ao PDF completo e o contato do suporte, caso tenha alguma dificuldade.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Preciso de equipamento caro pra começar?</summary>
-        <p>Não. O Guia Fundamentos ensina o material mínimo necessário (cera, pavio, recipiente, termômetro) — nada de equipamento industrial. As receitas mais simples usam ingredientes fáceis de achar.</p>
-      </details>
-      <details class="faq-item">
-        <summary>As velas de intenção, chakra e signos têm efeito comprovado?</summary>
-        <p>Não prometemos efeito terapêutico ou resultado garantido nessas categorias — são tratadas como produto de ritual/bem-estar simbólico, igual ao que qualquer casa de artigos religiosos já vende. A técnica de produção é real; a promessa espiritual não é nossa a fazer.</p>
-      </details>
-      <details class="faq-item">
-        <summary>E se eu não gostar, tem garantia?</summary>
-        <p>Tem sim — 7 dias de garantia incondicional a partir da compra. Se não for pra você, é só pedir o reembolso, sem perguntas.</p>
-      </details>
+  <section class="testimonials" id="depoimentos">
+    <div class="testimonials__header reveal__header">
+      <span class="eyebrow-label">Prova social</span>
+      <h2 class="section-title">Quem já usa recomenda</h2>
     </div>
-  </div>
-</div>
-</section>
 
-<footer>Oficina do Âmbar · Super Almanaque de Velas &amp; Essências · acesso digital e vitalício.</footer>
+    <div class="carousel" id="carousel" aria-roledescription="carrossel" aria-label="Depoimentos de clientes">
+      <button class="carousel__arrow carousel__arrow--prev" id="carouselPrev" aria-label="Depoimento anterior">&#10094;</button>
+      <div class="carousel__viewport">
+        <div class="carousel__track" id="carouselTrack"></div>
+      </div>
+      <button class="carousel__arrow carousel__arrow--next" id="carouselNext" aria-label="Próximo depoimento">&#10095;</button>
+    </div>
+    <div class="carousel__dots" id="carouselDots"></div>
+  </section>
 
-<div class="sticky-offer" role="region" aria-label="Atalho para a oferta">
-  <div class="sticky-offer__copy"><span>Pacote Completo</span><strong>R$ 27 à vista</strong></div>
-  <a class="btn btn-buy" href="#oferta">Ver oferta <svg><use href="#ic-arrow"/></svg></a>
-</div>
+  <section class="guarantee">
+    <div class="guarantee__inner">
+      <div class="guarantee__badge"><svg class="icon"><use href="#icon-shield"/></svg></div>
+      <h2 class="section-title">Garantia de 7 dias</h2>
+      <p class="section-lead">Se não for o que você esperava, é só pedir o reembolso dentro de 7 dias da compra — direito garantido por lei em qualquer compra feita pela internet, sem burocracia.</p>
+    </div>
+  </section>
 
-<script>
-(function () {
-  var CAPTIONS = {
-    "cera-de-soja|florais": "Clássica com alma de jardim.",
-    "cera-de-soja|citricas": "Simples, mas cheia de energia.",
-    "cera-de-soja|amadeiradas": "Base honesta, aroma profundo.",
-    "cera-de-soja|gourmet": "Vela do dia a dia, cheiro de casa.",
-    "cera-de-soja|frescas-e-herbais": "Leve, quase erva de quintal.",
-    "cera-de-soja|orientais-e-especiarias": "Simples por fora, intensa por dentro.",
-    "recipientes-decorados|florais": "Peça de decoração que também perfuma.",
-    "recipientes-decorados|citricas": "Visual bonito, aroma que desperta.",
-    "recipientes-decorados|amadeiradas": "Sofisticada da forma ao cheiro.",
-    "recipientes-decorados|gourmet": "Parece doce, decora que é uma beleza.",
-    "recipientes-decorados|frescas-e-herbais": "Elegância com respiro de mato.",
-    "recipientes-decorados|orientais-e-especiarias": "Peça de luxo, aroma de especiaria.",
-    "gourmet|florais": "Doce com toque de jardim.",
-    "gourmet|citricas": "Sobremesa cítrica, gostosa de olhar e sentir.",
-    "gourmet|amadeiradas": "Doce encorpado, cheiro de conforto.",
-    "gourmet|gourmet": "Tudo combina — o dobro de gourmet.",
-    "gourmet|frescas-e-herbais": "Doce refrescante, contraste que funciona.",
-    "gourmet|orientais-e-especiarias": "Sobremesa com tempero raro.",
-    "sazonais-e-tematicas|florais": "Data especial, aroma delicado.",
-    "sazonais-e-tematicas|citricas": "Festa animada, cheiro vibrante.",
-    "sazonais-e-tematicas|amadeiradas": "Clima de celebração, base quente.",
-    "sazonais-e-tematicas|gourmet": "Cheiro de festa de verdade.",
-    "sazonais-e-tematicas|frescas-e-herbais": "Comemoração leve, aroma limpo.",
-    "sazonais-e-tematicas|orientais-e-especiarias": "Data festiva, aroma marcante.",
-    "flores-e-elementos-naturais|florais": "Botânica por fora e por dentro.",
-    "flores-e-elementos-naturais|citricas": "Jardim vivo, aroma desperto.",
-    "flores-e-elementos-naturais|amadeiradas": "Natureza da raiz à flor.",
-    "flores-e-elementos-naturais|gourmet": "Botânica com um toque doce.",
-    "flores-e-elementos-naturais|frescas-e-herbais": "Puro campo, do visual ao cheiro.",
-    "flores-e-elementos-naturais|orientais-e-especiarias": "Flor selvagem, aroma exótico.",
-    "ansiedade-e-relaxamento|florais": "Spa em casa, aroma suave.",
-    "ansiedade-e-relaxamento|citricas": "Relaxa e desperta ao mesmo tempo.",
-    "ansiedade-e-relaxamento|amadeiradas": "Calma profunda, base terrosa.",
-    "ansiedade-e-relaxamento|gourmet": "Conforto que também acalma.",
-    "ansiedade-e-relaxamento|frescas-e-herbais": "Respiração funda, aroma de ervas.",
-    "ansiedade-e-relaxamento|orientais-e-especiarias": "Ritual de relaxar, aroma envolvente."
-  };
-  var COMBINATION_IMAGES = {
-    "cera-de-soja|florais": "assets/simulador/combo-cera-de-soja-florais.png",
-    "cera-de-soja|citricas": "assets/simulador/combo-cera-de-soja-citricas.png",
-    "cera-de-soja|amadeiradas": "assets/simulador/combo-cera-de-soja-amadeiradas.png",
-    "cera-de-soja|gourmet": "assets/simulador/combo-cera-de-soja-gourmet.png",
-    "cera-de-soja|frescas-e-herbais": "assets/simulador/combo-cera-de-soja-frescas-e-herbais.png",
-    "cera-de-soja|orientais-e-especiarias": "assets/simulador/combo-cera-de-soja-orientais-e-especiarias.png",
-    "recipientes-decorados|florais": "assets/simulador/combo-recipientes-decorados-florais.png",
-    "recipientes-decorados|citricas": "assets/simulador/combo-recipientes-decorados-citricas.png",
-    "recipientes-decorados|amadeiradas": "assets/simulador/combo-recipientes-decorados-amadeiradas.png",
-    "recipientes-decorados|gourmet": "assets/simulador/combo-recipientes-decorados-gourmet.png",
-    "recipientes-decorados|frescas-e-herbais": "assets/simulador/combo-recipientes-decorados-frescas-e-herbais.png",
-    "recipientes-decorados|orientais-e-especiarias": "assets/simulador/combo-recipientes-decorados-orientais-e-especiarias.png",
-    "gourmet|florais": "assets/simulador/combo-gourmet-florais.png",
-    "gourmet|citricas": "assets/simulador/combo-gourmet-citricas.png",
-    "gourmet|amadeiradas": "assets/simulador/combo-gourmet-amadeiradas.png",
-    "gourmet|gourmet": "assets/simulador/combo-gourmet-gourmet.png",
-    "gourmet|frescas-e-herbais": "assets/simulador/combo-gourmet-frescas-e-herbais.png",
-    "gourmet|orientais-e-especiarias": "assets/simulador/combo-gourmet-orientais-e-especiarias.png",
-    "sazonais-e-tematicas|florais": "assets/simulador/combo-sazonais-e-tematicas-florais.png",
-    "sazonais-e-tematicas|citricas": "assets/simulador/combo-sazonais-e-tematicas-citricas.png",
-    "sazonais-e-tematicas|amadeiradas": "assets/simulador/combo-sazonais-e-tematicas-amadeiradas.png",
-    "sazonais-e-tematicas|gourmet": "assets/simulador/combo-sazonais-e-tematicas-gourmet.png",
-    "sazonais-e-tematicas|frescas-e-herbais": "assets/simulador/combo-sazonais-e-tematicas-frescas-e-herbais.png",
-    "sazonais-e-tematicas|orientais-e-especiarias": "assets/simulador/combo-sazonais-e-tematicas-orientais-e-especiarias.png",
-    "flores-e-elementos-naturais|florais": "assets/simulador/combo-flores-e-elementos-naturais-florais.png",
-    "flores-e-elementos-naturais|citricas": "assets/simulador/combo-flores-e-elementos-naturais-citricas.png",
-    "flores-e-elementos-naturais|amadeiradas": "assets/simulador/combo-flores-e-elementos-naturais-amadeiradas.png",
-    "flores-e-elementos-naturais|gourmet": "assets/simulador/combo-flores-e-elementos-naturais-gourmet.png",
-    "flores-e-elementos-naturais|frescas-e-herbais": "assets/simulador/combo-flores-e-elementos-naturais-frescas-e-herbais.png",
-    "flores-e-elementos-naturais|orientais-e-especiarias": "assets/simulador/combo-flores-e-elementos-naturais-orientais-e-especiarias.png",
-    "ansiedade-e-relaxamento|florais": "assets/simulador/combo-ansiedade-e-relaxamento-florais.png",
-    "ansiedade-e-relaxamento|citricas": "assets/simulador/combo-ansiedade-e-relaxamento-citricas.png",
-    "ansiedade-e-relaxamento|amadeiradas": "assets/simulador/combo-ansiedade-e-relaxamento-amadeiradas.png",
-    "ansiedade-e-relaxamento|gourmet": "assets/simulador/combo-ansiedade-e-relaxamento-gourmet.png",
-    "ansiedade-e-relaxamento|frescas-e-herbais": "assets/simulador/combo-ansiedade-e-relaxamento-frescas-e-herbais.png",
-    "ansiedade-e-relaxamento|orientais-e-especiarias": "assets/simulador/combo-ansiedade-e-relaxamento-orientais-e-especiarias.png"
-  };
-  var velaSel = document.getElementById("sim-vela");
-  var essSel = document.getElementById("sim-essencia");
-  var btn = document.getElementById("sim-btn");
-  var img = document.getElementById("sim-photo");
-  var placeholderText = document.getElementById("sim-placeholder-text");
-  var caption = document.getElementById("sim-caption");
-  var embers = document.querySelectorAll(".sim-ember");
-  var simulationRun = 0;
-  function replay(el, cls) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }
-  function playReveal() {
-    replay(img, "sim-photo--reveal");
-    replay(caption, "sim-caption--reveal");
-    embers.forEach(function (em, i) { em.style.animationDelay = (i * 90) + "ms"; replay(em, "sim-ember--play"); });
-  }
-  function simulate() {
-    var currentRun = ++simulationRun;
-    var v = velaSel.value, e = essSel.value;
-    if (!v || !e) {
-      placeholderText.textContent = "Escolha as duas opções acima e clique em Simular";
-      placeholderText.style.display = "block"; img.style.display = "none"; caption.textContent = "";
-      return;
-    }
-    var key = v + "|" + e;
-    var src = COMBINATION_IMAGES[key];
-    var velaNome = velaSel.options[velaSel.selectedIndex].text;
-    var essenciaNome = essSel.options[essSel.selectedIndex].text;
-    if (!src) {
-      placeholderText.textContent = "Esta combinação ainda não possui referência visual.";
-      placeholderText.style.display = "block"; img.style.display = "none"; caption.textContent = "";
-      return;
-    }
-    var probe = new Image();
-    probe.onload = function () {
-      if (currentRun !== simulationRun) return;
-      img.src = src; img.style.display = "block"; placeholderText.style.display = "none";
-      img.alt = "Referência visual da categoria " + velaNome + " combinada com essência " + essenciaNome;
-      caption.textContent = velaNome + " + " + essenciaNome + " — " + (CAPTIONS[key] || "Uma nova direção para sua coleção."); playReveal();
-    };
-    probe.onerror = function () {
-      if (currentRun !== simulationRun) return;
-      placeholderText.textContent = "Não foi possível carregar a referência visual desta categoria.";
-      placeholderText.style.display = "block"; img.style.display = "none"; caption.textContent = "";
-    };
-    probe.src = src;
-  }
-  velaSel.addEventListener("change", simulate);
-  essSel.addEventListener("change", simulate);
-  btn.addEventListener("click", simulate);
-  if (velaSel.value && essSel.value) simulate();
-})();
+  <section class="faq" id="faq">
+    <div class="reveal__header">
+      <span class="eyebrow-label">Perguntas frequentes</span>
+      <h2 class="section-title">Ainda com dúvida?</h2>
+    </div>
+    <div class="faq-list" id="faqList">
+      <button class="faq-item" data-a="É um acervo digital em PDF com a técnica-mãe e 540 receitas de sabonete artesanal (melt &amp; pour), organizadas em 12 coleções temáticas. Não é um curso em vídeo — é uma biblioteca de consulta pra você usar sempre que precisar de uma receita nova.">O que é o Super Almanaque de Sabonete?</button>
+      <button class="faq-item" data-a="Sim. A técnica-mãe explica o passo a passo desde o início, e o método melt &amp; pour (fusão de base pronta) é o mais seguro e acessível que existe — sem soda cáustica, sem risco de queimadura química, pronto em horas.">Preciso ter experiência pra usar?</button>
+      <button class="faq-item" data-a="São mais de 400 receitas — no total, 540, organizadas em 12 coleções temáticas diferentes (terapêutico, decorado, líquido, pets, e mais).">Quantas receitas eu recebo, exatamente?</button>
+      <button class="faq-item" data-a="Acesso 100% digital, liberado logo após a confirmação do pagamento.">Como eu recebo o material?</button>
+      <button class="faq-item" data-a="Sim — 7 dias de garantia incondicional a partir da compra.">Tem garantia?</button>
+      <button class="faq-item" data-a="Sim, o material foi feito também pra quem quer produzir pra vender. A maioria dos sabonetes artesanais de higiene pessoal se enquadra como cosmético de baixo risco (grau 1), com regras mais simples — mas confirme sempre as exigências atualizadas da ANVISA e da prefeitura da sua cidade antes de vender.">Posso vender os sabonetes que eu fizer?</button>
+    </div>
+  </section>
 
-(function () {
-  var track = document.getElementById("testi-track");
-  if (!track) return;
-  var imgs = track.querySelectorAll("img");
-  var dotsWrap = document.getElementById("testi-dots");
-  var nextBtn = document.getElementById("testi-next");
-  var idx = 0;
-  imgs.forEach(function (_, i) {
-    var d = document.createElement("span");
-    if (i === 0) d.className = "active";
-    d.addEventListener("click", function () { go(i); });
-    dotsWrap.appendChild(d);
-  });
-  var dots = dotsWrap.querySelectorAll("span");
-  function go(i) {
-    imgs[idx].classList.remove("active");
-    dots[idx].classList.remove("active");
-    idx = (i + imgs.length) % imgs.length;
-    imgs[idx].classList.add("active");
-    dots[idx].classList.add("active");
-    resetTimer();
-  }
-  function next() { go(idx + 1); }
-  var timer = setInterval(next, 8000);
-  function resetTimer() { clearInterval(timer); timer = setInterval(next, 8000); }
-  nextBtn.addEventListener("click", next);
-})();
+  <section class="final-cta">
+    <span class="eyebrow-label">Última chance</span>
+    <h2 class="section-title"><span class="value-mark">540 receitas</span> por menos de <span class="value-mark value-mark--gold">7 centavos</span> cada</h2>
+    <a href="#comprar" class="btn btn--primary btn--large">Quero o acervo completo agora<svg class="icon" style="color:#F5F1E6"><use href="#icon-arrow"/></svg></a>
+  </section>
 
-(function () {
-  var gallery = document.getElementById("por-dentro");
-  var opening = document.querySelector(".opening-screen");
-  var authority = document.querySelector(".autoridade");
-  if (gallery && opening && authority) opening.insertBefore(gallery, authority);
-  var carousel = document.querySelector(".almanaque-carousel");
-  if (!carousel) return;
-  var track = carousel.querySelector(".almanaque-carousel__track");
-  var cards = Array.prototype.slice.call(track.querySelectorAll(".almanaque-demo-card"));
-  var dots = Array.prototype.slice.call(carousel.querySelectorAll(".almanaque-carousel__dot"));
-  var previous = carousel.querySelector(".almanaque-carousel__arrow--prev");
-  var nextButton = carousel.querySelector(".almanaque-carousel__arrow--next");
-  var index = 0;
-  var timer;
-  function visibleCount() { return window.innerWidth <= 760 ? 1 : (window.innerWidth <= 900 ? 2 : 4); }
-  function maxIndex() { return Math.max(0, cards.length - visibleCount()); }
-  function render() {
-    index = Math.min(index, maxIndex());
-    var first = cards[0];
-    var gap = parseFloat(getComputedStyle(track).gap) || 0;
-    var step = first.getBoundingClientRect().width + gap;
-    track.style.transform = "translate3d(" + (-index * step) + "px,0,0)";
-    dots.forEach(function (dot, i) {
-      var active = i === index;
-      dot.classList.toggle("active", active);
-      dot.setAttribute("aria-selected", active ? "true" : "false");
-    });
-  }
-  function go(nextIndex) { index = (nextIndex + maxIndex() + 1) % (maxIndex() + 1); render(); resetTimer(); }
-  function next() { go(index + 1); }
-  function resetTimer() { clearInterval(timer); timer = setInterval(next, 5200); }
-  previous.addEventListener("click", function () { go(index - 1); });
-  nextButton.addEventListener("click", next);
-  dots.forEach(function (dot) { dot.addEventListener("click", function () { go(Number(dot.dataset.slide)); }); });
-  carousel.addEventListener("mouseenter", function () { clearInterval(timer); });
-  carousel.addEventListener("mouseleave", resetTimer);
-  carousel.addEventListener("focusin", function () { clearInterval(timer); });
-  carousel.addEventListener("focusout", function (event) { if (!carousel.contains(event.relatedTarget)) resetTimer(); });
-  window.addEventListener("resize", render);
-  render();
-  resetTimer();
-})();
+  <footer class="site-footer">
+    <p class="site-footer__legal">Resultados financeiros com venda de sabonete artesanal dependem do esforço e das estratégias de cada pessoa — não há garantia de ganho ou sucesso.</p>
+  </footer>
 
-(function () {
-  var dialog = document.getElementById("almanaque-lightbox");
-  if (!dialog) return;
-  var image = dialog.querySelector("img");
-  var caption = dialog.querySelector("figcaption");
-  var close = dialog.querySelector(".almanaque-lightbox__close");
-  document.querySelectorAll(".almanaque-demo-card").forEach(function (card) {
-    card.addEventListener("click", function () {
-      image.src = card.getAttribute("data-full");
-      image.alt = card.querySelector("img").alt;
-      caption.textContent = card.getAttribute("data-caption") || "Demonstração do Almanaque";
-      if (typeof dialog.showModal === "function") dialog.showModal();
-    });
-  });
-  close.addEventListener("click", function () { dialog.close(); });
-  dialog.addEventListener("click", function (event) {
-    if (event.target === dialog) dialog.close();
-  });
-})();
-</script>
+  <script src="js/main.js?v=rotulos-1"></script>
 </body>
 </html>
